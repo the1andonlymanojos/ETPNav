@@ -32,6 +32,7 @@ flag2=" --exp_name release_rxr
       TASK_CONFIG.SIMULATOR.HABITAT_SIM_V0.ALLOW_SLIDING False
       EVAL.CKPT_PATH_DIR data/logs/checkpoints/release_rxr/ckpt.iter19600.pth
       IL.back_algo control
+      MODEL.pretrained_path data/pretrained/ETP/mlm.sap_rxr/ckpts/model_step_90000.pt
       "
 
 flag3="--exp_name release_rxr
@@ -45,6 +46,7 @@ flag3="--exp_name release_rxr
       INFERENCE.CKPT_PATH data/logs/checkpoints/release_rxr/ckpt.iter19600.pth
       INFERENCE.PREDICTIONS_FILE preds.jsonl
       IL.back_algo control
+      MODEL.pretrained_path data/pretrained/ETP/mlm.sap_rxr/ckpts/model_step_90000.pt
       "
 
 mode=$1

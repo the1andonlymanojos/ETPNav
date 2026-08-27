@@ -31,6 +31,7 @@ flag2=" --exp_name release_r2r
       TASK_CONFIG.SIMULATOR.HABITAT_SIM_V0.ALLOW_SLIDING True
       EVAL.CKPT_PATH_DIR data/logs/checkpoints/release_r2r/ckpt.iter12000.pth
       IL.back_algo control
+      MODEL.pretrained_path data/pretrained/ETP/mlm.sap_r2r/ckpts/model_step_82500.pt
       "
 
 flag3="--exp_name release_r2r
@@ -44,6 +45,7 @@ flag3="--exp_name release_r2r
       INFERENCE.CKPT_PATH data/logs/checkpoints/release_r2r/ckpt.iter12000.pth
       INFERENCE.PREDICTIONS_FILE preds.json
       IL.back_algo control
+      MODEL.pretrained_path data/pretrained/ETP/mlm.sap_r2r/ckpts/model_step_82500.pt
       "
 
 mode=$1
