@@ -1,0 +1,251 @@
+<title>RxR Task Gallery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #eef1f4;
+    --surface: #ffffff;
+    --surface-2: #e4e9ed;
+    --border: #d3dade;
+    --text: #1a222b;
+    --text-dim: #5a6672;
+    --ok: #0e7c86;
+    --ok-soft: #dff1f2;
+    --bad: #9b3b3b;
+    --bad-soft: #f6e2e2;
+    --accent: #a85a17;
+    --accent-soft: #f7e8d8;
+    --shadow: 0 1px 2px rgba(20, 30, 40, 0.06), 0 6px 18px rgba(20, 30, 40, 0.05);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12161b;
+      --surface: #1a1f26;
+      --surface-2: #20262e;
+      --border: #2b333c;
+      --text: #e8ecef;
+      --text-dim: #97a2ac;
+      --ok: #5eead4;
+      --ok-soft: rgba(94, 234, 212, 0.1);
+      --bad: #ef9a9a;
+      --bad-soft: rgba(239, 154, 154, 0.1);
+      --accent: #f2a65a;
+      --accent-soft: rgba(242, 166, 90, 0.12);
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 24px rgba(0, 0, 0, 0.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12161b;
+    --surface: #1a1f26;
+    --surface-2: #20262e;
+    --border: #2b333c;
+    --text: #e8ecef;
+    --text-dim: #97a2ac;
+    --ok: #5eead4;
+    --ok-soft: rgba(94, 234, 212, 0.1);
+    --bad: #ef9a9a;
+    --bad-soft: rgba(239, 154, 154, 0.1);
+    --accent: #f2a65a;
+    --accent-soft: rgba(242, 166, 90, 0.12);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 24px rgba(0, 0, 0, 0.35);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    margin: 0;
+    padding: 2.5rem 1.25rem 5rem;
+    line-height: 1.5;
+  }
+
+  .page { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.75rem; }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ok);
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 3px var(--ok-soft); }
+
+  h1 { font-size: clamp(1.6rem, 3.4vw, 2.05rem); font-weight: 700; margin: 0.4rem 0 0; text-wrap: balance; letter-spacing: -0.01em; }
+  .dek { color: var(--text-dim); max-width: 74ch; font-size: 0.98rem; margin-top: 0.5rem; }
+  .dek code { font-family: "IBM Plex Mono", monospace; background: var(--surface-2); padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.88em; }
+
+  .scoreboard {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    box-shadow: var(--shadow); overflow: hidden;
+  }
+  .scoreboard > div { padding: 0.85rem 1rem; border-right: 1px solid var(--border); }
+  .scoreboard > div:last-child { border-right: none; }
+  .scoreboard dt { font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); margin: 0 0 0.2rem; }
+  .scoreboard dd { margin: 0; font-family: "IBM Plex Mono", monospace; font-size: 1.2rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .scoreboard .n-succ dd { color: var(--ok); }
+
+  .controls {
+    display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 0.75rem 0.9rem; box-shadow: var(--shadow);
+  }
+  .controls .group { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+  .controls label.groupname {
+    font-family: "IBM Plex Mono", monospace; font-size: 0.65rem; text-transform: uppercase;
+    letter-spacing: 0.07em; color: var(--text-dim); align-self: center; margin-right: 0.15rem;
+  }
+  .chip {
+    font-family: "IBM Plex Mono", monospace; font-size: 0.74rem; border: 1px solid var(--border);
+    background: var(--surface-2); color: var(--text-dim); padding: 0.28rem 0.65rem; border-radius: 999px;
+    cursor: pointer; user-select: none; transition: background 0.1s, color 0.1s, border-color 0.1s;
+  }
+  .chip:hover { border-color: var(--accent); }
+  .chip.active { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); font-weight: 600; }
+  .chip.active.succ { background: var(--ok-soft); color: var(--ok); border-color: var(--ok); }
+  .chip.active.fail { background: var(--bad-soft); color: var(--bad); border-color: var(--bad); }
+
+  #search {
+    font-family: "IBM Plex Mono", monospace; font-size: 0.82rem; border: 1px solid var(--border);
+    background: var(--surface-2); color: var(--text); padding: 0.4rem 0.7rem; border-radius: 8px;
+    flex: 1; min-width: 180px; outline: none;
+  }
+  #search:focus { border-color: var(--accent); }
+
+  #count { font-family: "IBM Plex Mono", monospace; font-size: 0.75rem; color: var(--text-dim); white-space: nowrap; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.1rem; }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    box-shadow: var(--shadow); overflow: hidden; display: flex; flex-direction: column;
+    border-left: 4px solid var(--ok);
+  }
+  .card.fail { border-left-color: var(--bad); }
+
+  .card-head {
+    display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: center;
+    padding: 0.6rem 0.85rem; border-bottom: 1px solid var(--border); background: var(--surface-2);
+  }
+  .badge {
+    font-family: "IBM Plex Mono", monospace; font-size: 0.64rem; text-transform: uppercase;
+    letter-spacing: 0.05em; padding: 0.12rem 0.45rem; border-radius: 999px; white-space: nowrap;
+  }
+  .badge.outcome.succ { background: var(--ok-soft); color: var(--ok); }
+  .badge.outcome.fail { background: var(--bad-soft); color: var(--bad); }
+  .badge.scene { background: var(--accent-soft); color: var(--accent); }
+  .badge.len { border: 1px solid var(--border); color: var(--text-dim); background: transparent; }
+
+  .card-instr {
+    padding: 0.7rem 0.85rem; font-family: "IBM Plex Mono", monospace; font-size: 0.82rem;
+    color: var(--text); max-height: 6.6rem; overflow-y: auto; flex: 1;
+  }
+
+  .card video { display: block; width: 100%; background: #05070a; }
+
+  .readout { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--border); }
+  .readout > div { padding: 0.5rem 0.6rem; border-right: 1px solid var(--border); text-align: center; }
+  .readout > div:last-child { border-right: none; }
+  .readout dt { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-dim); margin-bottom: 0.1rem; }
+  .readout dd { margin: 0; font-family: "IBM Plex Mono", monospace; font-size: 0.88rem; font-weight: 500; font-variant-numeric: tabular-nums; }
+
+  #empty { display: none; text-align: center; color: var(--text-dim); padding: 3rem 1rem; font-family: "IBM Plex Mono", monospace; font-size: 0.85rem; }
+
+  footer { font-size: 0.8rem; color: var(--text-dim); border-top: 1px solid var(--border); padding-top: 1.1rem; }
+  footer code { font-family: "IBM Plex Mono", monospace; background: var(--surface-2); padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.8rem; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="page">
+  <div>
+    <div class="eyebrow">ETPNav &middot; release_rxr checkpoint &middot; RxR val_unseen</div>
+    <h1>A diverse slice of RxR tasks</h1>
+    <p class="dek"><!--COUNT--> real, unseen RxR validation episodes spread across <!--NSCENES--> different
+      Matterport3D houses, human-written instructions from 10 to 200+ words, filtered to English only.
+      Success is measured (agent stopped within 3m of the real target), not judged.</p>
+  </div>
+
+  <div class="scoreboard">
+    <div class="n-succ"><dt>success rate</dt><dd><!--SUCC_N--> / <!--TOTAL_N--></dd></div>
+    <div><dt>avg SPL</dt><dd><!--AVG_SPL--></dd></div>
+    <div><dt>avg nDTW</dt><dd><!--AVG_NDTW--></dd></div>
+    <div><dt>avg steps</dt><dd><!--AVG_STEPS--></dd></div>
+    <div><dt>scenes</dt><dd><!--NSCENES--></dd></div>
+  </div>
+
+  <div class="controls">
+    <label class="groupname">outcome</label>
+    <div class="group" data-filter-group="outcome">
+      <span class="chip active" data-value="all">all</span>
+      <span class="chip succ" data-value="succ">success</span>
+      <span class="chip fail" data-value="fail">fail</span>
+    </div>
+    <label class="groupname">length</label>
+    <div class="group" data-filter-group="len">
+      <span class="chip active" data-value="all">all</span>
+      <span class="chip" data-value="short">short</span>
+      <span class="chip" data-value="medium">medium</span>
+      <span class="chip" data-value="long">long</span>
+    </div>
+    <input id="search" type="text" placeholder="search instructions, scenes...">
+    <span id="count"></span>
+  </div>
+
+  <div class="grid" id="grid">
+    <!--CARDS-->
+  </div>
+  <div id="empty">no tasks match these filters</div>
+
+  <footer>
+    Generated by running <code>run.py --run-type eval</code> against a hand-picked, length- and scene-diverse
+    subset of the unmodified <code>RxR_VLNCE_v0_enc_xlmr/val_unseen</code> split &mdash; real instructions, real
+    goals, real success/SPL/nDTW.
+  </footer>
+</div>
+
+<script>
+(function() {
+  var state = { outcome: 'all', len: 'all' };
+  var cards = Array.from(document.querySelectorAll('.card'));
+  var grid = document.getElementById('grid');
+  var empty = document.getElementById('empty');
+  var countEl = document.getElementById('count');
+  var search = document.getElementById('search');
+
+  document.querySelectorAll('.controls .group').forEach(function(group) {
+    var key = group.getAttribute('data-filter-group');
+    group.querySelectorAll('.chip').forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        group.querySelectorAll('.chip').forEach(function(c) { c.classList.remove('active'); });
+        chip.classList.add('active');
+        state[key] = chip.getAttribute('data-value');
+        apply();
+      });
+    });
+  });
+  search.addEventListener('input', apply);
+
+  function apply() {
+    var q = search.value.trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function(card) {
+      var okOutcome = state.outcome === 'all' || card.getAttribute('data-outcome') === state.outcome;
+      var okLen = state.len === 'all' || card.getAttribute('data-len') === state.len;
+      var text = card.getAttribute('data-search');
+      var okSearch = !q || text.indexOf(q) !== -1;
+      var visible = okOutcome && okLen && okSearch;
+      card.hidden = !visible;
+      if (visible) shown++;
+    });
+    countEl.textContent = shown + ' shown';
+    empty.style.display = shown === 0 ? 'block' : 'none';
+  }
+  apply();
+})();
+</script>

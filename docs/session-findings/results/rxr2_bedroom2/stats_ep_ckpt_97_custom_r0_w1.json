@@ -1,0 +1,14 @@
+{
+  "0": {
+    "steps_taken": 33.0,
+    "distance_to_goal": Infinity,
+    "success": 0.0,
+    "oracle_success": 0.0,
+    "path_length": 4.926290988922119,
+    "collisions": 0.14285714285714285,
+    "spl": NaN,
+    "ndtw": 0.00012214201996414313,
+    "sdtw": 0.0,
+    "ghost_cnt": 19
+  }
+}

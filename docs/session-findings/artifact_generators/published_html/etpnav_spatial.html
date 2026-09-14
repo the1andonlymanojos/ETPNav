@@ -1,0 +1,671 @@
+<title>Custom Extremely Spatial Instructions Test</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #eef1f4;
+    --surface: #ffffff;
+    --surface-2: #e4e9ed;
+    --border: #d3dade;
+    --text: #1a222b;
+    --text-dim: #5a6672;
+    --pass: #0e7c86;
+    --pass-soft: #dff1f2;
+    --close: #9a7b1f;
+    --close-soft: #f6efdc;
+    --miss: #9b3b3b;
+    --miss-soft: #f6e2e2;
+    --accent: #a85a17;
+    --accent-soft: #f7e8d8;
+    --shadow: 0 1px 2px rgba(20, 30, 40, 0.06), 0 6px 18px rgba(20, 30, 40, 0.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12161b; --surface: #1a1f26; --surface-2: #20262e; --border: #2b333c;
+      --text: #e8ecef; --text-dim: #97a2ac;
+      --pass: #5eead4; --pass-soft: rgba(94, 234, 212, 0.1);
+      --close: #f0d264; --close-soft: rgba(240, 210, 100, 0.1);
+      --miss: #ef9a9a; --miss-soft: rgba(239, 154, 154, 0.1);
+      --accent: #f2a65a; --accent-soft: rgba(242, 166, 90, 0.12);
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 24px rgba(0, 0, 0, 0.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12161b; --surface: #1a1f26; --surface-2: #20262e; --border: #2b333c;
+    --text: #e8ecef; --text-dim: #97a2ac;
+    --pass: #5eead4; --pass-soft: rgba(94, 234, 212, 0.1);
+    --close: #f0d264; --close-soft: rgba(240, 210, 100, 0.1);
+    --miss: #ef9a9a; --miss-soft: rgba(239, 154, 154, 0.1);
+    --accent: #f2a65a; --accent-soft: rgba(242, 166, 90, 0.12);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 24px rgba(0, 0, 0, 0.35);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--text); font-family: "IBM Plex Sans", system-ui, sans-serif;
+    margin: 0; padding: 2.5rem 1.25rem 5rem; line-height: 1.5;
+  }
+  .page { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.75rem; }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--pass); display: flex; align-items: center; gap: 0.5rem;
+  }
+  .eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--pass); box-shadow: 0 0 0 3px var(--pass-soft); }
+
+  h1 { font-size: clamp(1.6rem, 3.4vw, 2.05rem); font-weight: 700; margin: 0.4rem 0 0; text-wrap: balance; letter-spacing: -0.01em; }
+  .dek { color: var(--text-dim); max-width: 76ch; font-size: 0.98rem; margin-top: 0.5rem; }
+  .dek code { font-family: "IBM Plex Mono", monospace; background: var(--surface-2); padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.88em; }
+
+  .scoreboard {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    box-shadow: var(--shadow); overflow: hidden;
+  }
+  .scoreboard > div { padding: 0.85rem 1rem; border-right: 1px solid var(--border); }
+  .scoreboard > div:last-child { border-right: none; }
+  .scoreboard dt { font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); margin: 0 0 0.2rem; }
+  .scoreboard dd { margin: 0; font-family: "IBM Plex Mono", monospace; font-size: 1.2rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .scoreboard .n-pass dd { color: var(--pass); }
+
+  .method {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 0.9rem 1.1rem; font-size: 0.86rem; color: var(--text-dim); box-shadow: var(--shadow);
+  }
+  .method strong { color: var(--text); }
+  .method .legend { display: flex; gap: 1.2rem; margin-top: 0.5rem; flex-wrap: wrap; font-family: "IBM Plex Mono", monospace; font-size: 0.76rem; }
+  .method .legend span { display: inline-flex; align-items: center; gap: 0.35rem; }
+  .swatch { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+  .swatch.pass { background: var(--pass); }
+  .swatch.close { background: var(--close); }
+  .swatch.miss { background: var(--miss); }
+
+  .controls {
+    display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 0.75rem 0.9rem; box-shadow: var(--shadow);
+  }
+  .controls .group { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+  .controls label.groupname {
+    font-family: "IBM Plex Mono", monospace; font-size: 0.65rem; text-transform: uppercase;
+    letter-spacing: 0.07em; color: var(--text-dim); align-self: center; margin-right: 0.15rem;
+  }
+  .chip {
+    font-family: "IBM Plex Mono", monospace; font-size: 0.74rem; border: 1px solid var(--border);
+    background: var(--surface-2); color: var(--text-dim); padding: 0.28rem 0.65rem; border-radius: 999px;
+    cursor: pointer; user-select: none; transition: background 0.1s, color 0.1s, border-color 0.1s;
+  }
+  .chip:hover { border-color: var(--accent); }
+  .chip.active { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); font-weight: 600; }
+  .chip.active.pass { background: var(--pass-soft); color: var(--pass); border-color: var(--pass); }
+  .chip.active.close { background: var(--close-soft); color: var(--close); border-color: var(--close); }
+  .chip.active.miss { background: var(--miss-soft); color: var(--miss); border-color: var(--miss); }
+  #count { font-family: "IBM Plex Mono", monospace; font-size: 0.75rem; color: var(--text-dim); white-space: nowrap; margin-left: auto; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.1rem; }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    box-shadow: var(--shadow); overflow: hidden; display: flex; flex-direction: column;
+    border-left: 4px solid var(--pass);
+  }
+  .card.close { border-left-color: var(--close); }
+  .card.miss { border-left-color: var(--miss); }
+
+  .card-head {
+    display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: center;
+    padding: 0.6rem 0.85rem; border-bottom: 1px solid var(--border); background: var(--surface-2);
+  }
+  .badge {
+    font-family: "IBM Plex Mono", monospace; font-size: 0.64rem; text-transform: uppercase;
+    letter-spacing: 0.05em; padding: 0.12rem 0.45rem; border-radius: 999px; white-space: nowrap;
+  }
+  .badge.outcome.pass { background: var(--pass-soft); color: var(--pass); }
+  .badge.outcome.close { background: var(--close-soft); color: var(--close); }
+  .badge.outcome.miss { background: var(--miss-soft); color: var(--miss); }
+  .badge.relation { background: var(--accent-soft); color: var(--accent); }
+  .badge.cat { border: 1px solid var(--border); color: var(--text-dim); background: transparent; }
+
+  .card-instr {
+    padding: 0.7rem 0.85rem; font-family: "IBM Plex Mono", monospace; font-size: 0.9rem; color: var(--text);
+  }
+
+  .card video { display: block; width: 100%; background: #05070a; }
+
+  .readout { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--border); }
+  .readout > div { padding: 0.5rem 0.6rem; border-right: 1px solid var(--border); text-align: center; }
+  .readout > div:last-child { border-right: none; }
+  .readout dt { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-dim); margin-bottom: 0.1rem; }
+  .readout dd { margin: 0; font-family: "IBM Plex Mono", monospace; font-size: 0.9rem; font-weight: 500; font-variant-numeric: tabular-nums; }
+
+  #empty { display: none; text-align: center; color: var(--text-dim); padding: 3rem 1rem; font-family: "IBM Plex Mono", monospace; font-size: 0.85rem; }
+
+  footer { font-size: 0.8rem; color: var(--text-dim); border-top: 1px solid var(--border); padding-top: 1.1rem; }
+  footer code { font-family: "IBM Plex Mono", monospace; background: var(--surface-2); padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.8rem; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="page">
+  <div>
+    <div class="eyebrow">ETPNav &middot; release_r2r checkpoint &middot; custom spatial-relation probes</div>
+    <h1>Custom Extremely Spatial Instructions Test</h1>
+    <p class="dek">25 egocentric spatial commands ("move to the left of the X", "go behind the X",
+      "stand next to the X") against 8 real furniture landmarks (sofas, tables, beds,
+      shelving, counters, dressers) in one Matterport3D house, <code>zsNo4HB9uLZ</code>. Landmark positions
+      come from the scene's real semantic annotations, not guesses.</p>
+  </div>
+
+  <div class="scoreboard">
+    <div class="n-pass"><dt>pass (&le;1.5m)</dt><dd>2 / 25</dd></div>
+    <div><dt>close (1.5&ndash;3m)</dt><dd>2</dd></div>
+    <div><dt>miss (&gt;3m)</dt><dd>21</dd></div>
+    <div><dt>avg distance</dt><dd>7.07m</dd></div>
+    <div><dt>landmarks</dt><dd>8</dd></div>
+  </div>
+
+  <div class="method">
+    <strong>How "pass" is measured:</strong> for each instruction, the target point is computed
+    geometrically from the landmark's real 3D position &mdash; e.g. "left" is offset from the object's
+    center along the perpendicular to the agent's initial line of sight, snapped to the navmesh and checked
+    for reachability before the run. Distance below is the agent's final position to that point,
+    <em>not</em> the engine's built-in 3m success radius (too loose here &mdash; adjacent relations around
+    the same object can be only 2&ndash;3m apart).
+    <div class="legend">
+      <span><span class="swatch pass"></span>pass &le; 1.5m</span>
+      <span><span class="swatch close"></span>close 1.5&ndash;3m</span>
+      <span><span class="swatch miss"></span>miss &gt; 3m</span>
+    </div>
+  </div>
+
+  <div class="controls">
+    <label class="groupname">outcome</label>
+    <div class="group" data-filter-group="outcome">
+      <span class="chip active" data-value="all">all</span>
+      <span class="chip pass" data-value="pass">pass</span>
+      <span class="chip close" data-value="close">close</span>
+      <span class="chip miss" data-value="miss">miss</span>
+    </div>
+    <label class="groupname">relation</label>
+    <div class="group" data-filter-group="relation">
+      <span class="chip active" data-value="all">all</span>
+      <span class="chip" data-value="left">left</span>
+      <span class="chip" data-value="right">right</span>
+      <span class="chip" data-value="behind">behind</span>
+      <span class="chip" data-value="next to">next to</span>
+    </div>
+    <span id="count"></span>
+  </div>
+
+  <div class="grid" id="grid">
+    
+    <article class="card pass" data-outcome="pass" data-relation="left">
+      <div class="card-head">
+        <span class="badge outcome pass">pass</span>
+        <span class="badge relation">left</span>
+        <span class="badge cat">bed</span>
+      </div>
+      <div class="card-instr">Move to the left of the bed.</div>
+      <video controls preload="none">
+        <source src="videos/ep0.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>dist to target</dt><dd>1.08m</dd></div>
+        <div><dt>steps</dt><dd>18</dd></div>
+        <div><dt>path len</dt><dd>3.0m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card pass" data-outcome="pass" data-relation="next to">
+      <div class="card-head">
+        <span class="badge outcome pass">pass</span>
+        <span class="badge relation">next to</span>
+        <span class="badge cat">counter</span>
+      </div>
+      <div class="card-instr">Stand next to the counter.</div>
+      <video controls preload="none">
+        <source src="videos/ep9.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>dist to target</dt><dd>1.02m</dd></div>
+        <div><dt>steps</dt><dd>25</dd></div>
+        <div><dt>path len</dt><dd>5.0m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card close" data-outcome="close" data-relation="left">
+      <div class="card-head">
+        <span class="badge outcome close">close</span>
+        <span class="badge relation">left</span>
+        <span class="badge cat">dresser</span>
+      </div>
+      <div class="card-instr">Move to the left of the dresser.</div>
+      <video controls preload="none">
+        <source src="videos/ep3.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>dist to target</dt><dd>2.98m</dd></div>
+        <div><dt>steps</dt><dd>81</dd></div>
+        <div><dt>path len</dt><dd>1.7m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card close" data-outcome="close" data-relation="left">
+      <div class="card-head">
+        <span class="badge outcome close">close</span>
+        <span class="badge relation">left</span>
+        <span class="badge cat">bookshelf</span>
+      </div>
+      <div class="card-instr">Move to the left of the bookshelf.</div>
+      <video controls preload="none">
+        <source src="videos/ep10.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>dist to target</dt><dd>2.29m</dd></div>
+        <div><dt>steps</dt><dd>34</dd></div>
+        <div><dt>path len</dt><dd>5.8m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card miss" data-outcome="miss" data-relation="behind">
+      <div class="card-head">
+        <span class="badge outcome miss">miss</span>
+        <span class="badge relation">behind</span>
+        <span class="badge cat">bed</span>
+      </div>
+      <div class="card-instr">Go behind the bed.</div>
+      <video controls preload="none">
+        <source src="videos/ep18.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>dist to target</dt><dd>13.82m</dd></div>
+        <div><dt>steps</dt><dd>52</dd></div>
+        <div><dt>path len</dt><dd>7.5m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card miss" data-outcome="miss" data-relation="left">
+      <div class="card-head">
+        <span class="badge outcome miss">miss</span>
+        <span class="badge relation">left</span>
+        <span class="badge cat">bed</span>
+      </div>
+      <div class="card-instr">Move to the left of the bed.</div>
+      <video controls preload="none">
+        <source src="videos/ep16.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>dist to target</dt><dd>7.54m</dd></div>
+        <div><dt>steps</dt><dd>43</dd></div>
+        <div><dt>path len</dt><dd>5.5m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card miss" data-outcome="miss" data-relation="next to">
+      <div class="card-head">
+        <span class="badge outcome miss">miss</span>
+        <span class="badge relation">next to</span>
+        <span class="badge cat">bed</span>
+      </div>
+      <div class="card-instr">Stand next to the bed.</div>
+      <video controls preload="none">
+        <source src="videos/ep2.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>dist to target</dt><dd>3.20m</dd></div>
+        <div><dt>steps</dt><dd>69</dd></div>
+        <div><dt>path len</dt><dd>9.8m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card miss" data-outcome="miss" data-relation="next to">
+      <div class="card-head">
+        <span class="badge outcome miss">miss</span>
+        <span class="badge relation">next to</span>
+        <span class="badge cat">bed</span>
+      </div>
+      <div class="card-instr">Stand next to the bed.</div>
+      <video controls preload="none">
+        <source src="videos/ep19.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>dist to target</dt><dd>10.20m</dd></div>
+        <div><dt>steps</dt><dd>50</dd></div>
+        <div><dt>path len</dt><dd>6.5m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card miss" data-outcome="miss" data-relation="right">
+      <div class="card-head">
+        <span class="badge outcome miss">miss</span>
+        <span class="badge relation">right</span>
+        <span class="badge cat">bed</span>
+      </div>
+      <div class="card-instr">Move to the right of the bed.</div>
+      <video controls preload="none">
+        <source src="videos/ep1.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>dist to target</dt><dd>4.22m</dd></div>
+        <div><dt>steps</dt><dd>18</dd></div>
+        <div><dt>path len</dt><dd>3.0m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card miss" data-outcome="miss" data-relation="right">
+      <div class="card-head">
+        <span class="badge outcome miss">miss</span>
+        <span class="badge relation">right</span>
+        <span class="badge cat">bed</span>
+      </div>
+      <div class="card-instr">Move to the right of the bed.</div>
+      <video controls preload="none">
+        <source src="videos/ep17.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>dist to target</dt><dd>9.84m</dd></div>
+        <div><dt>steps</dt><dd>40</dd></div>
+        <div><dt>path len</dt><dd>5.2m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card miss" data-outcome="miss" data-relation="behind">
+      <div class="card-head">
+        <span class="badge outcome miss">miss</span>
+        <span class="badge relation">behind</span>
+        <span class="badge cat">dresser</span>
+      </div>
+      <div class="card-instr">Go behind the dresser.</div>
+      <video controls preload="none">
+        <source src="videos/ep4.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>dist to target</dt><dd>5.13m</dd></div>
+        <div><dt>steps</dt><dd>210</dd></div>
+        <div><dt>path len</dt><dd>1.7m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card miss" data-outcome="miss" data-relation="next to">
+      <div class="card-head">
+        <span class="badge outcome miss">miss</span>
+        <span class="badge relation">next to</span>
+        <span class="badge cat">dresser</span>
+      </div>
+      <div class="card-instr">Stand next to the dresser.</div>
+      <video controls preload="none">
+        <source src="videos/ep5.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>dist to target</dt><dd>4.64m</dd></div>
+        <div><dt>steps</dt><dd>210</dd></div>
+        <div><dt>path len</dt><dd>1.7m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card miss" data-outcome="miss" data-relation="next to">
+      <div class="card-head">
+        <span class="badge outcome miss">miss</span>
+        <span class="badge relation">next to</span>
+        <span class="badge cat">dresser</span>
+      </div>
+      <div class="card-instr">Stand next to the dresser.</div>
+      <video controls preload="none">
+        <source src="videos/ep24.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>dist to target</dt><dd>6.26m</dd></div>
+        <div><dt>steps</dt><dd>28</dd></div>
+        <div><dt>path len</dt><dd>4.3m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card miss" data-outcome="miss" data-relation="behind">
+      <div class="card-head">
+        <span class="badge outcome miss">miss</span>
+        <span class="badge relation">behind</span>
+        <span class="badge cat">counter</span>
+      </div>
+      <div class="card-instr">Go behind the counter.</div>
+      <video controls preload="none">
+        <source src="videos/ep8.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>dist to target</dt><dd>6.04m</dd></div>
+        <div><dt>steps</dt><dd>40</dd></div>
+        <div><dt>path len</dt><dd>8.0m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card miss" data-outcome="miss" data-relation="left">
+      <div class="card-head">
+        <span class="badge outcome miss">miss</span>
+        <span class="badge relation">left</span>
+        <span class="badge cat">counter</span>
+      </div>
+      <div class="card-instr">Move to the left of the counter.</div>
+      <video controls preload="none">
+        <source src="videos/ep6.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>dist to target</dt><dd>12.63m</dd></div>
+        <div><dt>steps</dt><dd>47</dd></div>
+        <div><dt>path len</dt><dd>9.5m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card miss" data-outcome="miss" data-relation="right">
+      <div class="card-head">
+        <span class="badge outcome miss">miss</span>
+        <span class="badge relation">right</span>
+        <span class="badge cat">counter</span>
+      </div>
+      <div class="card-instr">Move to the right of the counter.</div>
+      <video controls preload="none">
+        <source src="videos/ep7.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>dist to target</dt><dd>7.08m</dd></div>
+        <div><dt>steps</dt><dd>47</dd></div>
+        <div><dt>path len</dt><dd>9.5m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card miss" data-outcome="miss" data-relation="behind">
+      <div class="card-head">
+        <span class="badge outcome miss">miss</span>
+        <span class="badge relation">behind</span>
+        <span class="badge cat">bookshelf</span>
+      </div>
+      <div class="card-instr">Go behind the bookshelf.</div>
+      <video controls preload="none">
+        <source src="videos/ep12.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>dist to target</dt><dd>11.52m</dd></div>
+        <div><dt>steps</dt><dd>52</dd></div>
+        <div><dt>path len</dt><dd>6.5m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card miss" data-outcome="miss" data-relation="next to">
+      <div class="card-head">
+        <span class="badge outcome miss">miss</span>
+        <span class="badge relation">next to</span>
+        <span class="badge cat">bookshelf</span>
+      </div>
+      <div class="card-instr">Stand next to the bookshelf.</div>
+      <video controls preload="none">
+        <source src="videos/ep13.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>dist to target</dt><dd>13.06m</dd></div>
+        <div><dt>steps</dt><dd>101</dd></div>
+        <div><dt>path len</dt><dd>13.2m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card miss" data-outcome="miss" data-relation="right">
+      <div class="card-head">
+        <span class="badge outcome miss">miss</span>
+        <span class="badge relation">right</span>
+        <span class="badge cat">bookshelf</span>
+      </div>
+      <div class="card-instr">Move to the right of the bookshelf.</div>
+      <video controls preload="none">
+        <source src="videos/ep11.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>dist to target</dt><dd>3.86m</dd></div>
+        <div><dt>steps</dt><dd>32</dd></div>
+        <div><dt>path len</dt><dd>5.8m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card miss" data-outcome="miss" data-relation="next to">
+      <div class="card-head">
+        <span class="badge outcome miss">miss</span>
+        <span class="badge relation">next to</span>
+        <span class="badge cat">sofa</span>
+      </div>
+      <div class="card-instr">Stand next to the sofa.</div>
+      <video controls preload="none">
+        <source src="videos/ep15.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>dist to target</dt><dd>8.69m</dd></div>
+        <div><dt>steps</dt><dd>50</dd></div>
+        <div><dt>path len</dt><dd>6.0m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card miss" data-outcome="miss" data-relation="right">
+      <div class="card-head">
+        <span class="badge outcome miss">miss</span>
+        <span class="badge relation">right</span>
+        <span class="badge cat">sofa</span>
+      </div>
+      <div class="card-instr">Move to the right of the sofa.</div>
+      <video controls preload="none">
+        <source src="videos/ep14.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>dist to target</dt><dd>8.72m</dd></div>
+        <div><dt>steps</dt><dd>50</dd></div>
+        <div><dt>path len</dt><dd>6.0m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card miss" data-outcome="miss" data-relation="behind">
+      <div class="card-head">
+        <span class="badge outcome miss">miss</span>
+        <span class="badge relation">behind</span>
+        <span class="badge cat">table</span>
+      </div>
+      <div class="card-instr">Go behind the table.</div>
+      <video controls preload="none">
+        <source src="videos/ep22.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>dist to target</dt><dd>13.75m</dd></div>
+        <div><dt>steps</dt><dd>37</dd></div>
+        <div><dt>path len</dt><dd>7.5m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card miss" data-outcome="miss" data-relation="left">
+      <div class="card-head">
+        <span class="badge outcome miss">miss</span>
+        <span class="badge relation">left</span>
+        <span class="badge cat">table</span>
+      </div>
+      <div class="card-instr">Move to the left of the table.</div>
+      <video controls preload="none">
+        <source src="videos/ep20.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>dist to target</dt><dd>5.33m</dd></div>
+        <div><dt>steps</dt><dd>48</dd></div>
+        <div><dt>path len</dt><dd>9.5m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card miss" data-outcome="miss" data-relation="next to">
+      <div class="card-head">
+        <span class="badge outcome miss">miss</span>
+        <span class="badge relation">next to</span>
+        <span class="badge cat">table</span>
+      </div>
+      <div class="card-instr">Stand next to the table.</div>
+      <video controls preload="none">
+        <source src="videos/ep23.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>dist to target</dt><dd>8.43m</dd></div>
+        <div><dt>steps</dt><dd>31</dd></div>
+        <div><dt>path len</dt><dd>6.0m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card miss" data-outcome="miss" data-relation="right">
+      <div class="card-head">
+        <span class="badge outcome miss">miss</span>
+        <span class="badge relation">right</span>
+        <span class="badge cat">table</span>
+      </div>
+      <div class="card-instr">Move to the right of the table.</div>
+      <video controls preload="none">
+        <source src="videos/ep21.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>dist to target</dt><dd>5.53m</dd></div>
+        <div><dt>steps</dt><dd>42</dd></div>
+        <div><dt>path len</dt><dd>7.3m</dd></div>
+      </dl>
+    </article>
+  </div>
+  <div id="empty">no runs match these filters</div>
+
+  <footer>
+    Generated by <code>scripts/build_spatial_landmarks.py</code> (semantic landmark + target extraction via
+    habitat-sim's semantic scene graph) and <code>scripts/run_spatial_batch.py</code> (per-instruction eval,
+    goal = the computed target point so distance-to-target is a real geometric measurement).
+  </footer>
+</div>
+
+<script>
+(function() {
+  var state = { outcome: 'all', relation: 'all' };
+  var cards = Array.from(document.querySelectorAll('.card'));
+  var empty = document.getElementById('empty');
+  var countEl = document.getElementById('count');
+
+  document.querySelectorAll('.controls .group').forEach(function(group) {
+    var key = group.getAttribute('data-filter-group');
+    group.querySelectorAll('.chip').forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        group.querySelectorAll('.chip').forEach(function(c) { c.classList.remove('active'); });
+        chip.classList.add('active');
+        state[key] = chip.getAttribute('data-value');
+        apply();
+      });
+    });
+  });
+
+  function apply() {
+    var shown = 0;
+    cards.forEach(function(card) {
+      var okOutcome = state.outcome === 'all' || card.getAttribute('data-outcome') === state.outcome;
+      var okRel = state.relation === 'all' || card.getAttribute('data-relation') === state.relation;
+      var visible = okOutcome && okRel;
+      card.hidden = !visible;
+      if (visible) shown++;
+    });
+    countEl.textContent = shown + ' shown';
+    empty.style.display = shown === 0 ? 'block' : 'none';
+  }
+  apply();
+})();
+</script>

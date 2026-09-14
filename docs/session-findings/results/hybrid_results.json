@@ -1,0 +1,602 @@
+[
+  {
+    "episode_id": 0,
+    "category": "bed",
+    "human_name": "bed",
+    "relation": "left",
+    "object_center": [
+      17.440399169921875,
+      0.4009432792663574,
+      -6.785029411315918
+    ],
+    "start_position": [
+      17.440399169921875,
+      0.17162801325321198,
+      -3.8527698516845703
+    ],
+    "target_position": [
+      14.95535945892334,
+      0.17162801325321198,
+      -6.785029411315918
+    ],
+    "final_distance": 0.0,
+    "n_frames": 28,
+    "video_path": "/tmp/claude-1000/-home-storms-end-ETPNav/bf82bef2-3c40-490f-95a2-ed73feb09b45/scratchpad/hybrid_videos/hybrid_0.mp4"
+  },
+  {
+    "episode_id": 1,
+    "category": "bed",
+    "human_name": "bed",
+    "relation": "right",
+    "object_center": [
+      17.440399169921875,
+      0.4009432792663574,
+      -6.785029411315918
+    ],
+    "start_position": [
+      17.440399169921875,
+      0.17162801325321198,
+      -3.8527698516845703
+    ],
+    "target_position": [
+      19.000585556030273,
+      0.17162801325321198,
+      -6.854393482208252
+    ],
+    "final_distance": 0.0,
+    "n_frames": 24,
+    "video_path": "/tmp/claude-1000/-home-storms-end-ETPNav/bf82bef2-3c40-490f-95a2-ed73feb09b45/scratchpad/hybrid_videos/hybrid_1.mp4"
+  },
+  {
+    "episode_id": 2,
+    "category": "bed",
+    "human_name": "bed",
+    "relation": "next to",
+    "object_center": [
+      17.440399169921875,
+      0.4009432792663574,
+      -6.785029411315918
+    ],
+    "start_position": [
+      17.440399169921875,
+      0.17162801325321198,
+      -3.8527698516845703
+    ],
+    "target_position": [
+      18.899927139282227,
+      0.17162801325321198,
+      -6.785029411315918
+    ],
+    "final_distance": 0.0,
+    "n_frames": 24,
+    "video_path": "/tmp/claude-1000/-home-storms-end-ETPNav/bf82bef2-3c40-490f-95a2-ed73feb09b45/scratchpad/hybrid_videos/hybrid_2.mp4"
+  },
+  {
+    "episode_id": 3,
+    "category": "chest_of_drawers",
+    "human_name": "dresser",
+    "relation": "left",
+    "object_center": [
+      16.3257999420166,
+      0.4626607894897461,
+      -7.64518928527832
+    ],
+    "start_position": [
+      19.015472412109375,
+      0.17162801325321198,
+      -7.580921649932861
+    ],
+    "target_position": [
+      16.28449821472168,
+      0.31172335147857666,
+      -5.916678428649902
+    ],
+    "final_distance": 0.0,
+    "n_frames": 32,
+    "video_path": "/tmp/claude-1000/-home-storms-end-ETPNav/bf82bef2-3c40-490f-95a2-ed73feb09b45/scratchpad/hybrid_videos/hybrid_3.mp4"
+  },
+  {
+    "episode_id": 4,
+    "category": "chest_of_drawers",
+    "human_name": "dresser",
+    "relation": "behind",
+    "object_center": [
+      16.3257999420166,
+      0.4626607894897461,
+      -7.64518928527832
+    ],
+    "start_position": [
+      19.015472412109375,
+      0.17162801325321198,
+      -7.580921649932861
+    ],
+    "target_position": [
+      14.586729049682617,
+      0.17162801325321198,
+      -7.306311130523682
+    ],
+    "final_distance": 0.0,
+    "n_frames": 47,
+    "video_path": "/tmp/claude-1000/-home-storms-end-ETPNav/bf82bef2-3c40-490f-95a2-ed73feb09b45/scratchpad/hybrid_videos/hybrid_4.mp4"
+  },
+  {
+    "episode_id": 5,
+    "category": "chest_of_drawers",
+    "human_name": "dresser",
+    "relation": "next to",
+    "object_center": [
+      16.3257999420166,
+      0.4626607894897461,
+      -7.64518928527832
+    ],
+    "start_position": [
+      19.015472412109375,
+      0.17162801325321198,
+      -7.580921649932861
+    ],
+    "target_position": [
+      15.814212799072266,
+      0.17162801325321198,
+      -7.552770137786865
+    ],
+    "final_distance": 0.0,
+    "n_frames": 43,
+    "video_path": "/tmp/claude-1000/-home-storms-end-ETPNav/bf82bef2-3c40-490f-95a2-ed73feb09b45/scratchpad/hybrid_videos/hybrid_5.mp4"
+  },
+  {
+    "episode_id": 6,
+    "category": "counter",
+    "human_name": "counter",
+    "relation": "left",
+    "object_center": [
+      10.211400032043457,
+      0.846534013748169,
+      -1.2721099853515625
+    ],
+    "start_position": [
+      14.071969985961914,
+      0.17162801325321198,
+      -1.2721099853515625
+    ],
+    "target_position": [
+      10.211400032043457,
+      0.20810766518115997,
+      1.7884601354599
+    ],
+    "final_distance": 0.0,
+    "n_frames": 40,
+    "video_path": "/tmp/claude-1000/-home-storms-end-ETPNav/bf82bef2-3c40-490f-95a2-ed73feb09b45/scratchpad/hybrid_videos/hybrid_6.mp4"
+  },
+  {
+    "episode_id": 7,
+    "category": "counter",
+    "human_name": "counter",
+    "relation": "right",
+    "object_center": [
+      10.211400032043457,
+      0.846534013748169,
+      -1.2721099853515625
+    ],
+    "start_position": [
+      14.071969985961914,
+      0.17162801325321198,
+      -1.2721099853515625
+    ],
+    "target_position": [
+      9.915631294250488,
+      0.17162801325321198,
+      -4.365543365478516
+    ],
+    "final_distance": 0.0,
+    "n_frames": 112,
+    "video_path": "/tmp/claude-1000/-home-storms-end-ETPNav/bf82bef2-3c40-490f-95a2-ed73feb09b45/scratchpad/hybrid_videos/hybrid_7.mp4"
+  },
+  {
+    "episode_id": 8,
+    "category": "counter",
+    "human_name": "counter",
+    "relation": "behind",
+    "object_center": [
+      10.211400032043457,
+      0.846534013748169,
+      -1.2721099853515625
+    ],
+    "start_position": [
+      14.071969985961914,
+      0.17162801325321198,
+      -1.2721099853515625
+    ],
+    "target_position": [
+      7.092116832733154,
+      0.17162801325321198,
+      -0.6849793195724487
+    ],
+    "final_distance": 0.0,
+    "n_frames": 50,
+    "video_path": "/tmp/claude-1000/-home-storms-end-ETPNav/bf82bef2-3c40-490f-95a2-ed73feb09b45/scratchpad/hybrid_videos/hybrid_8.mp4"
+  },
+  {
+    "episode_id": 9,
+    "category": "counter",
+    "human_name": "counter",
+    "relation": "next to",
+    "object_center": [
+      10.211400032043457,
+      0.846534013748169,
+      -1.2721099853515625
+    ],
+    "start_position": [
+      14.071969985961914,
+      0.17162801325321198,
+      -1.2721099853515625
+    ],
+    "target_position": [
+      10.211400032043457,
+      0.17162801325321198,
+      -2.8027701377868652
+    ],
+    "final_distance": 0.0,
+    "n_frames": 29,
+    "video_path": "/tmp/claude-1000/-home-storms-end-ETPNav/bf82bef2-3c40-490f-95a2-ed73feb09b45/scratchpad/hybrid_videos/hybrid_9.mp4"
+  },
+  {
+    "episode_id": 10,
+    "category": "shelving",
+    "human_name": "bookshelf",
+    "relation": "left",
+    "object_center": [
+      6.043270111083984,
+      0.9284069538116455,
+      -3.1874396800994873
+    ],
+    "start_position": [
+      9.386150360107422,
+      0.17162801325321198,
+      -2.8027701377868652
+    ],
+    "target_position": [
+      5.752575874328613,
+      0.17162801325321198,
+      -0.6612299680709839
+    ],
+    "final_distance": 0.0,
+    "n_frames": 57,
+    "video_path": "/tmp/claude-1000/-home-storms-end-ETPNav/bf82bef2-3c40-490f-95a2-ed73feb09b45/scratchpad/hybrid_videos/hybrid_10.mp4"
+  },
+  {
+    "episode_id": 11,
+    "category": "shelving",
+    "human_name": "bookshelf",
+    "relation": "right",
+    "object_center": [
+      6.043270111083984,
+      0.9284069538116455,
+      -3.1874396800994873
+    ],
+    "start_position": [
+      9.386150360107422,
+      0.17162801325321198,
+      -2.8027701377868652
+    ],
+    "target_position": [
+      6.3339643478393555,
+      0.17162801325321198,
+      -5.713649272918701
+    ],
+    "final_distance": 0.0,
+    "n_frames": 65,
+    "video_path": "/tmp/claude-1000/-home-storms-end-ETPNav/bf82bef2-3c40-490f-95a2-ed73feb09b45/scratchpad/hybrid_videos/hybrid_11.mp4"
+  },
+  {
+    "episode_id": 12,
+    "category": "shelving",
+    "human_name": "bookshelf",
+    "relation": "behind",
+    "object_center": [
+      6.043270111083984,
+      0.9284069538116455,
+      -3.1874396800994873
+    ],
+    "start_position": [
+      9.386150360107422,
+      0.17162801325321198,
+      -2.8027701377868652
+    ],
+    "target_position": [
+      3.5170605182647705,
+      0.17162801325321198,
+      -3.4781339168548584
+    ],
+    "final_distance": 0.0,
+    "n_frames": 44,
+    "video_path": "/tmp/claude-1000/-home-storms-end-ETPNav/bf82bef2-3c40-490f-95a2-ed73feb09b45/scratchpad/hybrid_videos/hybrid_12.mp4"
+  },
+  {
+    "episode_id": 13,
+    "category": "shelving",
+    "human_name": "bookshelf",
+    "relation": "next to",
+    "object_center": [
+      6.043270111083984,
+      0.9284069538116455,
+      -3.1874396800994873
+    ],
+    "start_position": [
+      9.386150360107422,
+      0.17162801325321198,
+      -2.8027701377868652
+    ],
+    "target_position": [
+      6.214212417602539,
+      0.17162801325321198,
+      -4.652770042419434
+    ],
+    "final_distance": 0.0,
+    "n_frames": 57,
+    "video_path": "/tmp/claude-1000/-home-storms-end-ETPNav/bf82bef2-3c40-490f-95a2-ed73feb09b45/scratchpad/hybrid_videos/hybrid_13.mp4"
+  },
+  {
+    "episode_id": 14,
+    "category": "sofa",
+    "human_name": "sofa",
+    "relation": "right",
+    "object_center": [
+      5.893670082092285,
+      1.1973400115966797,
+      2.3310203552246094
+    ],
+    "start_position": [
+      10.09335994720459,
+      0.26567015051841736,
+      2.3310203552246094
+    ],
+    "target_position": [
+      5.901913642883301,
+      0.17162801325321198,
+      -0.6812316179275513
+    ],
+    "final_distance": 0.0,
+    "n_frames": 69,
+    "video_path": "/tmp/claude-1000/-home-storms-end-ETPNav/bf82bef2-3c40-490f-95a2-ed73feb09b45/scratchpad/hybrid_videos/hybrid_14.mp4"
+  },
+  {
+    "episode_id": 15,
+    "category": "sofa",
+    "human_name": "sofa",
+    "relation": "next to",
+    "object_center": [
+      5.893670082092285,
+      1.1973400115966797,
+      2.3310203552246094
+    ],
+    "start_position": [
+      10.09335994720459,
+      0.26567015051841736,
+      2.3310203552246094
+    ],
+    "target_position": [
+      5.893670082092285,
+      0.17162801325321198,
+      0.23123732209205627
+    ],
+    "final_distance": 0.0,
+    "n_frames": 70,
+    "video_path": "/tmp/claude-1000/-home-storms-end-ETPNav/bf82bef2-3c40-490f-95a2-ed73feb09b45/scratchpad/hybrid_videos/hybrid_15.mp4"
+  },
+  {
+    "episode_id": 16,
+    "category": "bed",
+    "human_name": "bed",
+    "relation": "left",
+    "object_center": [
+      -1.1337599754333496,
+      0.627816915512085,
+      -2.257469892501831
+    ],
+    "start_position": [
+      2.151970148086548,
+      0.17162801325321198,
+      -2.257469892501831
+    ],
+    "target_position": [
+      -1.1337599754333496,
+      0.17162801325321198,
+      0.22826018929481506
+    ],
+    "final_distance": 0.0,
+    "n_frames": 53,
+    "video_path": "/tmp/claude-1000/-home-storms-end-ETPNav/bf82bef2-3c40-490f-95a2-ed73feb09b45/scratchpad/hybrid_videos/hybrid_16.mp4"
+  },
+  {
+    "episode_id": 17,
+    "category": "bed",
+    "human_name": "bed",
+    "relation": "right",
+    "object_center": [
+      -1.1337599754333496,
+      0.627816915512085,
+      -2.257469892501831
+    ],
+    "start_position": [
+      2.151970148086548,
+      0.17162801325321198,
+      -2.257469892501831
+    ],
+    "target_position": [
+      -1.1337599754333496,
+      0.17162801325321198,
+      -5.10276985168457
+    ],
+    "final_distance": 0.0,
+    "n_frames": 53,
+    "video_path": "/tmp/claude-1000/-home-storms-end-ETPNav/bf82bef2-3c40-490f-95a2-ed73feb09b45/scratchpad/hybrid_videos/hybrid_17.mp4"
+  },
+  {
+    "episode_id": 18,
+    "category": "bed",
+    "human_name": "bed",
+    "relation": "behind",
+    "object_center": [
+      -1.1337599754333496,
+      0.627816915512085,
+      -2.257469892501831
+    ],
+    "start_position": [
+      2.151970148086548,
+      0.17162801325321198,
+      -2.257469892501831
+    ],
+    "target_position": [
+      -2.8857879638671875,
+      0.17162801325321198,
+      -2.257469892501831
+    ],
+    "final_distance": 0.0,
+    "n_frames": 66,
+    "video_path": "/tmp/claude-1000/-home-storms-end-ETPNav/bf82bef2-3c40-490f-95a2-ed73feb09b45/scratchpad/hybrid_videos/hybrid_18.mp4"
+  },
+  {
+    "episode_id": 19,
+    "category": "bed",
+    "human_name": "bed",
+    "relation": "next to",
+    "object_center": [
+      -1.1337599754333496,
+      0.627816915512085,
+      -2.257469892501831
+    ],
+    "start_position": [
+      2.151970148086548,
+      0.17162801325321198,
+      -2.257469892501831
+    ],
+    "target_position": [
+      -1.1337599754333496,
+      0.17162801325321198,
+      -3.7174808979034424
+    ],
+    "final_distance": 0.0,
+    "n_frames": 49,
+    "video_path": "/tmp/claude-1000/-home-storms-end-ETPNav/bf82bef2-3c40-490f-95a2-ed73feb09b45/scratchpad/hybrid_videos/hybrid_19.mp4"
+  },
+  {
+    "episode_id": 20,
+    "category": "table",
+    "human_name": "table",
+    "relation": "left",
+    "object_center": [
+      15.43130111694336,
+      0.36171889305114746,
+      -2.6567201614379883
+    ],
+    "start_position": [
+      17.257476806640625,
+      0.17162801325321198,
+      0.5036007165908813
+    ],
+    "target_position": [
+      12.961536407470703,
+      0.17162801325321198,
+      -1.2295787334442139
+    ],
+    "final_distance": 0.0,
+    "n_frames": 33,
+    "video_path": "/tmp/claude-1000/-home-storms-end-ETPNav/bf82bef2-3c40-490f-95a2-ed73feb09b45/scratchpad/hybrid_videos/hybrid_20.mp4"
+  },
+  {
+    "episode_id": 21,
+    "category": "table",
+    "human_name": "table",
+    "relation": "right",
+    "object_center": [
+      15.43130111694336,
+      0.36171889305114746,
+      -2.6567201614379883
+    ],
+    "start_position": [
+      17.257476806640625,
+      0.17162801325321198,
+      0.5036007165908813
+    ],
+    "target_position": [
+      17.842504501342773,
+      0.17162801325321198,
+      -4.135103225708008
+    ],
+    "final_distance": 0.0,
+    "n_frames": 81,
+    "video_path": "/tmp/claude-1000/-home-storms-end-ETPNav/bf82bef2-3c40-490f-95a2-ed73feb09b45/scratchpad/hybrid_videos/hybrid_21.mp4"
+  },
+  {
+    "episode_id": 22,
+    "category": "table",
+    "human_name": "table",
+    "relation": "behind",
+    "object_center": [
+      15.43130111694336,
+      0.36171889305114746,
+      -2.6567201614379883
+    ],
+    "start_position": [
+      17.257476806640625,
+      0.17162801325321198,
+      0.5036007165908813
+    ],
+    "target_position": [
+      13.564212799072266,
+      0.17162801325321198,
+      -5.302769660949707
+    ],
+    "final_distance": 0.0,
+    "n_frames": 105,
+    "video_path": "/tmp/claude-1000/-home-storms-end-ETPNav/bf82bef2-3c40-490f-95a2-ed73feb09b45/scratchpad/hybrid_videos/hybrid_22.mp4"
+  },
+  {
+    "episode_id": 23,
+    "category": "table",
+    "human_name": "table",
+    "relation": "next to",
+    "object_center": [
+      15.43130111694336,
+      0.36171889305114746,
+      -2.6567201614379883
+    ],
+    "start_position": [
+      17.257476806640625,
+      0.17162801325321198,
+      0.5036007165908813
+    ],
+    "target_position": [
+      16.917701721191406,
+      0.17162801325321198,
+      -3.8527698516845703
+    ],
+    "final_distance": 0.0,
+    "n_frames": 75,
+    "video_path": "/tmp/claude-1000/-home-storms-end-ETPNav/bf82bef2-3c40-490f-95a2-ed73feb09b45/scratchpad/hybrid_videos/hybrid_23.mp4"
+  },
+  {
+    "episode_id": 24,
+    "category": "chest_of_drawers",
+    "human_name": "dresser",
+    "relation": "next to",
+    "object_center": [
+      18.542800903320312,
+      0.5336017608642578,
+      -7.642779350280762
+    ],
+    "start_position": [
+      18.542800903320312,
+      0.17162801325321198,
+      -5.116926193237305
+    ],
+    "target_position": [
+      19.062013626098633,
+      0.17162801325321198,
+      -7.673445701599121
+    ],
+    "final_distance": 0.0,
+    "n_frames": 19,
+    "video_path": "/tmp/claude-1000/-home-storms-end-ETPNav/bf82bef2-3c40-490f-95a2-ed73feb09b45/scratchpad/hybrid_videos/hybrid_24.mp4"
+  }
+]

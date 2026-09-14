@@ -1,0 +1,622 @@
+[
+  {
+    "base_episode_id": 20,
+    "tier": "bare",
+    "instruction": "Move to the left of the table.",
+    "category": "table",
+    "human_name": "table",
+    "relation": "left",
+    "object_center": [
+      15.43130111694336,
+      0.36171889305114746,
+      -2.6567201614379883
+    ],
+    "start_position": [
+      17.257476806640625,
+      0.17162801325321198,
+      0.5036007165908813
+    ],
+    "start_rotation": [
+      0.0,
+      0.25899821297535264,
+      0.0,
+      0.965877800591552
+    ],
+    "target": [
+      12.961536407470703,
+      0.17162801325321198,
+      -1.2295787334442139
+    ],
+    "orig_distance": 5.33,
+    "orig_steps": null
+  },
+  {
+    "base_episode_id": 20,
+    "tier": "verb_stop",
+    "instruction": "Walk to the left of the table and stop there.",
+    "category": "table",
+    "human_name": "table",
+    "relation": "left",
+    "object_center": [
+      15.43130111694336,
+      0.36171889305114746,
+      -2.6567201614379883
+    ],
+    "start_position": [
+      17.257476806640625,
+      0.17162801325321198,
+      0.5036007165908813
+    ],
+    "start_rotation": [
+      0.0,
+      0.25899821297535264,
+      0.0,
+      0.965877800591552
+    ],
+    "target": [
+      12.961536407470703,
+      0.17162801325321198,
+      -1.2295787334442139
+    ],
+    "orig_distance": 5.33,
+    "orig_steps": null
+  },
+  {
+    "base_episode_id": 20,
+    "tier": "two_step",
+    "instruction": "Walk toward the table. When you reach it, step to its left side and stop.",
+    "category": "table",
+    "human_name": "table",
+    "relation": "left",
+    "object_center": [
+      15.43130111694336,
+      0.36171889305114746,
+      -2.6567201614379883
+    ],
+    "start_position": [
+      17.257476806640625,
+      0.17162801325321198,
+      0.5036007165908813
+    ],
+    "start_rotation": [
+      0.0,
+      0.25899821297535264,
+      0.0,
+      0.965877800591552
+    ],
+    "target": [
+      12.961536407470703,
+      0.17162801325321198,
+      -1.2295787334442139
+    ],
+    "orig_distance": 5.33,
+    "orig_steps": null
+  },
+  {
+    "base_episode_id": 20,
+    "tier": "anchored",
+    "instruction": "There is a table ahead of you. Walk up to the table, then move around to its left side and stop right next to it.",
+    "category": "table",
+    "human_name": "table",
+    "relation": "left",
+    "object_center": [
+      15.43130111694336,
+      0.36171889305114746,
+      -2.6567201614379883
+    ],
+    "start_position": [
+      17.257476806640625,
+      0.17162801325321198,
+      0.5036007165908813
+    ],
+    "start_rotation": [
+      0.0,
+      0.25899821297535264,
+      0.0,
+      0.965877800591552
+    ],
+    "target": [
+      12.961536407470703,
+      0.17162801325321198,
+      -1.2295787334442139
+    ],
+    "orig_distance": 5.33,
+    "orig_steps": null
+  },
+  {
+    "base_episode_id": 20,
+    "tier": "narrated",
+    "instruction": "Walk forward toward the table in the room ahead. Once you reach the table, turn left and take a few steps to position yourself on the left side of it, then stop.",
+    "category": "table",
+    "human_name": "table",
+    "relation": "left",
+    "object_center": [
+      15.43130111694336,
+      0.36171889305114746,
+      -2.6567201614379883
+    ],
+    "start_position": [
+      17.257476806640625,
+      0.17162801325321198,
+      0.5036007165908813
+    ],
+    "start_rotation": [
+      0.0,
+      0.25899821297535264,
+      0.0,
+      0.965877800591552
+    ],
+    "target": [
+      12.961536407470703,
+      0.17162801325321198,
+      -1.2295787334442139
+    ],
+    "orig_distance": 5.33,
+    "orig_steps": null
+  },
+  {
+    "base_episode_id": 14,
+    "tier": "bare",
+    "instruction": "Move to the right of the sofa.",
+    "category": "sofa",
+    "human_name": "sofa",
+    "relation": "right",
+    "object_center": [
+      5.893670082092285,
+      1.1973400115966797,
+      2.3310203552246094
+    ],
+    "start_position": [
+      10.09335994720459,
+      0.26567015051841736,
+      2.3310203552246094
+    ],
+    "start_rotation": [
+      0.0,
+      0.7071067811865475,
+      0.0,
+      0.7071067811865476
+    ],
+    "target": [
+      5.901913642883301,
+      0.17162801325321198,
+      -0.6812316179275513
+    ],
+    "orig_distance": 8.72,
+    "orig_steps": null
+  },
+  {
+    "base_episode_id": 14,
+    "tier": "verb_stop",
+    "instruction": "Walk to the right of the sofa and stop there.",
+    "category": "sofa",
+    "human_name": "sofa",
+    "relation": "right",
+    "object_center": [
+      5.893670082092285,
+      1.1973400115966797,
+      2.3310203552246094
+    ],
+    "start_position": [
+      10.09335994720459,
+      0.26567015051841736,
+      2.3310203552246094
+    ],
+    "start_rotation": [
+      0.0,
+      0.7071067811865475,
+      0.0,
+      0.7071067811865476
+    ],
+    "target": [
+      5.901913642883301,
+      0.17162801325321198,
+      -0.6812316179275513
+    ],
+    "orig_distance": 8.72,
+    "orig_steps": null
+  },
+  {
+    "base_episode_id": 14,
+    "tier": "two_step",
+    "instruction": "Walk toward the sofa. When you reach it, step to its right side and stop.",
+    "category": "sofa",
+    "human_name": "sofa",
+    "relation": "right",
+    "object_center": [
+      5.893670082092285,
+      1.1973400115966797,
+      2.3310203552246094
+    ],
+    "start_position": [
+      10.09335994720459,
+      0.26567015051841736,
+      2.3310203552246094
+    ],
+    "start_rotation": [
+      0.0,
+      0.7071067811865475,
+      0.0,
+      0.7071067811865476
+    ],
+    "target": [
+      5.901913642883301,
+      0.17162801325321198,
+      -0.6812316179275513
+    ],
+    "orig_distance": 8.72,
+    "orig_steps": null
+  },
+  {
+    "base_episode_id": 14,
+    "tier": "anchored",
+    "instruction": "There is a sofa ahead of you. Walk up to the sofa, then move around to its right side and stop right next to it.",
+    "category": "sofa",
+    "human_name": "sofa",
+    "relation": "right",
+    "object_center": [
+      5.893670082092285,
+      1.1973400115966797,
+      2.3310203552246094
+    ],
+    "start_position": [
+      10.09335994720459,
+      0.26567015051841736,
+      2.3310203552246094
+    ],
+    "start_rotation": [
+      0.0,
+      0.7071067811865475,
+      0.0,
+      0.7071067811865476
+    ],
+    "target": [
+      5.901913642883301,
+      0.17162801325321198,
+      -0.6812316179275513
+    ],
+    "orig_distance": 8.72,
+    "orig_steps": null
+  },
+  {
+    "base_episode_id": 14,
+    "tier": "narrated",
+    "instruction": "Walk forward toward the sofa in the room ahead. Once you reach the sofa, turn right and take a few steps to position yourself on the right side of it, then stop.",
+    "category": "sofa",
+    "human_name": "sofa",
+    "relation": "right",
+    "object_center": [
+      5.893670082092285,
+      1.1973400115966797,
+      2.3310203552246094
+    ],
+    "start_position": [
+      10.09335994720459,
+      0.26567015051841736,
+      2.3310203552246094
+    ],
+    "start_rotation": [
+      0.0,
+      0.7071067811865475,
+      0.0,
+      0.7071067811865476
+    ],
+    "target": [
+      5.901913642883301,
+      0.17162801325321198,
+      -0.6812316179275513
+    ],
+    "orig_distance": 8.72,
+    "orig_steps": null
+  },
+  {
+    "base_episode_id": 4,
+    "tier": "bare",
+    "instruction": "Go behind the dresser.",
+    "category": "chest_of_drawers",
+    "human_name": "dresser",
+    "relation": "behind",
+    "object_center": [
+      16.3257999420166,
+      0.4626607894897461,
+      -7.64518928527832
+    ],
+    "start_position": [
+      19.015472412109375,
+      0.17162801325321198,
+      -7.580921649932861
+    ],
+    "start_rotation": [
+      0.0,
+      0.6986102613462049,
+      0.0,
+      0.7155024128133931
+    ],
+    "target": [
+      14.586729049682617,
+      0.17162801325321198,
+      -7.306311130523682
+    ],
+    "orig_distance": 5.13,
+    "orig_steps": 210
+  },
+  {
+    "base_episode_id": 4,
+    "tier": "verb_stop",
+    "instruction": "Walk behind the dresser and stop there.",
+    "category": "chest_of_drawers",
+    "human_name": "dresser",
+    "relation": "behind",
+    "object_center": [
+      16.3257999420166,
+      0.4626607894897461,
+      -7.64518928527832
+    ],
+    "start_position": [
+      19.015472412109375,
+      0.17162801325321198,
+      -7.580921649932861
+    ],
+    "start_rotation": [
+      0.0,
+      0.6986102613462049,
+      0.0,
+      0.7155024128133931
+    ],
+    "target": [
+      14.586729049682617,
+      0.17162801325321198,
+      -7.306311130523682
+    ],
+    "orig_distance": 5.13,
+    "orig_steps": 210
+  },
+  {
+    "base_episode_id": 4,
+    "tier": "two_step",
+    "instruction": "Walk toward the dresser. When you reach it, go around to the far side of it and stop.",
+    "category": "chest_of_drawers",
+    "human_name": "dresser",
+    "relation": "behind",
+    "object_center": [
+      16.3257999420166,
+      0.4626607894897461,
+      -7.64518928527832
+    ],
+    "start_position": [
+      19.015472412109375,
+      0.17162801325321198,
+      -7.580921649932861
+    ],
+    "start_rotation": [
+      0.0,
+      0.6986102613462049,
+      0.0,
+      0.7155024128133931
+    ],
+    "target": [
+      14.586729049682617,
+      0.17162801325321198,
+      -7.306311130523682
+    ],
+    "orig_distance": 5.13,
+    "orig_steps": 210
+  },
+  {
+    "base_episode_id": 4,
+    "tier": "anchored",
+    "instruction": "There is a dresser ahead of you. Walk up to the dresser, then continue past it to the far side, behind it, and stop.",
+    "category": "chest_of_drawers",
+    "human_name": "dresser",
+    "relation": "behind",
+    "object_center": [
+      16.3257999420166,
+      0.4626607894897461,
+      -7.64518928527832
+    ],
+    "start_position": [
+      19.015472412109375,
+      0.17162801325321198,
+      -7.580921649932861
+    ],
+    "start_rotation": [
+      0.0,
+      0.6986102613462049,
+      0.0,
+      0.7155024128133931
+    ],
+    "target": [
+      14.586729049682617,
+      0.17162801325321198,
+      -7.306311130523682
+    ],
+    "orig_distance": 5.13,
+    "orig_steps": 210
+  },
+  {
+    "base_episode_id": 4,
+    "tier": "narrated",
+    "instruction": "Walk forward toward the dresser in the room ahead. Once you reach the dresser, keep going past it until you are on the opposite side from where you started, then stop.",
+    "category": "chest_of_drawers",
+    "human_name": "dresser",
+    "relation": "behind",
+    "object_center": [
+      16.3257999420166,
+      0.4626607894897461,
+      -7.64518928527832
+    ],
+    "start_position": [
+      19.015472412109375,
+      0.17162801325321198,
+      -7.580921649932861
+    ],
+    "start_rotation": [
+      0.0,
+      0.6986102613462049,
+      0.0,
+      0.7155024128133931
+    ],
+    "target": [
+      14.586729049682617,
+      0.17162801325321198,
+      -7.306311130523682
+    ],
+    "orig_distance": 5.13,
+    "orig_steps": 210
+  },
+  {
+    "base_episode_id": 13,
+    "tier": "bare",
+    "instruction": "Stand next to the bookshelf.",
+    "category": "shelving",
+    "human_name": "bookshelf",
+    "relation": "next to",
+    "object_center": [
+      6.043270111083984,
+      0.9284069538116455,
+      -3.1874396800994873
+    ],
+    "start_position": [
+      9.386150360107422,
+      0.17162801325321198,
+      -2.8027701377868652
+    ],
+    "start_rotation": [
+      0.0,
+      0.6654634021498922,
+      0.0,
+      0.7464304792806166
+    ],
+    "target": [
+      6.214212417602539,
+      0.17162801325321198,
+      -4.652770042419434
+    ],
+    "orig_distance": 13.06,
+    "orig_steps": null
+  },
+  {
+    "base_episode_id": 13,
+    "tier": "verb_stop",
+    "instruction": "Walk over to the bookshelf and stand right beside it.",
+    "category": "shelving",
+    "human_name": "bookshelf",
+    "relation": "next to",
+    "object_center": [
+      6.043270111083984,
+      0.9284069538116455,
+      -3.1874396800994873
+    ],
+    "start_position": [
+      9.386150360107422,
+      0.17162801325321198,
+      -2.8027701377868652
+    ],
+    "start_rotation": [
+      0.0,
+      0.6654634021498922,
+      0.0,
+      0.7464304792806166
+    ],
+    "target": [
+      6.214212417602539,
+      0.17162801325321198,
+      -4.652770042419434
+    ],
+    "orig_distance": 13.06,
+    "orig_steps": null
+  },
+  {
+    "base_episode_id": 13,
+    "tier": "two_step",
+    "instruction": "Walk toward the bookshelf. When you reach it, stop right beside it.",
+    "category": "shelving",
+    "human_name": "bookshelf",
+    "relation": "next to",
+    "object_center": [
+      6.043270111083984,
+      0.9284069538116455,
+      -3.1874396800994873
+    ],
+    "start_position": [
+      9.386150360107422,
+      0.17162801325321198,
+      -2.8027701377868652
+    ],
+    "start_rotation": [
+      0.0,
+      0.6654634021498922,
+      0.0,
+      0.7464304792806166
+    ],
+    "target": [
+      6.214212417602539,
+      0.17162801325321198,
+      -4.652770042419434
+    ],
+    "orig_distance": 13.06,
+    "orig_steps": null
+  },
+  {
+    "base_episode_id": 13,
+    "tier": "anchored",
+    "instruction": "There is a bookshelf ahead of you. Walk up to the bookshelf and stop as close to it as you can, right next to it.",
+    "category": "shelving",
+    "human_name": "bookshelf",
+    "relation": "next to",
+    "object_center": [
+      6.043270111083984,
+      0.9284069538116455,
+      -3.1874396800994873
+    ],
+    "start_position": [
+      9.386150360107422,
+      0.17162801325321198,
+      -2.8027701377868652
+    ],
+    "start_rotation": [
+      0.0,
+      0.6654634021498922,
+      0.0,
+      0.7464304792806166
+    ],
+    "target": [
+      6.214212417602539,
+      0.17162801325321198,
+      -4.652770042419434
+    ],
+    "orig_distance": 13.06,
+    "orig_steps": null
+  },
+  {
+    "base_episode_id": 13,
+    "tier": "narrated",
+    "instruction": "Walk forward toward the bookshelf in the room ahead. Once you get close to the bookshelf, stop right beside it, touching distance away.",
+    "category": "shelving",
+    "human_name": "bookshelf",
+    "relation": "next to",
+    "object_center": [
+      6.043270111083984,
+      0.9284069538116455,
+      -3.1874396800994873
+    ],
+    "start_position": [
+      9.386150360107422,
+      0.17162801325321198,
+      -2.8027701377868652
+    ],
+    "start_rotation": [
+      0.0,
+      0.6654634021498922,
+      0.0,
+      0.7464304792806166
+    ],
+    "target": [
+      6.214212417602539,
+      0.17162801325321198,
+      -4.652770042419434
+    ],
+    "orig_distance": 13.06,
+    "orig_steps": null
+  }
+]

@@ -1,0 +1,1168 @@
+<title>RxR Task Gallery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #eef1f4;
+    --surface: #ffffff;
+    --surface-2: #e4e9ed;
+    --border: #d3dade;
+    --text: #1a222b;
+    --text-dim: #5a6672;
+    --ok: #0e7c86;
+    --ok-soft: #dff1f2;
+    --bad: #9b3b3b;
+    --bad-soft: #f6e2e2;
+    --accent: #a85a17;
+    --accent-soft: #f7e8d8;
+    --shadow: 0 1px 2px rgba(20, 30, 40, 0.06), 0 6px 18px rgba(20, 30, 40, 0.05);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12161b;
+      --surface: #1a1f26;
+      --surface-2: #20262e;
+      --border: #2b333c;
+      --text: #e8ecef;
+      --text-dim: #97a2ac;
+      --ok: #5eead4;
+      --ok-soft: rgba(94, 234, 212, 0.1);
+      --bad: #ef9a9a;
+      --bad-soft: rgba(239, 154, 154, 0.1);
+      --accent: #f2a65a;
+      --accent-soft: rgba(242, 166, 90, 0.12);
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 24px rgba(0, 0, 0, 0.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12161b;
+    --surface: #1a1f26;
+    --surface-2: #20262e;
+    --border: #2b333c;
+    --text: #e8ecef;
+    --text-dim: #97a2ac;
+    --ok: #5eead4;
+    --ok-soft: rgba(94, 234, 212, 0.1);
+    --bad: #ef9a9a;
+    --bad-soft: rgba(239, 154, 154, 0.1);
+    --accent: #f2a65a;
+    --accent-soft: rgba(242, 166, 90, 0.12);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 24px rgba(0, 0, 0, 0.35);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    margin: 0;
+    padding: 2.5rem 1.25rem 5rem;
+    line-height: 1.5;
+  }
+
+  .page { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.75rem; }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ok);
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 3px var(--ok-soft); }
+
+  h1 { font-size: clamp(1.6rem, 3.4vw, 2.05rem); font-weight: 700; margin: 0.4rem 0 0; text-wrap: balance; letter-spacing: -0.01em; }
+  .dek { color: var(--text-dim); max-width: 74ch; font-size: 0.98rem; margin-top: 0.5rem; }
+  .dek code { font-family: "IBM Plex Mono", monospace; background: var(--surface-2); padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.88em; }
+
+  .scoreboard {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    box-shadow: var(--shadow); overflow: hidden;
+  }
+  .scoreboard > div { padding: 0.85rem 1rem; border-right: 1px solid var(--border); }
+  .scoreboard > div:last-child { border-right: none; }
+  .scoreboard dt { font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); margin: 0 0 0.2rem; }
+  .scoreboard dd { margin: 0; font-family: "IBM Plex Mono", monospace; font-size: 1.2rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .scoreboard .n-succ dd { color: var(--ok); }
+
+  .controls {
+    display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 0.75rem 0.9rem; box-shadow: var(--shadow);
+  }
+  .controls .group { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+  .controls label.groupname {
+    font-family: "IBM Plex Mono", monospace; font-size: 0.65rem; text-transform: uppercase;
+    letter-spacing: 0.07em; color: var(--text-dim); align-self: center; margin-right: 0.15rem;
+  }
+  .chip {
+    font-family: "IBM Plex Mono", monospace; font-size: 0.74rem; border: 1px solid var(--border);
+    background: var(--surface-2); color: var(--text-dim); padding: 0.28rem 0.65rem; border-radius: 999px;
+    cursor: pointer; user-select: none; transition: background 0.1s, color 0.1s, border-color 0.1s;
+  }
+  .chip:hover { border-color: var(--accent); }
+  .chip.active { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); font-weight: 600; }
+  .chip.active.succ { background: var(--ok-soft); color: var(--ok); border-color: var(--ok); }
+  .chip.active.fail { background: var(--bad-soft); color: var(--bad); border-color: var(--bad); }
+
+  #search {
+    font-family: "IBM Plex Mono", monospace; font-size: 0.82rem; border: 1px solid var(--border);
+    background: var(--surface-2); color: var(--text); padding: 0.4rem 0.7rem; border-radius: 8px;
+    flex: 1; min-width: 180px; outline: none;
+  }
+  #search:focus { border-color: var(--accent); }
+
+  #count { font-family: "IBM Plex Mono", monospace; font-size: 0.75rem; color: var(--text-dim); white-space: nowrap; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.1rem; }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    box-shadow: var(--shadow); overflow: hidden; display: flex; flex-direction: column;
+    border-left: 4px solid var(--ok);
+  }
+  .card.fail { border-left-color: var(--bad); }
+
+  .card-head {
+    display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: center;
+    padding: 0.6rem 0.85rem; border-bottom: 1px solid var(--border); background: var(--surface-2);
+  }
+  .badge {
+    font-family: "IBM Plex Mono", monospace; font-size: 0.64rem; text-transform: uppercase;
+    letter-spacing: 0.05em; padding: 0.12rem 0.45rem; border-radius: 999px; white-space: nowrap;
+  }
+  .badge.outcome.succ { background: var(--ok-soft); color: var(--ok); }
+  .badge.outcome.fail { background: var(--bad-soft); color: var(--bad); }
+  .badge.scene { background: var(--accent-soft); color: var(--accent); }
+  .badge.len { border: 1px solid var(--border); color: var(--text-dim); background: transparent; }
+
+  .card-instr {
+    padding: 0.7rem 0.85rem; font-family: "IBM Plex Mono", monospace; font-size: 0.82rem;
+    color: var(--text); max-height: 6.6rem; overflow-y: auto; flex: 1;
+  }
+
+  .card video { display: block; width: 100%; background: #05070a; }
+
+  .readout { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--border); }
+  .readout > div { padding: 0.5rem 0.6rem; border-right: 1px solid var(--border); text-align: center; }
+  .readout > div:last-child { border-right: none; }
+  .readout dt { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-dim); margin-bottom: 0.1rem; }
+  .readout dd { margin: 0; font-family: "IBM Plex Mono", monospace; font-size: 0.88rem; font-weight: 500; font-variant-numeric: tabular-nums; }
+
+  #empty { display: none; text-align: center; color: var(--text-dim); padding: 3rem 1rem; font-family: "IBM Plex Mono", monospace; font-size: 0.85rem; }
+
+  footer { font-size: 0.8rem; color: var(--text-dim); border-top: 1px solid var(--border); padding-top: 1.1rem; }
+  footer code { font-family: "IBM Plex Mono", monospace; background: var(--surface-2); padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.8rem; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="page">
+  <div>
+    <div class="eyebrow">ETPNav &middot; release_rxr checkpoint &middot; RxR val_unseen</div>
+    <h1>A diverse slice of RxR tasks</h1>
+    <p class="dek">51 real, unseen RxR validation episodes spread across 11 different
+      Matterport3D houses, human-written instructions from 10 to 200+ words, filtered to English only.
+      Success is measured (agent stopped within 3m of the real target), not judged.</p>
+  </div>
+
+  <div class="scoreboard">
+    <div class="n-succ"><dt>success rate</dt><dd>28 / 51</dd></div>
+    <div><dt>avg SPL</dt><dd>0.47</dd></div>
+    <div><dt>avg nDTW</dt><dd>0.60</dd></div>
+    <div><dt>avg steps</dt><dd>161</dd></div>
+    <div><dt>scenes</dt><dd>11</dd></div>
+  </div>
+
+  <div class="controls">
+    <label class="groupname">outcome</label>
+    <div class="group" data-filter-group="outcome">
+      <span class="chip active" data-value="all">all</span>
+      <span class="chip succ" data-value="succ">success</span>
+      <span class="chip fail" data-value="fail">fail</span>
+    </div>
+    <label class="groupname">length</label>
+    <div class="group" data-filter-group="len">
+      <span class="chip active" data-value="all">all</span>
+      <span class="chip" data-value="short">short</span>
+      <span class="chip" data-value="medium">medium</span>
+      <span class="chip" data-value="long">long</span>
+    </div>
+    <input id="search" type="text" placeholder="search instructions, scenes...">
+    <span id="count"></span>
+  </div>
+
+  <div class="grid" id="grid">
+    
+    <article class="card succ" data-outcome="succ" data-len="short" data-search="you're facing the wall, turn towards your right, go straight, and exit the room, then turn right, at the entrance itself you'll find your destination. 2azq1b91czz">
+      <div class="card-head">
+        <span class="badge outcome succ">success</span>
+        <span class="badge scene">2azQ1b91cZZ</span>
+        <span class="badge len">25w &middot; short</span>
+      </div>
+      <div class="card-instr">You're facing the wall, turn towards your right, go straight, and exit the room, then turn right, at the entrance itself you'll find your destination.</div>
+      <video controls preload="none">
+        <source src="videos/2azQ1b91cZZ-8424.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>23</dd></div>
+        <div><dt>SPL</dt><dd>0.75</dd></div>
+        <div><dt>nDTW</dt><dd>0.83</dd></div>
+        <div><dt>path</dt><dd>4.5m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card succ" data-outcome="succ" data-len="short" data-search="begin behind a pool table. take one step past the wooden post and you're done eu6fwq7syzv">
+      <div class="card-head">
+        <span class="badge outcome succ">success</span>
+        <span class="badge scene">EU6Fwq7SyZv</span>
+        <span class="badge len">15w &middot; short</span>
+      </div>
+      <div class="card-instr">Begin behind a pool table. Take one step past the wooden post and you're done</div>
+      <video controls preload="none">
+        <source src="videos/EU6Fwq7SyZv-9280.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>1</dd></div>
+        <div><dt>SPL</dt><dd>1.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.81</dd></div>
+        <div><dt>path</dt><dd>0.0m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card succ" data-outcome="succ" data-len="medium" data-search="you are in a rest room facing towards a photo frame, turn to your left and move out of the room. your are standing right next to a bed, turn right and move towards the wooden railing. turn right you can see a narrow path, move in the path till the end of wooden railing. now turn left and move forward. you are in-front of a wooden railing, turn left you can see the staircase the position you are standing is your final destination. eu6fwq7syzv">
+      <div class="card-head">
+        <span class="badge outcome succ">success</span>
+        <span class="badge scene">EU6Fwq7SyZv</span>
+        <span class="badge len">84w &middot; medium</span>
+      </div>
+      <div class="card-instr">You are in a rest room facing towards a photo frame, turn to your left and move out of the room. Your are standing right next to a bed, turn right and move towards the wooden railing. Turn right you can see a narrow path, move in the path till the end of wooden railing. Now turn left and move forward. You are in-front of a wooden railing, turn left you can see the staircase the position you are standing is your final destination.</div>
+      <video controls preload="none">
+        <source src="videos/EU6Fwq7SyZv-5715.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>319</dd></div>
+        <div><dt>SPL</dt><dd>0.18</dd></div>
+        <div><dt>nDTW</dt><dd>0.36</dd></div>
+        <div><dt>path</dt><dd>31.6m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card succ" data-outcome="succ" data-len="short" data-search="turn left,you can see an open door,go inside the room,stop near to the chair. quctc6bb5sx">
+      <div class="card-head">
+        <span class="badge outcome succ">success</span>
+        <span class="badge scene">QUCTc6BB5sX</span>
+        <span class="badge len">14w &middot; short</span>
+      </div>
+      <div class="card-instr">Turn left,you can see an open door,go inside the room,stop near to the chair.</div>
+      <video controls preload="none">
+        <source src="videos/QUCTc6BB5sX-887.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>9</dd></div>
+        <div><dt>SPL</dt><dd>1.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.99</dd></div>
+        <div><dt>path</dt><dd>1.0m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card succ" data-outcome="succ" data-len="medium" data-search="you are facing towards a towel, turn right and enter into the bedroom. turn right and walk towards the bed, turn right again and exit the bedroom. walk straight towards the open door opposite to you, enter into another bedroom, turn left and walk towards the brown chair opposite to you. there is an open door right beside the chair, walk towards it. enter into the washroom and stand facing towards the mirror. you have reached your destination. quctc6bb5sx">
+      <div class="card-head">
+        <span class="badge outcome succ">success</span>
+        <span class="badge scene">QUCTc6BB5sX</span>
+        <span class="badge len">78w &middot; medium</span>
+      </div>
+      <div class="card-instr">You are facing towards a towel, turn right and enter into the bedroom. Turn right and walk towards the bed, turn right again and exit the bedroom. Walk straight towards the open door opposite to you, enter into another bedroom, turn left and walk towards the brown chair opposite to you. There is an open door right beside the chair, walk towards it. Enter into the washroom and stand facing towards the mirror. You have reached your destination.</div>
+      <video controls preload="none">
+        <source src="videos/QUCTc6BB5sX-10269.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>130</dd></div>
+        <div><dt>SPL</dt><dd>0.89</dd></div>
+        <div><dt>nDTW</dt><dd>0.93</dd></div>
+        <div><dt>path</dt><dd>13.9m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card succ" data-outcome="succ" data-len="long" data-search="you will start out facing some glass-paned doors. turn to your right and you will see a hallway. walk down that hallway two steps until you reach the spot where there's a circular pattern in the tile on the floor. turn to your right there and you will see another hallway with a curio cabinet at the end of it. walk into that hallway all the way up to that curio cabinet at the end and then turn to your left and go into the room with the arched doorway ahead of you. once you are in that room, you will see a bed to your right and a rug just beyond the foot of the bed. walk toward that rug at the foot of the bed. then turn slightly to your left and you will see an open door that leads out of the bedroom. go out that door and into the bathroom in front of the sink. then turn right and you will see some towels hanging on the wall to your right and a window on the far wall. right next to that window there is a painting on the wall. you want to take two steps forward toward that painting and when you are directly in front of that painting, that is where you will stop. quctc6bb5sx">
+      <div class="card-head">
+        <span class="badge outcome succ">success</span>
+        <span class="badge scene">QUCTc6BB5sX</span>
+        <span class="badge len">220w &middot; long</span>
+      </div>
+      <div class="card-instr">You will start out facing some glass-paned doors. Turn to your right and you will see a hallway. Walk down that hallway two steps until you reach the spot where there's a circular pattern in the tile on the floor. Turn to your right there and you will see another hallway with a curio cabinet at the end of it. Walk into that hallway all the way up to that curio cabinet at the end and then turn to your left and go into the room with the arched doorway ahead of you. Once you are in that room, you will see a bed to your right and a rug just beyond the foot of the bed. Walk toward that rug at the foot of the bed. Then turn slightly to your left and you will see an open door that leads out of the bedroom. Go out that door and into the bathroom in front of the sink. Then turn right and you will see some towels hanging on the wall to your right and a window on the far wall. Right next to that window there is a painting on the wall. You want to take two steps forward toward that painting and when you are directly in front of that painting, that is where you will stop.</div>
+      <video controls preload="none">
+        <source src="videos/QUCTc6BB5sX-2250.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>134</dd></div>
+        <div><dt>SPL</dt><dd>1.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.91</dd></div>
+        <div><dt>path</dt><dd>17.2m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card succ" data-outcome="succ" data-len="short" data-search="turn slightly right and go straight you will find a mirror left side, right of it is your destination. tbhjrupsajp">
+      <div class="card-head">
+        <span class="badge outcome succ">success</span>
+        <span class="badge scene">TbHJrupSAjP</span>
+        <span class="badge len">19w &middot; short</span>
+      </div>
+      <div class="card-instr">Turn slightly right and go straight you will find a mirror left side, right of it is your destination.</div>
+      <video controls preload="none">
+        <source src="videos/TbHJrupSAjP-1072.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>20</dd></div>
+        <div><dt>SPL</dt><dd>1.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.99</dd></div>
+        <div><dt>path</dt><dd>2.4m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card succ" data-outcome="succ" data-len="medium" data-search="you are facing towards the wall, turn right and walk straight towards the door in front, and take left you can find a white mat, go near to it and take left where you can find a small room with a rack, enter into it, at the entrance you will find your destination. tbhjrupsajp">
+      <div class="card-head">
+        <span class="badge outcome succ">success</span>
+        <span class="badge scene">TbHJrupSAjP</span>
+        <span class="badge len">53w &middot; medium</span>
+      </div>
+      <div class="card-instr">You are facing towards the wall, turn right and walk straight towards the door in front, and take left you can find a white mat, go near to it and take left where you can find a small room with a rack, enter into it, at the entrance you will find your destination.</div>
+      <video controls preload="none">
+        <source src="videos/TbHJrupSAjP-8738.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>31</dd></div>
+        <div><dt>SPL</dt><dd>0.99</dd></div>
+        <div><dt>nDTW</dt><dd>0.92</dd></div>
+        <div><dt>path</dt><dd>3.0m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card succ" data-outcome="succ" data-len="medium" data-search="right now you're facing towards a sink. turn slightly towards your left and exit the room. move forward till you reach a closed door in front of you. now slightly turn towards your right and walk in the passage till you reach a wall in front of you. now turn extreme left and you can see a staircase. walk towards the staircase and stand on the second step and that is the end point. tbhjrupsajp">
+      <div class="card-head">
+        <span class="badge outcome succ">success</span>
+        <span class="badge scene">TbHJrupSAjP</span>
+        <span class="badge len">74w &middot; medium</span>
+      </div>
+      <div class="card-instr">Right now you're facing towards a sink. Turn slightly towards your left and exit the room. Move forward till you reach a closed door in front of you. Now slightly turn towards your right and walk in the passage till you reach a wall in front of you. Now turn extreme left and you can see a staircase. Walk towards the staircase and stand on the second step and that is the end point.</div>
+      <video controls preload="none">
+        <source src="videos/TbHJrupSAjP-82.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>94</dd></div>
+        <div><dt>SPL</dt><dd>1.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.94</dd></div>
+        <div><dt>path</dt><dd>12.4m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card succ" data-outcome="succ" data-len="long" data-search="right now you are standing in a living room move forward on you are left side you can see a stair case. walk behind the stair case and make a slight right and move forward up to where you can see a open door on you are left side. just get into that room and get back from the open door in front you can see a open door just get into the open door make a slight left where you can see a stole. here we reached our destination in front of the stole. tbhjrupsajp">
+      <div class="card-head">
+        <span class="badge outcome succ">success</span>
+        <span class="badge scene">TbHJrupSAjP</span>
+        <span class="badge len">95w &middot; long</span>
+      </div>
+      <div class="card-instr">Right now you are standing in a living room move forward on you are left side you can see a stair case. Walk behind the stair case and make a slight right and move forward up to where you can see a open door on you are left side. Just get into that room and get back from the open door in front you can see a open door just get into the open door make a slight left where you can see a stole. Here we reached our destination in front of the stole.</div>
+      <video controls preload="none">
+        <source src="videos/TbHJrupSAjP-129.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>130</dd></div>
+        <div><dt>SPL</dt><dd>0.63</dd></div>
+        <div><dt>nDTW</dt><dd>0.88</dd></div>
+        <div><dt>path</dt><dd>21.1m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card succ" data-outcome="succ" data-len="short" data-search="you are facing towards an empty rack, turn around, walk towards the bed. you have reached your destination. x7hymhznoso">
+      <div class="card-head">
+        <span class="badge outcome succ">success</span>
+        <span class="badge scene">X7HyMhZNoso</span>
+        <span class="badge len">18w &middot; short</span>
+      </div>
+      <div class="card-instr">You are facing towards an empty rack, turn around, walk towards the bed. You have reached your destination.</div>
+      <video controls preload="none">
+        <source src="videos/X7HyMhZNoso-2756.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>28</dd></div>
+        <div><dt>SPL</dt><dd>1.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.95</dd></div>
+        <div><dt>path</dt><dd>1.3m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card succ" data-outcome="succ" data-len="medium" data-search="you are facing towards the wall, turn slight right and pass through the open entrance. you are facing towards the wall, turn left and move towards the staircase. turn left and get down the steps. now enter into the rest room. you are facing towards the window, which is your final destination. x7hymhznoso">
+      <div class="card-head">
+        <span class="badge outcome succ">success</span>
+        <span class="badge scene">X7HyMhZNoso</span>
+        <span class="badge len">52w &middot; medium</span>
+      </div>
+      <div class="card-instr">You are facing towards the wall, turn slight right and pass through the open entrance. You are facing towards the wall, turn left and move towards the staircase. Turn left and get down the steps. Now enter into the rest room. You are facing towards the window, which is your final destination.</div>
+      <video controls preload="none">
+        <source src="videos/X7HyMhZNoso-4148.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>41</dd></div>
+        <div><dt>SPL</dt><dd>1.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.81</dd></div>
+        <div><dt>path</dt><dd>6.0m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card succ" data-outcome="succ" data-len="medium" data-search="you are now facing towards the wall. turn slightly right and move forward, you are now facing towards the two open doors and enter into the left side bedroom. you are now facing towards the bed and the table. turn slightly left and move forward. you are now facing towards the window, and turn slightly left and enter into the empty cupboards room, and this is your endpoint. x7hymhznoso">
+      <div class="card-head">
+        <span class="badge outcome succ">success</span>
+        <span class="badge scene">X7HyMhZNoso</span>
+        <span class="badge len">68w &middot; medium</span>
+      </div>
+      <div class="card-instr">You are now facing towards the wall. Turn slightly right and move forward, you are now facing towards the two open doors and enter into the left side bedroom. You are now facing towards the bed and the table. Turn slightly left and move forward. You are now facing towards the window, and turn slightly left and enter into the empty cupboards room, and this is your endpoint.</div>
+      <video controls preload="none">
+        <source src="videos/X7HyMhZNoso-3165.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>42</dd></div>
+        <div><dt>SPL</dt><dd>1.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.88</dd></div>
+        <div><dt>path</dt><dd>7.8m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card succ" data-outcome="succ" data-len="short" data-search="you're facing towards an open door, move two steps ahead and stop. z6mfqcvibuw">
+      <div class="card-head">
+        <span class="badge outcome succ">success</span>
+        <span class="badge scene">Z6MFQCViBuw</span>
+        <span class="badge len">12w &middot; short</span>
+      </div>
+      <div class="card-instr">You're facing towards an open door, move two steps ahead and stop.</div>
+      <video controls preload="none">
+        <source src="videos/Z6MFQCViBuw-3362.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>8</dd></div>
+        <div><dt>SPL</dt><dd>1.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.93</dd></div>
+        <div><dt>path</dt><dd>1.7m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card succ" data-outcome="succ" data-len="medium" data-search="move forward from your place where you are standing' you can see an open door to your right side, enter into the room through the open door, move forward and stand in between the first two poles, that's your end point. z6mfqcvibuw">
+      <div class="card-head">
+        <span class="badge outcome succ">success</span>
+        <span class="badge scene">Z6MFQCViBuw</span>
+        <span class="badge len">41w &middot; medium</span>
+      </div>
+      <div class="card-instr">Move forward from your place where you are standing' you can see an open door to your right side, enter into the room through the open door, move forward and stand in between the first two poles, that's your end point.</div>
+      <video controls preload="none">
+        <source src="videos/Z6MFQCViBuw-3720.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>70</dd></div>
+        <div><dt>SPL</dt><dd>0.90</dd></div>
+        <div><dt>nDTW</dt><dd>0.86</dd></div>
+        <div><dt>path</dt><dd>8.6m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card succ" data-outcome="succ" data-len="medium" data-search="you will walk straight down from your starting position. follow the red carpet and through these brown doors. you will enter a room. there will be two red chairs on the left, some portraits hanging on the wall. to the right there will be this informative glass panel with two vase. anyway, we are going to continue walking straight down to the door in front of us and stop right when we are out. like at the entrance of the door. z6mfqcvibuw">
+      <div class="card-head">
+        <span class="badge outcome succ">success</span>
+        <span class="badge scene">Z6MFQCViBuw</span>
+        <span class="badge len">81w &middot; medium</span>
+      </div>
+      <div class="card-instr">You will walk straight down from your starting position. Follow the red carpet and through these brown doors. You will enter a room. There will be two red chairs on the left, some portraits hanging on the wall. To the right there will be this informative glass panel with two vase. Anyway, we are going to continue walking straight down to the door in front of us and stop right when we are out. like at the entrance of the door.</div>
+      <video controls preload="none">
+        <source src="videos/Z6MFQCViBuw-6510.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>70</dd></div>
+        <div><dt>SPL</dt><dd>0.97</dd></div>
+        <div><dt>nDTW</dt><dd>0.94</dd></div>
+        <div><dt>path</dt><dd>12.0m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card succ" data-outcome="succ" data-len="short" data-search="you begin facing a staircase, turn around, take one step forward and you're done. olbmnvg9in8">
+      <div class="card-head">
+        <span class="badge outcome succ">success</span>
+        <span class="badge scene">oLBMNvg9in8</span>
+        <span class="badge len">14w &middot; short</span>
+      </div>
+      <div class="card-instr">You begin facing a staircase, turn around, take one step forward and you're done.</div>
+      <video controls preload="none">
+        <source src="videos/oLBMNvg9in8-1392.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>1</dd></div>
+        <div><dt>SPL</dt><dd>1.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.88</dd></div>
+        <div><dt>path</dt><dd>0.0m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card succ" data-outcome="succ" data-len="medium" data-search="you are now facing the frames on the wall from there take a left turn. start walking straight and stand in front of the room which is to your right side. take a right turn, walk a few steps forward and stand at the entrance of the room. olbmnvg9in8">
+      <div class="card-head">
+        <span class="badge outcome succ">success</span>
+        <span class="badge scene">oLBMNvg9in8</span>
+        <span class="badge len">48w &middot; medium</span>
+      </div>
+      <div class="card-instr">You are now facing the frames on the wall from there take a left turn. Start walking straight and stand in front of the room which is to your right side. Take a right turn, walk a few steps forward and stand at the entrance of the room.</div>
+      <video controls preload="none">
+        <source src="videos/oLBMNvg9in8-1725.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>17</dd></div>
+        <div><dt>SPL</dt><dd>1.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.95</dd></div>
+        <div><dt>path</dt><dd>1.6m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card succ" data-outcome="succ" data-len="medium" data-search="from the point your standing turn left and move forward towards the books rack. then turn right and exit the room, then turn left and enter into the room where there is a sofa. go near to the sofa then turn slightly right and move towards the door. then exit the room stand in front of the window which is at opposite to you, and this will be your final destination point. olbmnvg9in8">
+      <div class="card-head">
+        <span class="badge outcome succ">success</span>
+        <span class="badge scene">oLBMNvg9in8</span>
+        <span class="badge len">72w &middot; medium</span>
+      </div>
+      <div class="card-instr">From the point your standing turn left and move forward towards the books rack. Then turn right and exit the room, then turn left and enter into the room where there is a sofa. Go near to the sofa then turn slightly right and move towards the door. Then exit the room stand in front of the window which is at opposite to you, and this will be your final destination point.</div>
+      <video controls preload="none">
+        <source src="videos/oLBMNvg9in8-1909.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>254</dd></div>
+        <div><dt>SPL</dt><dd>0.41</dd></div>
+        <div><dt>nDTW</dt><dd>0.54</dd></div>
+        <div><dt>path</dt><dd>29.2m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card succ" data-outcome="succ" data-len="long" data-search="okay right now you are facing towards the glass window near a statue. turn around and you see a sofa in front of you. walk straight. now turn to your left and you see one open door. exit this room and turn slightly left and you see stairs in front of you. go towards the stairs. now you see a open room in front of you. enter that room. once you enter the room, turn to your left and walk straight towards the cross symbol to the left side with two statues and stop. that is the end point. olbmnvg9in8">
+      <div class="card-head">
+        <span class="badge outcome succ">success</span>
+        <span class="badge scene">oLBMNvg9in8</span>
+        <span class="badge len">99w &middot; long</span>
+      </div>
+      <div class="card-instr">Okay right now you are facing towards the glass window near a statue. Turn around and you see a sofa in front of you. Walk straight. Now turn to your left and you see one open door. Exit this room and turn slightly left and you see stairs in front of you. Go towards the stairs. Now you see a open room in front of you. Enter that room. Once you enter the room, turn to your left and walk straight towards the cross symbol to the left side with two statues and stop. That is the end point.</div>
+      <video controls preload="none">
+        <source src="videos/oLBMNvg9in8-10687.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>71</dd></div>
+        <div><dt>SPL</dt><dd>0.94</dd></div>
+        <div><dt>nDTW</dt><dd>0.88</dd></div>
+        <div><dt>path</dt><dd>11.6m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card succ" data-outcome="succ" data-len="medium" data-search="you are facing towards a wall, turn around and walk through the path between the 2 pillars. now turn left you can see a narrow path, keep moving forward. you are facing towards the door turn left and move forward. you are standing in-front of the rack, which is the first rack, it is your final destination. ple4wqe7qrg">
+      <div class="card-head">
+        <span class="badge outcome succ">success</span>
+        <span class="badge scene">pLe4wQe7qrG</span>
+        <span class="badge len">57w &middot; medium</span>
+      </div>
+      <div class="card-instr">You are facing towards a wall, turn around and walk through the path between the 2 pillars. Now turn left you can see a narrow path, keep moving forward. You are facing towards the door turn left and move forward. You are standing in-front of the rack, which is the first rack, it is your final destination.</div>
+      <video controls preload="none">
+        <source src="videos/pLe4wQe7qrG-1154.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>193</dd></div>
+        <div><dt>SPL</dt><dd>0.43</dd></div>
+        <div><dt>nDTW</dt><dd>0.47</dd></div>
+        <div><dt>path</dt><dd>21.1m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card succ" data-outcome="succ" data-len="short" data-search="right now, you're facing towards the wall. turn left and enter into the room, which is in front of you and that is the end point. x8f5xyuwy9e">
+      <div class="card-head">
+        <span class="badge outcome succ">success</span>
+        <span class="badge scene">x8F5xyUWy9e</span>
+        <span class="badge len">26w &middot; short</span>
+      </div>
+      <div class="card-instr">Right now, you're facing towards the wall. Turn left and enter into the room, which is in front of you and that is the end point.</div>
+      <video controls preload="none">
+        <source src="videos/x8F5xyUWy9e-1349.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>8</dd></div>
+        <div><dt>SPL</dt><dd>1.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.96</dd></div>
+        <div><dt>path</dt><dd>0.7m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card succ" data-outcome="succ" data-len="medium" data-search="slightly turn to your right and exit the room, to your left, you can find two rooms, move towards the second room, you can find an opened door infront of you, move towards the opened door, you can find steps infront of you, get down the steps, turn right, move towards the opened door which is infront of you, now you are facing towards the opened door, turn right and move a bit forward, that would be your end point. x8f5xyuwy9e">
+      <div class="card-head">
+        <span class="badge outcome succ">success</span>
+        <span class="badge scene">x8F5xyUWy9e</span>
+        <span class="badge len">80w &middot; medium</span>
+      </div>
+      <div class="card-instr">Slightly turn to your right and exit the room, to your left, you can find two rooms, move towards the second room, you can find an opened door infront of you, move towards the opened door, you can find steps infront of you, get down the steps, turn right, move towards the opened door which is infront of you, now you are facing towards the opened door, turn right and move a bit forward, that would be your end point.</div>
+      <video controls preload="none">
+        <source src="videos/x8F5xyUWy9e-10908.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>229</dd></div>
+        <div><dt>SPL</dt><dd>0.46</dd></div>
+        <div><dt>nDTW</dt><dd>0.65</dd></div>
+        <div><dt>path</dt><dd>28.0m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card succ" data-outcome="succ" data-len="short" data-search="turn slight right and move inside the washroom,take right and go straight,stop in front of the washbasin. zsno4hb9ulz">
+      <div class="card-head">
+        <span class="badge outcome succ">success</span>
+        <span class="badge scene">zsNo4HB9uLZ</span>
+        <span class="badge len">17w &middot; short</span>
+      </div>
+      <div class="card-instr">Turn slight right and move inside the washroom,take right and go straight,stop in front of the washbasin.</div>
+      <video controls preload="none">
+        <source src="videos/zsNo4HB9uLZ-10150.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>32</dd></div>
+        <div><dt>SPL</dt><dd>0.78</dd></div>
+        <div><dt>nDTW</dt><dd>0.90</dd></div>
+        <div><dt>path</dt><dd>2.2m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card succ" data-outcome="succ" data-len="medium" data-search="now, you are facing towards the curtain. turn slightly right and move towards the glass door. now, turn right and you will find an open glass door onto your right side. enter through it and that will be your end point where you are facing the wall in front of you and hangers on your left side. zsno4hb9ulz">
+      <div class="card-head">
+        <span class="badge outcome succ">success</span>
+        <span class="badge scene">zsNo4HB9uLZ</span>
+        <span class="badge len">57w &middot; medium</span>
+      </div>
+      <div class="card-instr">Now, you are facing towards the curtain. Turn slightly right and move towards the glass door. Now, turn right and you will find an open glass door onto your right side. Enter through it and that will be your end point where you are facing the wall in front of you and hangers on your left side.</div>
+      <video controls preload="none">
+        <source src="videos/zsNo4HB9uLZ-619.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>54</dd></div>
+        <div><dt>SPL</dt><dd>0.99</dd></div>
+        <div><dt>nDTW</dt><dd>0.90</dd></div>
+        <div><dt>path</dt><dd>6.4m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card succ" data-outcome="succ" data-len="medium" data-search="you're in a bedroom facing the corner, turn around, to the left you'll find bed, go straight near the door, turn right, and exit the room, again turn right, you'll enter the next room, turn around, go straight, and exit the room, then turn right, to the right you'll find cream sofa, and carpet on the ground, go straight, and enter the room, you'll enter the bedroom, near the bed, two steps away from the entrance, you'll find your destination. zsno4hb9ulz">
+      <div class="card-head">
+        <span class="badge outcome succ">success</span>
+        <span class="badge scene">zsNo4HB9uLZ</span>
+        <span class="badge len">80w &middot; medium</span>
+      </div>
+      <div class="card-instr">You're in a bedroom facing the corner, turn around, to the left you'll find bed, go straight near the door, turn right, and exit the room, again turn right, you'll enter the next room, turn around, go straight, and exit the room, then turn right, to the right you'll find cream sofa, and carpet on the ground, go straight, and enter the room, you'll enter the bedroom, near the bed, two steps away from the entrance, you'll find your destination.</div>
+      <video controls preload="none">
+        <source src="videos/zsNo4HB9uLZ-5417.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>106</dd></div>
+        <div><dt>SPL</dt><dd>0.84</dd></div>
+        <div><dt>nDTW</dt><dd>0.91</dd></div>
+        <div><dt>path</dt><dd>11.7m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card succ" data-outcome="succ" data-len="long" data-search="staring straight down the tile hallway, with the eye test picture hanging on the wall on the left, walk into that hallway. turning left down that hallway continue straight past the bathroom on your left into the area with a grey rug on the floor, a brown chair in the right corner and a small desk on the left with a picture of the world. turn to the left you'll see two doorways, take the doorway on the left and walk straight ahead to the couch, sorry the chair with the orange blanket on it. standing in front of the chair with the orange blanket on it, you're done. zsno4hb9ulz">
+      <div class="card-head">
+        <span class="badge outcome succ">success</span>
+        <span class="badge scene">zsNo4HB9uLZ</span>
+        <span class="badge len">109w &middot; long</span>
+      </div>
+      <div class="card-instr">Staring straight down the tile hallway, with the eye test picture hanging on the wall on the left, walk into that hallway. Turning left down that hallway continue straight past the bathroom on your left into the area with a grey rug on the floor, a brown chair in the right corner and a small desk on the left with a picture of the world. Turn to the left you'll see two doorways, take the doorway on the left and walk straight ahead to the couch, sorry the chair with the orange blanket on it. Standing in front of the chair with the orange blanket on it, you're done.</div>
+      <video controls preload="none">
+        <source src="videos/zsNo4HB9uLZ-3945.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>42</dd></div>
+        <div><dt>SPL</dt><dd>1.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.88</dd></div>
+        <div><dt>path</dt><dd>8.7m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card succ" data-outcome="succ" data-len="long" data-search="you begin in a bathroom looking towards a wall with a painting on it. turn towards your right and exit the toilet room, and then turn to your right again and exit the entire bathroom into a bedroom. turn to your right and approach the mirror closet doors, and then turn to the right and exit the bedroom into the hallway. once you're out there, turn left. you should see a desk with two bar stools tucked under it. head to the left side of that. that was actually a counter, not a desk, but potato potahto. continue forward to the left of the small circular table on the end of the black couch, and then turn right and head between the counter and the back of the couch. continue going forward towards the staircase or the- sorry that is a shuttered door, that you can see in the far distance. once you are standing in front of the door mat in front of that shuttered door, which says... metricon... structure twenty-five years... quaran- guarantee. apologies, the mat is upside-down as you can see. anyways, once you're standing in front of that shuttered door, with the bright sunlight outside, you're done. zsno4hb9ulz">
+      <div class="card-head">
+        <span class="badge outcome succ">success</span>
+        <span class="badge scene">zsNo4HB9uLZ</span>
+        <span class="badge len">201w &middot; long</span>
+      </div>
+      <div class="card-instr">You begin in a bathroom looking towards a wall with a painting on it. Turn towards your right and exit the toilet room, and then turn to your right again and exit the entire bathroom into a bedroom. Turn to your right and approach the mirror closet doors, and then turn to the right and exit the bedroom into the hallway. Once you're out there, turn left. You should see a desk with two bar stools tucked under it. Head to the left side of that. That was actually a counter, not a desk, but potato potahto. Continue forward to the left of the small circular table on the end of the black couch, and then turn right and head between the counter and the back of the couch. Continue going forward towards the staircase or the- sorry that is a shuttered door, that you can see in the far distance. Once you are standing in front of the door mat in front of that shuttered door, which says... Metricon... Structure twenty-five years... Quaran- Guarantee. Apologies, the mat is upside-down as you can see. Anyways, once you're standing in front of that shuttered door, with the bright sunlight outside, you're done.</div>
+      <video controls preload="none">
+        <source src="videos/zsNo4HB9uLZ-1116.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>251</dd></div>
+        <div><dt>SPL</dt><dd>0.72</dd></div>
+        <div><dt>nDTW</dt><dd>0.84</dd></div>
+        <div><dt>path</dt><dd>31.5m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card fail" data-outcome="fail" data-len="medium" data-search="now you are near to a door. turn left and move straight. now turn right and move straight and stand near to the sink. now again take left and move straight to exit the room through the door. turn left and enter to a room where a couch, a teapoy is there. move straight and stand near to a flower vase which is the end point. 2azq1b91czz">
+      <div class="card-head">
+        <span class="badge outcome fail">fail</span>
+        <span class="badge scene">2azQ1b91cZZ</span>
+        <span class="badge len">66w &middot; medium</span>
+      </div>
+      <div class="card-instr">Now you are near to a door. Turn left and move straight. Now turn right and move straight and stand near to the sink. Now again take left and move straight to exit the room through the door. Turn left and enter to a room where a couch, a teapoy is there. Move straight and stand near to a flower vase which is the end point.</div>
+      <video controls preload="none">
+        <source src="videos/2azQ1b91cZZ-10198.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>132</dd></div>
+        <div><dt>SPL</dt><dd>0.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.01</dd></div>
+        <div><dt>path</dt><dd>24.9m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card fail" data-outcome="fail" data-len="medium" data-search="you are facing towards the wall, turn left, you can find an entrance, move forward, there is a pot at the corner, slightly take right, there is an entrance beside the flower pot, enter into it, walk straight towards the dining table, turn left, move forward towards the glass door, move little forward and exit the room, turn right and move forward towards the table, there is a sofa at the right side and a table at the left side, the position now you are standing is your destination. 2azq1b91czz">
+      <div class="card-head">
+        <span class="badge outcome fail">fail</span>
+        <span class="badge scene">2azQ1b91cZZ</span>
+        <span class="badge len">89w &middot; medium</span>
+      </div>
+      <div class="card-instr">You are facing towards the wall, turn left, you can find an entrance, move forward, there is a pot at the corner, slightly take right, there is an entrance beside the flower pot, enter into it, walk straight towards the dining table, turn left, move forward towards the glass door, move little forward and exit the room, turn right and move forward towards the table, there is a sofa at the right side and a table at the left side, the position now you are standing is your destination.</div>
+      <video controls preload="none">
+        <source src="videos/2azQ1b91cZZ-3748.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>181</dd></div>
+        <div><dt>SPL</dt><dd>0.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.64</dd></div>
+        <div><dt>path</dt><dd>18.1m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card fail" data-outcome="fail" data-len="long" data-search="you are in living room at the corner facing towards the wall near the table, take a left turn and go straight to the armchair, and keep going straight near the sofa, and go straight to the dining table near the rug, from there turnaround and in the frontside you can see a corridor and go straight in the corridor where you can see a flower vase and the door and the mirrors, go straight up to the doors where you can see a dresser and the staircase, and move forward enter into the door which is in the front side, and enter the room this is a bookshelf room.this is the endpoint. 2azq1b91czz">
+      <div class="card-head">
+        <span class="badge outcome fail">fail</span>
+        <span class="badge scene">2azQ1b91cZZ</span>
+        <span class="badge len">113w &middot; long</span>
+      </div>
+      <div class="card-instr">You are in living room at the corner facing towards the wall near the table, take a left turn and go straight to the armchair, and keep going straight near the sofa, and go straight to the dining table near the rug, from there turnaround and in the frontside you can see a corridor and go straight in the corridor where you can see a flower vase and the door and the mirrors, go straight up to the doors where you can see a dresser and the staircase, and move forward enter into the door which is in the front side, and enter the room this is a bookshelf room.This is the endpoint.</div>
+      <video controls preload="none">
+        <source src="videos/2azQ1b91cZZ-9485.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>287</dd></div>
+        <div><dt>SPL</dt><dd>0.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.17</dd></div>
+        <div><dt>path</dt><dd>2.4m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card fail" data-outcome="fail" data-len="long" data-search="we are facing a white bed. turn to the left so that we can exit the bedroom going down the hall. as you get to the end (midway) part of the hall, there will be a picture in the middle of the two halls and a black desk underneath, you want to go to the right an enter into the open dark brown door. now you are in that room and it is full of wood with a light on top. you want to walk straight all the way to the first set of double doors to the far right corner, stopping in front of the first set of double doors ahead of you. there are four doors in the room and you want to stop in front of the set that is closest to you by the corner of the room. you are at your destination. 2azq1b91czz">
+      <div class="card-head">
+        <span class="badge outcome fail">fail</span>
+        <span class="badge scene">2azQ1b91cZZ</span>
+        <span class="badge len">147w &middot; long</span>
+      </div>
+      <div class="card-instr">We are facing a white bed. Turn to the left so that we can exit the bedroom going down the hall. As you get to the end (midway) part of the hall, there will be a picture in the middle of the two halls and a black desk underneath, you want to go to the right an enter into the open dark brown door. Now you are in that room and it is full of wood with a light on top. You want to walk straight all the way to the first set of double doors to the far right corner, stopping in front of the first set of double doors ahead of you. There are four doors in the room and you want to stop in front of the set that is closest to you by the corner of the room. You are at your destination.</div>
+      <video controls preload="none">
+        <source src="videos/2azQ1b91cZZ-2346.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>449</dd></div>
+        <div><dt>SPL</dt><dd>0.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.05</dd></div>
+        <div><dt>path</dt><dd>42.7m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card fail" data-outcome="fail" data-len="long" data-search="facing the pool table, walk to the left through the open sliding door. once you're through the open sliding doors, turn a hard left and walk towards the dining room table in the distance, staying to the left of the chair and couch and to the right of the wall and the side table with the very large wine glass looking thing. keep heading towards the right most portion of the dining room table. stop when you just get to the last chair on the right side. turn around, there's two identical archways to the left and a bigger archway to the right. take the bigger archway. head straight through the little archway into the circular foyer area where there'll be stairs just to the right. walk towards the stairs but don't get on. just to the left of the stairs is in archway, walk into that near archway. in another circular area, where there is a large clock on the wall to the right, to the left of that a mirror and a star light on the ceiling. the two archways in front of you, take the left one. keep walking straight down that hall. take the first left after the picture of people on horses. walk into the bathroom and stand in front of the sink. you're done. 2azq1b91czz">
+      <div class="card-head">
+        <span class="badge outcome fail">fail</span>
+        <span class="badge scene">2azQ1b91cZZ</span>
+        <span class="badge len">220w &middot; long</span>
+      </div>
+      <div class="card-instr">Facing the pool table, walk to the left through the open sliding door. Once you're through the open sliding doors, turn a hard left and walk towards the dining room table in the distance, staying to the left of the chair and couch and to the right of the wall and the side table with the very large wine glass looking thing. Keep heading towards the right most portion of the dining room table. Stop when you just get to the last chair on the right side. Turn around, there's two identical archways to the left and a bigger archway to the right. Take the bigger archway. Head straight through the little archway into the circular foyer area where there'll be stairs just to the right. Walk towards the stairs but don't get on. Just to the left of the stairs is in archway, walk into that near archway. In another circular area, where there is a large clock on the wall to the right, to the left of that a mirror and a star light on the ceiling. The two archways in front of you, take the left one. Keep walking straight down that hall. Take the first left after the picture of people on horses. Walk into the bathroom and stand in front of the sink. You're done.</div>
+      <video controls preload="none">
+        <source src="videos/2azQ1b91cZZ-10458.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>235</dd></div>
+        <div><dt>SPL</dt><dd>0.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.02</dd></div>
+        <div><dt>path</dt><dd>41.0m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card fail" data-outcome="fail" data-len="short" data-search="in the kitchen room go straight in front of sofa again go straight beside the indoor plant go forward in front of stairs. 8194nk5lblh">
+      <div class="card-head">
+        <span class="badge outcome fail">fail</span>
+        <span class="badge scene">8194nk5LbLH</span>
+        <span class="badge len">23w &middot; short</span>
+      </div>
+      <div class="card-instr">In the kitchen room go straight in front of sofa again go straight beside the indoor plant go forward in front of stairs.</div>
+      <video controls preload="none">
+        <source src="videos/8194nk5LbLH-2846.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>92</dd></div>
+        <div><dt>SPL</dt><dd>0.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.82</dd></div>
+        <div><dt>path</dt><dd>9.8m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card fail" data-outcome="fail" data-len="long" data-search="you are standing facing towards the grey pillar. slightly turn right and walk through the path between the brown chairs on your right and pillar on your left. walk a few steps ahead till you reach the black table in front of the pillar. turn left. walk straight till you reach the orange sofa in front of you. you are now standing behind the sofa. turn right and walk few steps ahead. turn left. keep walking straight until you reach the steps in front of you. you are now standing near the steps. there is a glass window on your right. climb seven steps. stop on the step where you can see two paintings on an orange board towards your right side. you have reached your point. 8194nk5lblh">
+      <div class="card-head">
+        <span class="badge outcome fail">fail</span>
+        <span class="badge scene">8194nk5LbLH</span>
+        <span class="badge len">127w &middot; long</span>
+      </div>
+      <div class="card-instr">You are standing facing towards the grey pillar. Slightly turn right and walk through the path between the brown chairs on your right and pillar on your left. Walk a few steps ahead till you reach the black table in front of the pillar. Turn left. Walk straight till you reach the orange sofa in front of you. You are now standing behind the sofa. Turn right and walk few steps ahead. Turn left. Keep walking straight until you reach the steps in front of you. You are now standing near the steps. There is a glass window on your right. Climb seven steps. Stop on the step where you can see two paintings on an orange board towards your right side. You have reached your point.</div>
+      <video controls preload="none">
+        <source src="videos/8194nk5LbLH-2264.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>122</dd></div>
+        <div><dt>SPL</dt><dd>0.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.33</dd></div>
+        <div><dt>path</dt><dd>18.0m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card fail" data-outcome="fail" data-len="medium" data-search="you are facing towards an open wooden door. turn right and move forward. now you are facing towards the brown chair and the wooden cupboard. turn right and move towards the couch. slightly turn right and walk straightly till you reach near to the snooker table. now you are facing towards the snooker table. that will be the end point. eu6fwq7syzv">
+      <div class="card-head">
+        <span class="badge outcome fail">fail</span>
+        <span class="badge scene">EU6Fwq7SyZv</span>
+        <span class="badge len">60w &middot; medium</span>
+      </div>
+      <div class="card-instr">You are facing towards an open wooden door. Turn right and move forward. Now you are facing towards the brown chair and the wooden cupboard. Turn right and move towards the couch. Slightly turn right and walk straightly till you reach near to the snooker table. Now you are facing towards the snooker table. That will be the end point.</div>
+      <video controls preload="none">
+        <source src="videos/EU6Fwq7SyZv-1359.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>422</dd></div>
+        <div><dt>SPL</dt><dd>0.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.34</dd></div>
+        <div><dt>path</dt><dd>6.6m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card fail" data-outcome="fail" data-len="long" data-search="you are facing towards the photo frames which are attached to the wall. turn around and walk straightly towards the closed door. slightly turn left and move towards the sofa. now walk straightly towards the wooden railings. slightly turn right and move forward. turn left and walk all the way to the top of the stairs. now turn right and move forward. there is a bed on your left side and an open door on your right side. turn right and walk through the open door. now you are standing in the washroom. there is a washbasin on your right side and a glass window on your left side. that will be the end point. eu6fwq7syzv">
+      <div class="card-head">
+        <span class="badge outcome fail">fail</span>
+        <span class="badge scene">EU6Fwq7SyZv</span>
+        <span class="badge len">115w &middot; long</span>
+      </div>
+      <div class="card-instr">You are facing towards the photo frames which are attached to the wall. Turn around and walk straightly towards the closed door. Slightly turn left and move towards the sofa. Now walk straightly towards the wooden railings. Slightly turn right and move forward. Turn left and walk all the way to the top of the stairs. Now turn right and move forward. There is a bed on your left side and an open door on your right side. Turn right and walk through the open door. Now you are standing in the washroom. There is a washbasin on your right side and a glass window on your left side. That will be the end point.</div>
+      <video controls preload="none">
+        <source src="videos/EU6Fwq7SyZv-6678.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>431</dd></div>
+        <div><dt>SPL</dt><dd>0.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.11</dd></div>
+        <div><dt>path</dt><dd>48.2m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card fail" data-outcome="fail" data-len="long" data-search="you are near the stairs, turn towards your right and keep moving forward. walk along side the staircase support and turn towards your left, in front you can find a brown color dinning table. go near the dinning table and turn towards your right. keep moving forward along the dinning table on your right and turn right again. in front you can find a stove, go near that and turn towards your right. in front you can find a staircase, go near the stairs and climb up the stairs, all the way to the top floor. now you are on a top floor, turn towards you right and you are in a bedroom. go and stand beside the bed and turn towards your right. you can find a white door on the right side, keep moving forwards and pass through the door. you enter into a washroom. in front you can find an another white door, go pass through the door and you enter into an another bed room. stand beside the bed and turn right again, move forward near the staircase support and turn right. walk along side the staircase support and the brown color cupboard on your right. move forwards and stand between brown color cupboard and a staircase support. you reached your destination. eu6fwq7syzv">
+      <div class="card-head">
+        <span class="badge outcome fail">fail</span>
+        <span class="badge scene">EU6Fwq7SyZv</span>
+        <span class="badge len">216w &middot; long</span>
+      </div>
+      <div class="card-instr">You are near the stairs, turn towards your right and keep moving forward. Walk along side the staircase support and turn towards your left, in front you can find a brown color dinning table. Go near the dinning table and turn towards your right. Keep moving forward along the dinning table on your right and turn right again. In front you can find a stove, go near that and turn towards your right. In front you can find a staircase, go near the stairs and climb up the stairs, all the way to the top floor. Now you are on a top floor, turn towards you right and you are in a bedroom. Go and stand beside the bed and turn towards your right. You can find a white door on the right side, keep moving forwards and pass through the door. You enter into a washroom. In front you can find an another white door, go pass through the door and you enter into an another bed room. Stand beside the bed and turn right again, move forward near the staircase support and turn right. Walk along side the staircase support and the brown color cupboard on your right. Move forwards and stand between brown color cupboard and a staircase support. You reached your destination.</div>
+      <video controls preload="none">
+        <source src="videos/EU6Fwq7SyZv-10468.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>671</dd></div>
+        <div><dt>SPL</dt><dd>0.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.09</dd></div>
+        <div><dt>path</dt><dd>70.6m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card fail" data-outcome="fail" data-len="medium" data-search="you begin facing a study, turn slightly to your left and you will see 2 open double doors, take a step towards them, take one step out into the hallway on the white tiled floor and then turn to your right, you will see a bathroom, take one step into the bathroom and you're done. quctc6bb5sx">
+      <div class="card-head">
+        <span class="badge outcome fail">fail</span>
+        <span class="badge scene">QUCTc6BB5sX</span>
+        <span class="badge len">55w &middot; medium</span>
+      </div>
+      <div class="card-instr">You begin facing a study, turn slightly to your left and you will see 2 open double doors, take a step towards them, take one step out into the hallway on the white tiled floor and then turn to your right, you will see a bathroom, take one step into the bathroom and you're done.</div>
+      <video controls preload="none">
+        <source src="videos/QUCTc6BB5sX-5349.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>54</dd></div>
+        <div><dt>SPL</dt><dd>0.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.14</dd></div>
+        <div><dt>path</dt><dd>10.0m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card fail" data-outcome="fail" data-len="long" data-search="you're looking into a living room turn right and walk down this hallway past the glass doors on the right and left. all the way to the end until you get to a table with a vase on it and turn to the left and take one step and you'll see a doorway on the left that looks like a bathroom. and then turn around and take a step into the office where you see the shelves. and take a step to the right of this desk and take a step towards the window. and once you're standing at the window you're done. quctc6bb5sx">
+      <div class="card-head">
+        <span class="badge outcome fail">fail</span>
+        <span class="badge scene">QUCTc6BB5sX</span>
+        <span class="badge len">103w &middot; long</span>
+      </div>
+      <div class="card-instr">You're looking into a living room turn right and walk down this hallway past the glass doors on the right and left. All the way to the end until you get to a table with a vase on it and turn to the left and take one step and you'll see a doorway on the left that looks like a bathroom. And then turn around and take a step into the office where you see the shelves. And take a step to the right of this desk and take a step towards the window. And once you're standing at the window you're done.</div>
+      <video controls preload="none">
+        <source src="videos/QUCTc6BB5sX-9620.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>194</dd></div>
+        <div><dt>SPL</dt><dd>0.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.03</dd></div>
+        <div><dt>path</dt><dd>31.7m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card fail" data-outcome="fail" data-len="long" data-search="you are facing towards the wall. there is a dinning table towards your left and cabinet towards your right. slightly turn right. walk straight and enter inside the arch that is in the front. turn left and walk a few steps ahead. turn right and enter inside the arch. you are now standing beside the stone pillar. turn around and enter inside the arch that is in the front. you are now standing beside the oval shaped glass table. turn right and walk a few steps ahead. turn right. walk straight till you reach the painting in the front. turn left. walk a few steps ahead and turn right. enter inside the arch. slightly turn left and walk a few steps ahead. stand in front of the gym equipment. there is a cupboard towards your left side. you have reached your point. quctc6bb5sx">
+      <div class="card-head">
+        <span class="badge outcome fail">fail</span>
+        <span class="badge scene">QUCTc6BB5sX</span>
+        <span class="badge len">142w &middot; long</span>
+      </div>
+      <div class="card-instr">You are facing towards the wall. There is a dinning table towards your left and cabinet towards your right. Slightly turn right. Walk straight and enter inside the arch that is in the front. Turn left and walk a few steps ahead. Turn right and enter inside the arch. You are now standing beside the stone pillar. Turn around and enter inside the arch that is in the front. You are now standing beside the oval shaped glass table. Turn right and walk a few steps ahead. Turn right. Walk straight till you reach the painting in the front. Turn left. Walk a few steps ahead and turn right. Enter inside the arch. Slightly turn left and walk a few steps ahead. Stand in front of the gym equipment. There is a cupboard towards your left side. You have reached your point.</div>
+      <video controls preload="none">
+        <source src="videos/QUCTc6BB5sX-9433.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>135</dd></div>
+        <div><dt>SPL</dt><dd>0.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.55</dd></div>
+        <div><dt>path</dt><dd>16.4m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card fail" data-outcome="fail" data-len="long" data-search="starting in the corner of the room, turn left behind the dining room table past the mirror through the doorway into the kitchen into the doorway to the left of the counter top island. turn right just before the island, proceed forward toward the fireplace. stop just before the couch and the divider into the living area, turn right through the doorway to the top of the staircase and proceed down the stairs. turn left.. right at the base of the stairs, make a sharp right around the of corner and proceed down the hall in front of the baskets. make another right and walk straight through the doorway all he way to the center of the two chairs directly in front of you and stop. tbhjrupsajp">
+      <div class="card-head">
+        <span class="badge outcome fail">fail</span>
+        <span class="badge scene">TbHJrupSAjP</span>
+        <span class="badge len">126w &middot; long</span>
+      </div>
+      <div class="card-instr">Starting in the corner of the room, turn left behind the dining room table past the mirror through the doorway into the kitchen into the doorway to the left of the counter top island. Turn right just before the island, proceed forward toward the fireplace. Stop just before the couch and the divider into the living area, turn right through the doorway to the top of the staircase and proceed down the stairs. Turn left.. right at the base of the stairs, make a sharp right around the of corner and proceed down the hall in front of the baskets. Make another right and walk straight through the doorway all he way to the center of the two chairs directly in front of you and stop.</div>
+      <video controls preload="none">
+        <source src="videos/TbHJrupSAjP-4518.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>439</dd></div>
+        <div><dt>SPL</dt><dd>0.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.44</dd></div>
+        <div><dt>path</dt><dd>49.1m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card fail" data-outcome="fail" data-len="long" data-search="you are standing in the middle of a sectional.  you are going to turn to your left and walk towards the wall with the dark wood shelving.  facing the wood shelving you are going to turn to your right and continue forward, you will be walking towards a kitchen area with a round marble top table and stools under it.  you will pass that on your right hand side.  continue passing it and you will come to an opening on your left.  you will see a dining room glass table in there with white chairs.  enter that room.  and you are going to walk into that room walking in between the wall on your left and the white chairs at the table on your right.  you will now come upon a living room, there will be a fireplace to your right. you will veer to the left in that room.  once in that room with the fireplace behind you you will see an entrance way on your right and some stairs on your left.  you are going to walk past those stairs.  and you are going to come into a walkway to the left will be a plant and a wicker planter and 3 wicker shaped vases.  you are going to stop right next to those and you are done. tbhjrupsajp">
+      <div class="card-head">
+        <span class="badge outcome fail">fail</span>
+        <span class="badge scene">TbHJrupSAjP</span>
+        <span class="badge len">220w &middot; long</span>
+      </div>
+      <div class="card-instr">You are standing in the middle of a sectional.  You are going to turn to your left and walk towards the wall with the dark wood shelving.  Facing the wood shelving you are going to turn to your right and continue forward, you will be walking towards a kitchen area with a round marble top table and stools under it.  You will pass that on your right hand side.  Continue passing it and you will come to an opening on your left.  You will see a dining room glass table in there with white chairs.  Enter that room.  And you are going to walk into that room walking in between the wall on your left and the white chairs at the table on your right.  You will now come upon a living room, there will be a fireplace to your right. You will veer to the left in that room.  Once in that room with the fireplace behind you you will see an entrance way on your right and some stairs on your left.  You are going to walk past those stairs.  And you are going to come into a walkway to the left will be a plant and a wicker planter and 3 wicker shaped vases.  You are going to stop right next to those and you are done.</div>
+      <video controls preload="none">
+        <source src="videos/TbHJrupSAjP-3393.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>288</dd></div>
+        <div><dt>SPL</dt><dd>0.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.74</dd></div>
+        <div><dt>path</dt><dd>27.6m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card fail" data-outcome="fail" data-len="medium" data-search="right now you're facing towards a wall. now turn left and move towards the grass which is in front of you. now turn right and move forward in the walkway, you can see few steps to your right. now turn right and climb up the steps. there is an open door in front of you, move towards the door and enter in to the room. you can see few steps in front of you, move towards the steps and stand on the steps and it is your end point. x7hymhznoso">
+      <div class="card-head">
+        <span class="badge outcome fail">fail</span>
+        <span class="badge scene">X7HyMhZNoso</span>
+        <span class="badge len">89w &middot; medium</span>
+      </div>
+      <div class="card-instr">Right now you're facing towards a wall. Now turn left and move towards the grass which is in front of you. Now turn right and move forward in the walkway, you can see few steps to your right. Now turn right and climb up the steps. There is an open door in front of you, move towards the door and enter in to the room. You can see few steps in front of you, move towards the steps and stand on the steps and it is your end point.</div>
+      <video controls preload="none">
+        <source src="videos/X7HyMhZNoso-2328.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>480</dd></div>
+        <div><dt>SPL</dt><dd>0.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.10</dd></div>
+        <div><dt>path</dt><dd>83.3m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card fail" data-outcome="fail" data-len="long" data-search="right now you are in the kitchen, now on the right side you can find fridge, now go straight and turn left, you will find dining table, go near the dining table and turn right, now go straight, you will enter into the living area, in front of you, you can find a sliding door, go near the door and step out of the living area, you will find a table with four chairs and on the left side you will find a sitting area, now go near the chair, and now keep moving forward, you will find a small glass fridge, go and stand in front of the small glass fridge, that will be your final destination. x7hymhznoso">
+      <div class="card-head">
+        <span class="badge outcome fail">fail</span>
+        <span class="badge scene">X7HyMhZNoso</span>
+        <span class="badge len">118w &middot; long</span>
+      </div>
+      <div class="card-instr">Right now you are in the kitchen, now on the right side you can find fridge, now go straight and turn left, you will find dining table, go near the dining table and turn right, now go straight, you will enter into the living area, in front of you, you can find a sliding door, go near the door and step out of the living area, you will find a table with four chairs and on the left side you will find a sitting area, now go near the chair, and now keep moving forward, you will find a small glass fridge, go and stand in front of the small glass fridge, that will be your final destination.</div>
+      <video controls preload="none">
+        <source src="videos/X7HyMhZNoso-2305.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>191</dd></div>
+        <div><dt>SPL</dt><dd>0.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.39</dd></div>
+        <div><dt>path</dt><dd>28.1m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card fail" data-outcome="fail" data-len="long" data-search="turn around so you're facing inside. look at the fridge in the distance and take a giant leap towards the fridge. just to the right of the fridge, over the kitchen island, you want to jump over the corner of the kitchen island to the right, towards the stove top on the counter top to the right of the fridge and the cabinets. once you've jumped over, face the sink with the dishwasher just below it to the left, walk towards the dishwasher. turn to your right and walk towards the end chair at the dining room table. turn right again, now the table will be on your left, the kitchen island on your right, and walk back towards the grey couches. take two steps towards those grey couches, then instead of going another step, turn to the right and to the left of the fridge are some stairs, take those stairs, walk up the stairs. see a brown door straight ahead, continue till you're just past the stairwell on your right and can you see down a right hallway that's hardwood that's going into a bathroom. when you can see that hallway and you can see the brown front door and just a bit of the couch under the doorway in the carpeted area, you're done. x7hymhznoso">
+      <div class="card-head">
+        <span class="badge outcome fail">fail</span>
+        <span class="badge scene">X7HyMhZNoso</span>
+        <span class="badge len">217w &middot; long</span>
+      </div>
+      <div class="card-instr">Turn around so you're facing inside. Look at the fridge in the distance and take a giant leap towards the fridge. Just to the right of the fridge, over the kitchen island, you want to jump over the corner of the kitchen island to the right, towards the stove top on the counter top to the right of the fridge and the cabinets. Once you've jumped over, face the sink with the dishwasher just below it to the left, walk towards the dishwasher. Turn to your right and walk towards the end chair at the dining room table. Turn right again, now the table will be on your left, the kitchen island on your right, and walk back towards the grey couches. Take two steps towards those grey couches, then instead of going another step, turn to the right and to the left of the fridge are some stairs, take those stairs, walk up the stairs. See a brown door straight ahead, continue till you're just past the stairwell on your right and can you see down a right hallway that's hardwood that's going into a bathroom. When you can see that hallway and you can see the brown front door and just a bit of the couch under the doorway in the carpeted area, you're done.</div>
+      <video controls preload="none">
+        <source src="videos/X7HyMhZNoso-10391.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>383</dd></div>
+        <div><dt>SPL</dt><dd>0.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.10</dd></div>
+        <div><dt>path</dt><dd>2.6m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card fail" data-outcome="fail" data-len="medium" data-search="now you are at the entrance of the dining room. turn slightly right and enter into the dining room. now move straight in the dining room in between the cabinet and the dining table. now go and stand in the middle of the path which is in front of the dining table and the closed door which is the endpoint. z6mfqcvibuw">
+      <div class="card-head">
+        <span class="badge outcome fail">fail</span>
+        <span class="badge scene">Z6MFQCViBuw</span>
+        <span class="badge len">60w &middot; medium</span>
+      </div>
+      <div class="card-instr">Now you are at the entrance of the dining room. Turn slightly right and enter into the dining room. Now move straight in the dining room in between the cabinet and the dining table. Now go and stand in the middle of the path which is in front of the dining table and the closed door which is the endpoint.</div>
+      <video controls preload="none">
+        <source src="videos/Z6MFQCViBuw-9695.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>66</dd></div>
+        <div><dt>SPL</dt><dd>0.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.19</dd></div>
+        <div><dt>path</dt><dd>13.2m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card fail" data-outcome="fail" data-len="long" data-search="facing the table with red table cloth and a small red chair behind it and the red curtains. turn 90 degrees to your left and walk through to open doors along the red carpet way. turn 45 degrees to your right, jump over the red tape towards a large kind of structure, a brown structure. jump over the red tape towards the base of it. continue to the right of the structure towards a wall with a very large painting on it in front of a red wall. it's a large painting of many faces. facing that painting, turn 90 degrees to your left, continue down the carpet, keeping the large structure on the left with art pieces on the right will be the red wall. continue along the red carpet towards the chair at the end of the carpet, but stop short of the end of the carpet, on your left should be the structure still with the paintings, on your right should be a window with white curtains pulled back on the right side. once you're in line with that window, still on the red carpet, you're done. z6mfqcvibuw">
+      <div class="card-head">
+        <span class="badge outcome fail">fail</span>
+        <span class="badge scene">Z6MFQCViBuw</span>
+        <span class="badge len">190w &middot; long</span>
+      </div>
+      <div class="card-instr">Facing the table with red table cloth and a small red chair behind it and the red curtains. Turn 90 degrees to your left and walk through to open doors along the red carpet way. Turn 45 degrees to your right, jump over the red tape towards a large kind of structure, a brown structure. Jump over the red tape towards the base of it. Continue to the right of the structure towards a wall with a very large painting on it in front of a red wall. It's a large painting of many faces. Facing that painting, turn 90 degrees to your left, continue down the carpet, keeping the large structure on the left with art pieces on the right will be the red wall. Continue along the red carpet towards the chair at the end of the carpet, but stop short of the end of the carpet, on your left should be the structure still with the paintings, on your right should be a window with white curtains pulled back on the right side. Once you're in line with that window, still on the red carpet, you're done.</div>
+      <video controls preload="none">
+        <source src="videos/Z6MFQCViBuw-8083.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>114</dd></div>
+        <div><dt>SPL</dt><dd>0.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.45</dd></div>
+        <div><dt>path</dt><dd>23.0m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card fail" data-outcome="fail" data-len="long" data-search="turn left and go down the stairs. step and stand between the 2 doorways in front of you between the 2 rugs on the floor. turn to your right. and that means straight ahead is a hallway with a carpet and to your right are some stairs. walk forward to the little area rug that's in the hallway in front of you. take another step forward towards a giant sea shell that's on the floor. turn left. step between the area rug and some dark piece of artwork that's on the floor to the right. turn slightly left and step towards the table with the bust of a person with 3 pictures above it. i don't know who that man is. turn left. step through the doorway to the carpet outside to the carpet in front of the doorway. go down the stairs in front of you. one you get to the bottom step onto that area rug. turn right. continue down the stairs. you're going to end when you're halfway down the second set of stairs. to your left is the cracked wall. to your right you see the like stairs that are going down that you just came down and below that you see like an old hieroglyphic looking wall art thing and you're done. olbmnvg9in8">
+      <div class="card-head">
+        <span class="badge outcome fail">fail</span>
+        <span class="badge scene">oLBMNvg9in8</span>
+        <span class="badge len">217w &middot; long</span>
+      </div>
+      <div class="card-instr">Turn left and go down the stairs. Step and stand between the 2 doorways in front of you between the 2 rugs on the floor. Turn to your right. And that means straight ahead is a hallway with a carpet and to your right are some stairs. Walk forward to the little area rug that's in the hallway in front of you. Take another step forward towards a giant sea shell that's on the floor. Turn left. Step between the area rug and some dark piece of artwork that's on the floor to the right. Turn slightly left and step towards the table with the bust of a person with 3 pictures above it. I don't know who that man is. Turn left. Step through the doorway to the carpet outside to the carpet in front of the doorway. Go down the stairs in front of you. One you get to the bottom step onto that area rug. Turn right. Continue down the stairs. You're going to end when you're halfway down the second set of stairs. To your left is the cracked wall. To your right you see the like stairs that are going down that you just came down and below that you see like an old hieroglyphic looking wall art thing and you're done.</div>
+      <video controls preload="none">
+        <source src="videos/oLBMNvg9in8-10808.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>179</dd></div>
+        <div><dt>SPL</dt><dd>0.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.27</dd></div>
+        <div><dt>path</dt><dd>21.6m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card fail" data-outcome="fail" data-len="long" data-search="you start staring at a old wooden stand, if you turn to the right you see a pathway leading out of the old stand area that you are in. head to the very end of that pathway. once you are up against the wall by the last chair to your right. if you turn to the left you see a way to get onto the stone flooring in front of you. step onto the stone flooring. if you turn your body to the right you should be right next to a stone doorway. in front of you there is a stone table. you are going to want to take a left, head to the left of that stone table once you are on the left of that stone table, it is to your right. if you look to the left you will see a stone carving of what looks like two doors. once with a tree on it. if you are in between those stone cravings and that stone table you are done. ple4wqe7qrg">
+      <div class="card-head">
+        <span class="badge outcome fail">fail</span>
+        <span class="badge scene">pLe4wQe7qrG</span>
+        <span class="badge len">173w &middot; long</span>
+      </div>
+      <div class="card-instr">you start staring at a old wooden stand, if you turn to the right you see a pathway leading out of the old stand area that you are in. head to the very end of that pathway. once you are up against the wall by the last chair to your right. if you turn to the left you see a way to get onto the stone flooring in front of you. step onto the stone flooring. if you turn your body to the right you should be right next to a stone doorway. in front of you there is a stone table. you are going to want to take a left, head to the left of that stone table once you are on the left of that stone table, it is to your right. if you look to the left you will see a stone carving of what looks like two doors. once with a tree on it. if you are in between those stone cravings and that stone table you are done.</div>
+      <video controls preload="none">
+        <source src="videos/pLe4wQe7qrG-2182.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>143</dd></div>
+        <div><dt>SPL</dt><dd>0.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.15</dd></div>
+        <div><dt>path</dt><dd>14.5m</dd></div>
+      </dl>
+    </article>
+
+    <article class="card fail" data-outcome="fail" data-len="long" data-search="you're standing inside a sauna room, turn left and walk towards the blue tile work on the wall, then turn slightly to your right and walk towards the exit of the sauna and step out of it in the direction of a pool in front of you. once you're outside of the room turn left, you will have a chair to your left, the pool on your right some steps directly ahead, walk towards those steps and keep walking towards the bar area in front of you until you reach the corner or the edge of that bar, and then turn left. you'll see the stairs lead to another room and there's going to be a door on the back wall after a second set of steps, walk towards that door in the back past the second set of steps and past an open door on your right side, and you'll notice there's a small planter on the left corner of that same wall where the door is open now in front of you. there are some pebbles in the floor with the shape of an a, r and a t. walk towards the planter on that corner stepping on the pebbles. that's your spot. x8f5xyuwy9e">
+      <div class="card-head">
+        <span class="badge outcome fail">fail</span>
+        <span class="badge scene">x8F5xyUWy9e</span>
+        <span class="badge len">205w &middot; long</span>
+      </div>
+      <div class="card-instr">You're standing inside a sauna room, turn left and walk towards the blue tile work on the wall, then turn slightly to your right and walk towards the exit of the sauna and step out of it in the direction of a pool in front of you. Once you're outside of the room turn left, you will have a chair to your left, the pool on your right some steps directly ahead, walk towards those steps and keep walking towards the bar area in front of you until you reach the corner or the edge of that bar, and then turn left. You'll see the stairs lead to another room and there's going to be a door on the back wall after a second set of steps, walk towards that door in the back past the second set of steps and past an open door on your right side, and you'll notice there's a small planter on the left corner of that same wall where the door is open now in front of you. There are some pebbles in the floor with the shape of an A, R and a T. Walk towards the planter on that corner stepping on the pebbles. That's your spot.</div>
+      <video controls preload="none">
+        <source src="videos/x8F5xyUWy9e-10091.mp4" type="video/mp4">
+      </video>
+      <dl class="readout">
+        <div><dt>steps</dt><dd>132</dd></div>
+        <div><dt>SPL</dt><dd>0.00</dd></div>
+        <div><dt>nDTW</dt><dd>0.70</dd></div>
+        <div><dt>path</dt><dd>19.9m</dd></div>
+      </dl>
+    </article>
+  </div>
+  <div id="empty">no tasks match these filters</div>
+
+  <footer>
+    Generated by running <code>run.py --run-type eval</code> against a hand-picked, length- and scene-diverse
+    subset of the unmodified <code>RxR_VLNCE_v0_enc_xlmr/val_unseen</code> split &mdash; real instructions, real
+    goals, real success/SPL/nDTW.
+  </footer>
+</div>
+
+<script>
+(function() {
+  var state = { outcome: 'all', len: 'all' };
+  var cards = Array.from(document.querySelectorAll('.card'));
+  var grid = document.getElementById('grid');
+  var empty = document.getElementById('empty');
+  var countEl = document.getElementById('count');
+  var search = document.getElementById('search');
+
+  document.querySelectorAll('.controls .group').forEach(function(group) {
+    var key = group.getAttribute('data-filter-group');
+    group.querySelectorAll('.chip').forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        group.querySelectorAll('.chip').forEach(function(c) { c.classList.remove('active'); });
+        chip.classList.add('active');
+        state[key] = chip.getAttribute('data-value');
+        apply();
+      });
+    });
+  });
+  search.addEventListener('input', apply);
+
+  function apply() {
+    var q = search.value.trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function(card) {
+      var okOutcome = state.outcome === 'all' || card.getAttribute('data-outcome') === state.outcome;
+      var okLen = state.len === 'all' || card.getAttribute('data-len') === state.len;
+      var text = card.getAttribute('data-search');
+      var okSearch = !q || text.indexOf(q) !== -1;
+      var visible = okOutcome && okLen && okSearch;
+      card.hidden = !visible;
+      if (visible) shown++;
+    });
+    countEl.textContent = shown + ' shown';
+    empty.style.display = shown === 0 ? 'block' : 'none';
+  }
+  apply();
+})();
+</script>

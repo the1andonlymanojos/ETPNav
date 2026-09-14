@@ -1,0 +1,171 @@
+<title>Spatial Prompt Reformulation Test</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #eef1f4; --surface: #ffffff; --surface-2: #e4e9ed; --border: #d3dade;
+    --text: #1a222b; --text-dim: #5a6672;
+    --pass: #0e7c86; --pass-soft: #dff1f2;
+    --close: #9a7b1f; --close-soft: #f6efdc;
+    --miss: #9b3b3b; --miss-soft: #f6e2e2;
+    --accent: #a85a17; --accent-soft: #f7e8d8;
+    --shadow: 0 1px 2px rgba(20, 30, 40, 0.06), 0 6px 18px rgba(20, 30, 40, 0.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12161b; --surface: #1a1f26; --surface-2: #20262e; --border: #2b333c;
+      --text: #e8ecef; --text-dim: #97a2ac;
+      --pass: #5eead4; --pass-soft: rgba(94, 234, 212, 0.1);
+      --close: #f0d264; --close-soft: rgba(240, 210, 100, 0.1);
+      --miss: #ef9a9a; --miss-soft: rgba(239, 154, 154, 0.1);
+      --accent: #f2a65a; --accent-soft: rgba(242, 166, 90, 0.12);
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 24px rgba(0, 0, 0, 0.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12161b; --surface: #1a1f26; --surface-2: #20262e; --border: #2b333c;
+    --text: #e8ecef; --text-dim: #97a2ac;
+    --pass: #5eead4; --pass-soft: rgba(94, 234, 212, 0.1);
+    --close: #f0d264; --close-soft: rgba(240, 210, 100, 0.1);
+    --miss: #ef9a9a; --miss-soft: rgba(239, 154, 154, 0.1);
+    --accent: #f2a65a; --accent-soft: rgba(242, 166, 90, 0.12);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 24px rgba(0, 0, 0, 0.35);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--text); font-family: "IBM Plex Sans", system-ui, sans-serif;
+    margin: 0; padding: 2.5rem 1.25rem 5rem; line-height: 1.5;
+  }
+  .page { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 2.25rem; }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--pass); display: flex; align-items: center; gap: 0.5rem;
+  }
+  .eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--pass); box-shadow: 0 0 0 3px var(--pass-soft); }
+
+  h1 { font-size: clamp(1.6rem, 3.4vw, 2.05rem); font-weight: 700; margin: 0.4rem 0 0; text-wrap: balance; letter-spacing: -0.01em; }
+  h2 { font-size: 1.15rem; font-weight: 700; margin: 0; }
+  .dek { color: var(--text-dim); max-width: 76ch; font-size: 0.98rem; margin-top: 0.5rem; }
+  .dek code { font-family: "IBM Plex Mono", monospace; background: var(--surface-2); padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.88em; }
+
+  .hypothesis {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 1.1rem 1.3rem; box-shadow: var(--shadow); font-size: 0.92rem;
+  }
+  .hypothesis h2 { margin-bottom: 0.6rem; }
+  .hypothesis ul { margin: 0.4rem 0 0; padding-left: 1.2rem; }
+  .hypothesis li { margin-bottom: 0.4rem; }
+  .hypothesis p { margin: 0.5rem 0; color: var(--text-dim); }
+
+  .case {
+    display: flex; flex-direction: column; gap: 0.9rem;
+  }
+  .case-head {
+    display: flex; align-items: baseline; gap: 0.7rem; flex-wrap: wrap;
+    padding-bottom: 0.5rem; border-bottom: 2px solid var(--border);
+  }
+  .case-head .badge {
+    font-family: "IBM Plex Mono", monospace; font-size: 0.68rem; text-transform: uppercase;
+    letter-spacing: 0.05em; padding: 0.15rem 0.55rem; border-radius: 999px;
+    background: var(--accent-soft); color: var(--accent);
+  }
+  .case-head .orig-note { font-size: 0.82rem; color: var(--text-dim); }
+
+  .tiers {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1rem;
+  }
+  .tier-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    box-shadow: var(--shadow); overflow: hidden; display: flex; flex-direction: column;
+    border-left: 4px solid var(--pass);
+  }
+  .tier-card.close { border-left-color: var(--close); }
+  .tier-card.miss { border-left-color: var(--miss); }
+
+  .tier-head {
+    padding: 0.55rem 0.75rem; background: var(--surface-2); border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center; gap: 0.4rem;
+  }
+  .tier-name {
+    font-family: "IBM Plex Mono", monospace; font-size: 0.7rem; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--text-dim);
+  }
+  .tier-outcome {
+    font-family: "IBM Plex Mono", monospace; font-size: 0.66rem; text-transform: uppercase;
+    padding: 0.1rem 0.4rem; border-radius: 999px;
+  }
+  .tier-outcome.pass { background: var(--pass-soft); color: var(--pass); }
+  .tier-outcome.close { background: var(--close-soft); color: var(--close); }
+  .tier-outcome.miss { background: var(--miss-soft); color: var(--miss); }
+
+  .tier-instr {
+    padding: 0.6rem 0.75rem; font-family: "IBM Plex Mono", monospace; font-size: 0.78rem; color: var(--text);
+    min-height: 3.6rem;
+  }
+  .tier-card video { display: block; width: 100%; background: #05070a; }
+  .tier-stats {
+    display: flex; justify-content: space-around; padding: 0.4rem; border-top: 1px solid var(--border);
+    font-family: "IBM Plex Mono", monospace; font-size: 0.76rem; color: var(--text-dim);
+  }
+  .tier-stats b { color: var(--text); font-weight: 500; }
+
+  footer { font-size: 0.8rem; color: var(--text-dim); border-top: 1px solid var(--border); padding-top: 1.1rem; }
+  footer code { font-family: "IBM Plex Mono", monospace; background: var(--surface-2); padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.8rem; }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="page">
+  <div>
+    <div class="eyebrow">ETPNav &middot; release_r2r checkpoint &middot; prompt reformulation probe</div>
+    <h1>Does rephrasing fix spatial instructions?</h1>
+    <p class="dek">Four instructions that clearly missed their target in the earlier spatial-relation test,
+      each rerun with five phrasings &mdash; same house, same start pose, same computed target &mdash; from a
+      bare command up to a fully narrated, R2R-style instruction. Only the wording changes.</p>
+  </div>
+
+  <div class="hypothesis">
+    <h2>What we found</h2>
+    <p><strong>Rephrasing barely moved the needle.</strong> For 3 of the 4 cases (sofa/right,
+      dresser/behind, bookshelf/next-to), final distance-to-target is <strong>identical to two decimal
+      places</strong> across all five phrasings &mdash; the bare command and the fully narrated,
+      explicit-stop-cue version land the agent in the same spot. The one case with any spread
+      (table/left, 3.47&ndash;5.33m) shows no consistent trend: the two mid-length phrasings did best,
+      but the longest, most explicit "narrated" version was <em>no better than the bare command</em>.
+      That rules out "make the instruction longer/more explicit" as a fix on its own.</p>
+    <ul>
+      <li><strong>The model gets to the right neighborhood, not the right side.</strong> All four cases
+        land within ~5&ndash;13m of a target that's only ~2&ndash;3m from the object &mdash; it's finding
+        the landmark's general area (visible in the videos) but not resolving "which side." R2R/RxR
+        training instructions almost never ask an agent to stop at a specific offset from an object's
+        left/right/behind; the model likely never learned that distinction, so no phrasing recovers it.</li>
+      <li><strong>Bookshelf/next-to did respond to phrasing in path shape, not outcome.</strong> Step count
+        dropped from 101 (bare) to 32 (two-step) and path length from 13.2m to 4.8m &mdash; the more direct
+        phrasings clearly changed <em>how</em> it moved &mdash; but it still ended up roughly the same
+        distance from our target, just via a shorter route to a different wrong spot.</li>
+      <li><strong>Dresser/behind surfaced a second, unrelated failure mode: a deadlock.</strong> All five
+        phrasings took 210+ steps to cover a net 1.68m, with a collision rate over 10 &mdash; the agent is
+        stuck oscillating against an obstacle near the start, not failing to understand "behind" at all.
+        This is the same deadlock behavior the ETPNav paper documents for its Tryout controller (§4.3.4,
+        Fig. 6) under sliding-forbidden conditions &mdash; a control/obstacle-avoidance failure, not a
+        language one, and phrasing was never going to fix it.</li>
+    </ul>
+    <p>Net read: the 8% pass rate isn't primarily a prompt-clarity problem. It's the topological
+      waypoint/ghost-node planner weighting visual/structural priors (open doorways, room layout) over
+      fine-grained language for close-range positioning it was never trained to resolve &mdash; plus, at
+      least once here, a genuine control-layer deadlock unrelated to language at all.</p>
+  </div>
+
+  <!--CASES-->
+
+  <footer>
+    Generated by <code>scripts/run_phrasing_experiment.py</code>, reusing the exact start pose and geometric
+    target from four misses in the earlier
+    <a href="#">Custom Extremely Spatial Instructions Test</a>. Distance is to the same computed target used
+    there (pass &le;1.5m, close 1.5&ndash;3m, miss &gt;3m).
+  </footer>
+</div>

@@ -1,0 +1,927 @@
+[
+  {
+    "episode_id": 0,
+    "category": "bed",
+    "human_name": "bed",
+    "relation": "left",
+    "instruction": "Move to the left of the bed.",
+    "object_center": [
+      17.440399169921875,
+      0.4009432792663574,
+      -6.785029411315918
+    ],
+    "object_radius": 1.0850400924682617,
+    "start_position": [
+      17.440399169921875,
+      0.17162801325321198,
+      -3.8527698516845703
+    ],
+    "target_position": [
+      14.95535945892334,
+      0.17162801325321198,
+      -6.785029411315918
+    ],
+    "target_offset_from_object": 2.485039710998535,
+    "video_path": "/home/storms-end/ETPNav/data/logs/video/spatial_zsNo4HB9uLZ_0/zsNo4HB9uLZ-0-SPL1.00.mp4",
+    "stats": {
+      "steps_taken": 18.0,
+      "distance_to_goal": 1.079148292541504,
+      "success": 1.0,
+      "oracle_success": 1.0,
+      "path_length": 3.0173451900482178,
+      "collisions": 0.0,
+      "spl": 1.0,
+      "ndtw": 0.09356056728522433,
+      "sdtw": 0.09356056728522433,
+      "ghost_cnt": 10.0
+    }
+  },
+  {
+    "episode_id": 1,
+    "category": "bed",
+    "human_name": "bed",
+    "relation": "right",
+    "instruction": "Move to the right of the bed.",
+    "object_center": [
+      17.440399169921875,
+      0.4009432792663574,
+      -6.785029411315918
+    ],
+    "object_radius": 1.0850400924682617,
+    "start_position": [
+      17.440399169921875,
+      0.17162801325321198,
+      -3.8527698516845703
+    ],
+    "target_position": [
+      19.000585556030273,
+      0.17162801325321198,
+      -6.854393482208252
+    ],
+    "target_offset_from_object": 1.561727547854856,
+    "video_path": "/home/storms-end/ETPNav/data/logs/video/spatial_zsNo4HB9uLZ_1/zsNo4HB9uLZ-1-SPL0.00.mp4",
+    "stats": {
+      "steps_taken": 18.0,
+      "distance_to_goal": 4.215436935424805,
+      "success": 0.0,
+      "oracle_success": 0.0,
+      "path_length": 3.0173451900482178,
+      "collisions": 0.0,
+      "spl": 0.0,
+      "ndtw": 0.039298117046871806,
+      "sdtw": 0.0,
+      "ghost_cnt": 10.0
+    }
+  },
+  {
+    "episode_id": 2,
+    "category": "bed",
+    "human_name": "bed",
+    "relation": "next to",
+    "instruction": "Stand next to the bed.",
+    "object_center": [
+      17.440399169921875,
+      0.4009432792663574,
+      -6.785029411315918
+    ],
+    "object_radius": 1.0850400924682617,
+    "start_position": [
+      17.440399169921875,
+      0.17162801325321198,
+      -3.8527698516845703
+    ],
+    "target_position": [
+      18.899927139282227,
+      0.17162801325321198,
+      -6.785029411315918
+    ],
+    "target_offset_from_object": 1.4595279693603516,
+    "video_path": "/home/storms-end/ETPNav/data/logs/video/spatial_zsNo4HB9uLZ_2/zsNo4HB9uLZ-2-SPL0.00.mp4",
+    "stats": {
+      "steps_taken": 69.0,
+      "distance_to_goal": 3.20042085647583,
+      "success": 0.0,
+      "oracle_success": 0.0,
+      "path_length": 9.750001907348633,
+      "collisions": 0.0,
+      "spl": 0.0,
+      "ndtw": 7.901242766140286e-07,
+      "sdtw": 0.0,
+      "ghost_cnt": 16.0
+    }
+  },
+  {
+    "episode_id": 3,
+    "category": "chest_of_drawers",
+    "human_name": "dresser",
+    "relation": "left",
+    "instruction": "Move to the left of the dresser.",
+    "object_center": [
+      16.3257999420166,
+      0.4626607894897461,
+      -7.64518928527832
+    ],
+    "object_radius": 0.32900428771972656,
+    "start_position": [
+      19.015472412109375,
+      0.17162801325321198,
+      -7.580921649932861
+    ],
+    "target_position": [
+      16.28449821472168,
+      0.31172335147857666,
+      -5.916678428649902
+    ],
+    "target_offset_from_object": 1.7290042261833403,
+    "video_path": "/home/storms-end/ETPNav/data/logs/video/spatial_zsNo4HB9uLZ_3/zsNo4HB9uLZ-3-SPL1.00.mp4",
+    "stats": {
+      "steps_taken": 81.0,
+      "distance_to_goal": 2.9841136932373047,
+      "success": 1.0,
+      "oracle_success": 1.0,
+      "path_length": 1.67836332321167,
+      "collisions": 9.125,
+      "spl": 1.0,
+      "ndtw": 0.29792835554699265,
+      "sdtw": 0.29792835554699265,
+      "ghost_cnt": 20.0
+    }
+  },
+  {
+    "episode_id": 4,
+    "category": "chest_of_drawers",
+    "human_name": "dresser",
+    "relation": "behind",
+    "instruction": "Go behind the dresser.",
+    "object_center": [
+      16.3257999420166,
+      0.4626607894897461,
+      -7.64518928527832
+    ],
+    "object_radius": 0.32900428771972656,
+    "start_position": [
+      19.015472412109375,
+      0.17162801325321198,
+      -7.580921649932861
+    ],
+    "target_position": [
+      14.586729049682617,
+      0.17162801325321198,
+      -7.306311130523682
+    ],
+    "target_offset_from_object": 1.7717804526332346,
+    "video_path": "/home/storms-end/ETPNav/data/logs/video/spatial_zsNo4HB9uLZ_4/zsNo4HB9uLZ-4-SPL0.00.mp4",
+    "stats": {
+      "steps_taken": 210.0,
+      "distance_to_goal": 5.130978584289551,
+      "success": 0.0,
+      "oracle_success": 0.0,
+      "path_length": 1.67836332321167,
+      "collisions": 10.125,
+      "spl": 0.0,
+      "ndtw": 0.21783966629996104,
+      "sdtw": 0.0,
+      "ghost_cnt": 19.0
+    }
+  },
+  {
+    "episode_id": 5,
+    "category": "chest_of_drawers",
+    "human_name": "dresser",
+    "relation": "next to",
+    "instruction": "Stand next to the dresser.",
+    "object_center": [
+      16.3257999420166,
+      0.4626607894897461,
+      -7.64518928527832
+    ],
+    "object_radius": 0.32900428771972656,
+    "start_position": [
+      19.015472412109375,
+      0.17162801325321198,
+      -7.580921649932861
+    ],
+    "target_position": [
+      15.814212799072266,
+      0.17162801325321198,
+      -7.552770137786865
+    ],
+    "target_offset_from_object": 0.5198679675157873,
+    "video_path": "/home/storms-end/ETPNav/data/logs/video/spatial_zsNo4HB9uLZ_5/zsNo4HB9uLZ-5-SPL0.00.mp4",
+    "stats": {
+      "steps_taken": 210.0,
+      "distance_to_goal": 4.636382102966309,
+      "success": 0.0,
+      "oracle_success": 0.0,
+      "path_length": 1.67836332321167,
+      "collisions": 10.125,
+      "spl": 0.0,
+      "ndtw": 0.25878910842469277,
+      "sdtw": 0.0,
+      "ghost_cnt": 19.0
+    }
+  },
+  {
+    "episode_id": 6,
+    "category": "counter",
+    "human_name": "counter",
+    "relation": "left",
+    "instruction": "Move to the left of the counter.",
+    "object_center": [
+      10.211400032043457,
+      0.846534013748169,
+      -1.2721099853515625
+    ],
+    "object_radius": 1.6605701446533203,
+    "start_position": [
+      14.071969985961914,
+      0.17162801325321198,
+      -1.2721099853515625
+    ],
+    "target_position": [
+      10.211400032043457,
+      0.20810766518115997,
+      1.7884601354599
+    ],
+    "target_offset_from_object": 3.0605701208114624,
+    "video_path": "/home/storms-end/ETPNav/data/logs/video/spatial_zsNo4HB9uLZ_6/zsNo4HB9uLZ-6-SPL0.00.mp4",
+    "stats": {
+      "steps_taken": 47.0,
+      "distance_to_goal": 12.628816604614258,
+      "success": 0.0,
+      "oracle_success": 0.0,
+      "path_length": 9.494915008544922,
+      "collisions": 0.07692307692307693,
+      "spl": 0.0,
+      "ndtw": 4.661984993466677e-11,
+      "sdtw": 0.0,
+      "ghost_cnt": 21.0
+    }
+  },
+  {
+    "episode_id": 7,
+    "category": "counter",
+    "human_name": "counter",
+    "relation": "right",
+    "instruction": "Move to the right of the counter.",
+    "object_center": [
+      10.211400032043457,
+      0.846534013748169,
+      -1.2721099853515625
+    ],
+    "object_radius": 1.6605701446533203,
+    "start_position": [
+      14.071969985961914,
+      0.17162801325321198,
+      -1.2721099853515625
+    ],
+    "target_position": [
+      9.915631294250488,
+      0.17162801325321198,
+      -4.365543365478516
+    ],
+    "target_offset_from_object": 3.1075407034404736,
+    "video_path": "/home/storms-end/ETPNav/data/logs/video/spatial_zsNo4HB9uLZ_7/zsNo4HB9uLZ-7-SPL0.00.mp4",
+    "stats": {
+      "steps_taken": 47.0,
+      "distance_to_goal": 7.078996181488037,
+      "success": 0.0,
+      "oracle_success": 0.0,
+      "path_length": 9.494915008544922,
+      "collisions": 0.07692307692307693,
+      "spl": 0.0,
+      "ndtw": 3.126074754539715e-08,
+      "sdtw": 0.0,
+      "ghost_cnt": 21.0
+    }
+  },
+  {
+    "episode_id": 8,
+    "category": "counter",
+    "human_name": "counter",
+    "relation": "behind",
+    "instruction": "Go behind the counter.",
+    "object_center": [
+      10.211400032043457,
+      0.846534013748169,
+      -1.2721099853515625
+    ],
+    "object_radius": 1.6605701446533203,
+    "start_position": [
+      14.071969985961914,
+      0.17162801325321198,
+      -1.2721099853515625
+    ],
+    "target_position": [
+      7.092116832733154,
+      0.17162801325321198,
+      -0.6849793195724487
+    ],
+    "target_offset_from_object": 3.1740589308010247,
+    "video_path": "/home/storms-end/ETPNav/data/logs/video/spatial_zsNo4HB9uLZ_8/zsNo4HB9uLZ-8-SPL0.00.mp4",
+    "stats": {
+      "steps_taken": 40.0,
+      "distance_to_goal": 6.038079261779785,
+      "success": 0.0,
+      "oracle_success": 0.0,
+      "path_length": 7.99491548538208,
+      "collisions": 0.09090909090909091,
+      "spl": 0.0,
+      "ndtw": 1.5987605900572466e-05,
+      "sdtw": 0.0,
+      "ghost_cnt": 19.0
+    }
+  },
+  {
+    "episode_id": 9,
+    "category": "counter",
+    "human_name": "counter",
+    "relation": "next to",
+    "instruction": "Stand next to the counter.",
+    "object_center": [
+      10.211400032043457,
+      0.846534013748169,
+      -1.2721099853515625
+    ],
+    "object_radius": 1.6605701446533203,
+    "start_position": [
+      14.071969985961914,
+      0.17162801325321198,
+      -1.2721099853515625
+    ],
+    "target_position": [
+      10.211400032043457,
+      0.17162801325321198,
+      -2.8027701377868652
+    ],
+    "target_offset_from_object": 1.5306601524353027,
+    "video_path": "/home/storms-end/ETPNav/data/logs/video/spatial_zsNo4HB9uLZ_9/zsNo4HB9uLZ-9-SPL0.83.mp4",
+    "stats": {
+      "steps_taken": 25.0,
+      "distance_to_goal": 1.0203304290771484,
+      "success": 1.0,
+      "oracle_success": 1.0,
+      "path_length": 4.999997615814209,
+      "collisions": 0.0,
+      "spl": 0.8305886414473731,
+      "ndtw": 0.02794326027120467,
+      "sdtw": 0.02794326027120467,
+      "ghost_cnt": 14.0
+    }
+  },
+  {
+    "episode_id": 10,
+    "category": "shelving",
+    "human_name": "bookshelf",
+    "relation": "left",
+    "instruction": "Move to the left of the bookshelf.",
+    "object_center": [
+      6.043270111083984,
+      0.9284069538116455,
+      -3.1874396800994873
+    ],
+    "object_radius": 1.1428799629211426,
+    "start_position": [
+      9.386150360107422,
+      0.17162801325321198,
+      -2.8027701377868652
+    ],
+    "target_position": [
+      5.752575874328613,
+      0.17162801325321198,
+      -0.6612299680709839
+    ],
+    "target_offset_from_object": 2.542879990961021,
+    "video_path": "/home/storms-end/ETPNav/data/logs/video/spatial_zsNo4HB9uLZ_10/zsNo4HB9uLZ-10-SPL1.00.mp4",
+    "stats": {
+      "steps_taken": 34.0,
+      "distance_to_goal": 2.292362689971924,
+      "success": 1.0,
+      "oracle_success": 1.0,
+      "path_length": 5.750001430511475,
+      "collisions": 0.0,
+      "spl": 1.0,
+      "ndtw": 0.002050217348183976,
+      "sdtw": 0.002050217348183976,
+      "ghost_cnt": 13.0
+    }
+  },
+  {
+    "episode_id": 11,
+    "category": "shelving",
+    "human_name": "bookshelf",
+    "relation": "right",
+    "instruction": "Move to the right of the bookshelf.",
+    "object_center": [
+      6.043270111083984,
+      0.9284069538116455,
+      -3.1874396800994873
+    ],
+    "object_radius": 1.1428799629211426,
+    "start_position": [
+      9.386150360107422,
+      0.17162801325321198,
+      -2.8027701377868652
+    ],
+    "target_position": [
+      6.3339643478393555,
+      0.17162801325321198,
+      -5.713649272918701
+    ],
+    "target_offset_from_object": 2.542879872533228,
+    "video_path": "/home/storms-end/ETPNav/data/logs/video/spatial_zsNo4HB9uLZ_11/zsNo4HB9uLZ-11-SPL0.00.mp4",
+    "stats": {
+      "steps_taken": 32.0,
+      "distance_to_goal": 3.8585214614868164,
+      "success": 0.0,
+      "oracle_success": 0.0,
+      "path_length": 5.750001430511475,
+      "collisions": 0.0,
+      "spl": 0.0,
+      "ndtw": 6.810427396979016e-05,
+      "sdtw": 0.0,
+      "ghost_cnt": 14.0
+    }
+  },
+  {
+    "episode_id": 12,
+    "category": "shelving",
+    "human_name": "bookshelf",
+    "relation": "behind",
+    "instruction": "Go behind the bookshelf.",
+    "object_center": [
+      6.043270111083984,
+      0.9284069538116455,
+      -3.1874396800994873
+    ],
+    "object_radius": 1.1428799629211426,
+    "start_position": [
+      9.386150360107422,
+      0.17162801325321198,
+      -2.8027701377868652
+    ],
+    "target_position": [
+      3.5170605182647705,
+      0.17162801325321198,
+      -3.4781339168548584
+    ],
+    "target_offset_from_object": 2.542879872533228,
+    "video_path": "/home/storms-end/ETPNav/data/logs/video/spatial_zsNo4HB9uLZ_12/zsNo4HB9uLZ-12-SPL0.00.mp4",
+    "stats": {
+      "steps_taken": 52.0,
+      "distance_to_goal": 11.518582344055176,
+      "success": 0.0,
+      "oracle_success": 0.0,
+      "path_length": 6.508790016174316,
+      "collisions": 0.037037037037037035,
+      "spl": 0.0,
+      "ndtw": 4.7543328732156174e-07,
+      "sdtw": 0.0,
+      "ghost_cnt": 18.0
+    }
+  },
+  {
+    "episode_id": 13,
+    "category": "shelving",
+    "human_name": "bookshelf",
+    "relation": "next to",
+    "instruction": "Stand next to the bookshelf.",
+    "object_center": [
+      6.043270111083984,
+      0.9284069538116455,
+      -3.1874396800994873
+    ],
+    "object_radius": 1.1428799629211426,
+    "start_position": [
+      9.386150360107422,
+      0.17162801325321198,
+      -2.8027701377868652
+    ],
+    "target_position": [
+      6.214212417602539,
+      0.17162801325321198,
+      -4.652770042419434
+    ],
+    "target_offset_from_object": 1.475267549597221,
+    "video_path": "/home/storms-end/ETPNav/data/logs/video/spatial_zsNo4HB9uLZ_13/zsNo4HB9uLZ-13-SPL0.00.mp4",
+    "stats": {
+      "steps_taken": 101.0,
+      "distance_to_goal": 13.06165885925293,
+      "success": 0.0,
+      "oracle_success": 0.0,
+      "path_length": 13.228618621826172,
+      "collisions": 0.037037037037037035,
+      "spl": 0.0,
+      "ndtw": 8.346015134877629e-14,
+      "sdtw": 0.0,
+      "ghost_cnt": 27.0
+    }
+  },
+  {
+    "episode_id": 14,
+    "category": "sofa",
+    "human_name": "sofa",
+    "relation": "right",
+    "instruction": "Move to the right of the sofa.",
+    "object_center": [
+      5.893670082092285,
+      1.1973400115966797,
+      2.3310203552246094
+    ],
+    "object_radius": 1.999690055847168,
+    "start_position": [
+      10.09335994720459,
+      0.26567015051841736,
+      2.3310203552246094
+    ],
+    "target_position": [
+      5.901913642883301,
+      0.17162801325321198,
+      -0.6812316179275513
+    ],
+    "target_offset_from_object": 3.012263253112782,
+    "video_path": "/home/storms-end/ETPNav/data/logs/video/spatial_zsNo4HB9uLZ_14/zsNo4HB9uLZ-14-SPL0.00.mp4",
+    "stats": {
+      "steps_taken": 50.0,
+      "distance_to_goal": 8.7184419631958,
+      "success": 0.0,
+      "oracle_success": 0.0,
+      "path_length": 6.000782012939453,
+      "collisions": 0.08,
+      "spl": 0.0,
+      "ndtw": 1.832740107794981e-05,
+      "sdtw": 0.0,
+      "ghost_cnt": 17.0
+    }
+  },
+  {
+    "episode_id": 15,
+    "category": "sofa",
+    "human_name": "sofa",
+    "relation": "next to",
+    "instruction": "Stand next to the sofa.",
+    "object_center": [
+      5.893670082092285,
+      1.1973400115966797,
+      2.3310203552246094
+    ],
+    "object_radius": 1.999690055847168,
+    "start_position": [
+      10.09335994720459,
+      0.26567015051841736,
+      2.3310203552246094
+    ],
+    "target_position": [
+      5.893670082092285,
+      0.17162801325321198,
+      0.23123732209205627
+    ],
+    "target_offset_from_object": 2.099783033132553,
+    "video_path": "/home/storms-end/ETPNav/data/logs/video/spatial_zsNo4HB9uLZ_15/zsNo4HB9uLZ-15-SPL0.00.mp4",
+    "stats": {
+      "steps_taken": 50.0,
+      "distance_to_goal": 8.691839218139648,
+      "success": 0.0,
+      "oracle_success": 0.0,
+      "path_length": 6.000782012939453,
+      "collisions": 0.08,
+      "spl": 0.0,
+      "ndtw": 1.840884214065411e-05,
+      "sdtw": 0.0,
+      "ghost_cnt": 17.0
+    }
+  },
+  {
+    "episode_id": 16,
+    "category": "bed",
+    "human_name": "bed",
+    "relation": "left",
+    "instruction": "Move to the left of the bed.",
+    "object_center": [
+      -1.1337599754333496,
+      0.627816915512085,
+      -2.257469892501831
+    ],
+    "object_radius": 1.0857300758361816,
+    "start_position": [
+      2.151970148086548,
+      0.17162801325321198,
+      -2.257469892501831
+    ],
+    "target_position": [
+      -1.1337599754333496,
+      0.17162801325321198,
+      0.22826018929481506
+    ],
+    "target_offset_from_object": 2.485730081796646,
+    "video_path": "/home/storms-end/ETPNav/data/logs/video/spatial_zsNo4HB9uLZ_16/zsNo4HB9uLZ-16-SPL0.00.mp4",
+    "stats": {
+      "steps_taken": 43.0,
+      "distance_to_goal": 7.542549133300781,
+      "success": 0.0,
+      "oracle_success": 0.0,
+      "path_length": 5.5,
+      "collisions": 0.0,
+      "spl": 0.0,
+      "ndtw": 5.902036975673175e-05,
+      "sdtw": 0.0,
+      "ghost_cnt": 13.0
+    }
+  },
+  {
+    "episode_id": 17,
+    "category": "bed",
+    "human_name": "bed",
+    "relation": "right",
+    "instruction": "Move to the right of the bed.",
+    "object_center": [
+      -1.1337599754333496,
+      0.627816915512085,
+      -2.257469892501831
+    ],
+    "object_radius": 1.0857300758361816,
+    "start_position": [
+      2.151970148086548,
+      0.17162801325321198,
+      -2.257469892501831
+    ],
+    "target_position": [
+      -1.1337599754333496,
+      0.17162801325321198,
+      -5.10276985168457
+    ],
+    "target_offset_from_object": 2.8452999591827393,
+    "video_path": "/home/storms-end/ETPNav/data/logs/video/spatial_zsNo4HB9uLZ_17/zsNo4HB9uLZ-17-SPL0.00.mp4",
+    "stats": {
+      "steps_taken": 40.0,
+      "distance_to_goal": 9.844121932983398,
+      "success": 0.0,
+      "oracle_success": 0.0,
+      "path_length": 5.25,
+      "collisions": 0.0,
+      "spl": 0.0,
+      "ndtw": 8.627070638506719e-05,
+      "sdtw": 0.0,
+      "ghost_cnt": 14.0
+    }
+  },
+  {
+    "episode_id": 18,
+    "category": "bed",
+    "human_name": "bed",
+    "relation": "behind",
+    "instruction": "Go behind the bed.",
+    "object_center": [
+      -1.1337599754333496,
+      0.627816915512085,
+      -2.257469892501831
+    ],
+    "object_radius": 1.0857300758361816,
+    "start_position": [
+      2.151970148086548,
+      0.17162801325321198,
+      -2.257469892501831
+    ],
+    "target_position": [
+      -2.8857879638671875,
+      0.17162801325321198,
+      -2.257469892501831
+    ],
+    "target_offset_from_object": 1.752027988433838,
+    "video_path": "/home/storms-end/ETPNav/data/logs/video/spatial_zsNo4HB9uLZ_18/zsNo4HB9uLZ-18-SPL0.00.mp4",
+    "stats": {
+      "steps_taken": 52.0,
+      "distance_to_goal": 13.815740585327148,
+      "success": 0.0,
+      "oracle_success": 0.0,
+      "path_length": 7.500000953674316,
+      "collisions": 0.0,
+      "spl": 0.0,
+      "ndtw": 1.1174809799569063e-08,
+      "sdtw": 0.0,
+      "ghost_cnt": 17.0
+    }
+  },
+  {
+    "episode_id": 19,
+    "category": "bed",
+    "human_name": "bed",
+    "relation": "next to",
+    "instruction": "Stand next to the bed.",
+    "object_center": [
+      -1.1337599754333496,
+      0.627816915512085,
+      -2.257469892501831
+    ],
+    "object_radius": 1.0857300758361816,
+    "start_position": [
+      2.151970148086548,
+      0.17162801325321198,
+      -2.257469892501831
+    ],
+    "target_position": [
+      -1.1337599754333496,
+      0.17162801325321198,
+      -3.7174808979034424
+    ],
+    "target_offset_from_object": 1.4600110054016113,
+    "video_path": "/home/storms-end/ETPNav/data/logs/video/spatial_zsNo4HB9uLZ_19/zsNo4HB9uLZ-19-SPL0.00.mp4",
+    "stats": {
+      "steps_taken": 50.0,
+      "distance_to_goal": 10.203551292419434,
+      "success": 0.0,
+      "oracle_success": 0.0,
+      "path_length": 6.50376033782959,
+      "collisions": 0.0,
+      "spl": 0.0,
+      "ndtw": 1.410315211400857e-06,
+      "sdtw": 0.0,
+      "ghost_cnt": 17.0
+    }
+  },
+  {
+    "episode_id": 20,
+    "category": "table",
+    "human_name": "table",
+    "relation": "left",
+    "instruction": "Move to the left of the table.",
+    "object_center": [
+      15.43130111694336,
+      0.36171889305114746,
+      -2.6567201614379883
+    ],
+    "object_radius": 1.4524502754211426,
+    "start_position": [
+      17.257476806640625,
+      0.17162801325321198,
+      0.5036007165908813
+    ],
+    "target_position": [
+      12.961536407470703,
+      0.17162801325321198,
+      -1.2295787334442139
+    ],
+    "target_offset_from_object": 2.852449890121238,
+    "video_path": "/home/storms-end/ETPNav/data/logs/video/spatial_zsNo4HB9uLZ_20/zsNo4HB9uLZ-20-SPL0.00.mp4",
+    "stats": {
+      "steps_taken": 48.0,
+      "distance_to_goal": 5.332736015319824,
+      "success": 0.0,
+      "oracle_success": 1.0,
+      "path_length": 9.500001907348633,
+      "collisions": 0.0,
+      "spl": 0.0,
+      "ndtw": 2.407972494743168e-07,
+      "sdtw": 0.0,
+      "ghost_cnt": 23.0
+    }
+  },
+  {
+    "episode_id": 21,
+    "category": "table",
+    "human_name": "table",
+    "relation": "right",
+    "instruction": "Move to the right of the table.",
+    "object_center": [
+      15.43130111694336,
+      0.36171889305114746,
+      -2.6567201614379883
+    ],
+    "object_radius": 1.4524502754211426,
+    "start_position": [
+      17.257476806640625,
+      0.17162801325321198,
+      0.5036007165908813
+    ],
+    "target_position": [
+      17.842504501342773,
+      0.17162801325321198,
+      -4.135103225708008
+    ],
+    "target_offset_from_object": 2.828341960523798,
+    "video_path": "/home/storms-end/ETPNav/data/logs/video/spatial_zsNo4HB9uLZ_21/zsNo4HB9uLZ-21-SPL0.00.mp4",
+    "stats": {
+      "steps_taken": 42.0,
+      "distance_to_goal": 5.527873516082764,
+      "success": 0.0,
+      "oracle_success": 0.0,
+      "path_length": 7.250000476837158,
+      "collisions": 0.0,
+      "spl": 0.0,
+      "ndtw": 1.2484526410970285e-07,
+      "sdtw": 0.0,
+      "ghost_cnt": 17.0
+    }
+  },
+  {
+    "episode_id": 22,
+    "category": "table",
+    "human_name": "table",
+    "relation": "behind",
+    "instruction": "Go behind the table.",
+    "object_center": [
+      15.43130111694336,
+      0.36171889305114746,
+      -2.6567201614379883
+    ],
+    "object_radius": 1.4524502754211426,
+    "start_position": [
+      17.257476806640625,
+      0.17162801325321198,
+      0.5036007165908813
+    ],
+    "target_position": [
+      13.564212799072266,
+      0.17162801325321198,
+      -5.302769660949707
+    ],
+    "target_offset_from_object": 3.2384559191992914,
+    "video_path": "/home/storms-end/ETPNav/data/logs/video/spatial_zsNo4HB9uLZ_22/zsNo4HB9uLZ-22-SPL0.00.mp4",
+    "stats": {
+      "steps_taken": 37.0,
+      "distance_to_goal": 13.750991821289062,
+      "success": 0.0,
+      "oracle_success": 0.0,
+      "path_length": 7.500000953674316,
+      "collisions": 0.0,
+      "spl": 0.0,
+      "ndtw": 7.07553545418119e-09,
+      "sdtw": 0.0,
+      "ghost_cnt": 18.0
+    }
+  },
+  {
+    "episode_id": 23,
+    "category": "table",
+    "human_name": "table",
+    "relation": "next to",
+    "instruction": "Stand next to the table.",
+    "object_center": [
+      15.43130111694336,
+      0.36171889305114746,
+      -2.6567201614379883
+    ],
+    "object_radius": 1.4524502754211426,
+    "start_position": [
+      17.257476806640625,
+      0.17162801325321198,
+      0.5036007165908813
+    ],
+    "target_position": [
+      16.917701721191406,
+      0.17162801325321198,
+      -3.8527698516845703
+    ],
+    "target_offset_from_object": 1.907857861017928,
+    "video_path": "/home/storms-end/ETPNav/data/logs/video/spatial_zsNo4HB9uLZ_23/zsNo4HB9uLZ-23-SPL0.00.mp4",
+    "stats": {
+      "steps_taken": 31.0,
+      "distance_to_goal": 8.427194595336914,
+      "success": 0.0,
+      "oracle_success": 0.0,
+      "path_length": 6.000000953674316,
+      "collisions": 0.0,
+      "spl": 0.0,
+      "ndtw": 3.37410480857816e-06,
+      "sdtw": 0.0,
+      "ghost_cnt": 14.0
+    }
+  },
+  {
+    "episode_id": 24,
+    "category": "chest_of_drawers",
+    "human_name": "dresser",
+    "relation": "next to",
+    "instruction": "Stand next to the dresser.",
+    "object_center": [
+      18.542800903320312,
+      0.5336017608642578,
+      -7.642779350280762
+    ],
+    "object_radius": 0.3258533477783203,
+    "start_position": [
+      18.542800903320312,
+      0.17162801325321198,
+      -5.116926193237305
+    ],
+    "target_position": [
+      19.062013626098633,
+      0.17162801325321198,
+      -7.673445701599121
+    ],
+    "target_offset_from_object": 0.5201175603630952,
+    "video_path": "/home/storms-end/ETPNav/data/logs/video/spatial_zsNo4HB9uLZ_24/zsNo4HB9uLZ-24-SPL0.00.mp4",
+    "stats": {
+      "steps_taken": 28.0,
+      "distance_to_goal": 6.262578964233398,
+      "success": 0.0,
+      "oracle_success": 1.0,
+      "path_length": 4.250001907348633,
+      "collisions": 0.0,
+      "spl": 0.0,
+      "ndtw": 0.0015798704107894948,
+      "sdtw": 0.0,
+      "ghost_cnt": 9.0
+    }
+  }
+]

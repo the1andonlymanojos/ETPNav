@@ -1,0 +1,1160 @@
+2026-09-14 23:10:36,348 checkpoint_path: data/logs/checkpoints/release_rxr/ckpt.iter19600.pth
+2026-09-14 23:10:36,348 Initializing dataset RxR-VLN-CE-v1
+2026-09-14 23:10:36,832 SPLTI: val_unseen, NUMBER OF SCENES: 11
+2026-09-14 23:10:38,337 Initializing dataset RxR-VLN-CE-v1
+2026-09-14 23:10:38,847 initializing sim Sim-v1
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I0914 23:10:38.853019  6531 ManagedContainerBase.cpp:19] ManagedContainerBase::convertFilenameToJSON : Filename : default changed to proposed JSON configuration filename : default.scene_dataset_config.json
+I0914 23:10:38.853047  6531 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Dataset) : Proposing JSON name : default.scene_dataset_config.json from original name : default | This file  does not exist.
+I0914 23:10:38.853086  6531 AssetAttributesManager.cpp:117] Asset attributes (capsule3DSolid : capsule3DSolid_hemiRings_4_cylRings_1_segments_12_halfLen_0.75_useTexCoords_false_useTangents_false) created and registered.
+I0914 23:10:38.853102  6531 AssetAttributesManager.cpp:117] Asset attributes (capsule3DWireframe : capsule3DWireframe_hemiRings_8_cylRings_1_segments_16_halfLen_1) created and registered.
+I0914 23:10:38.853116  6531 AssetAttributesManager.cpp:117] Asset attributes (coneSolid : coneSolid_segments_12_halfLen_1.25_rings_1_useTexCoords_false_useTangents_false_capEnd_true) created and registered.
+I0914 23:10:38.853124  6531 AssetAttributesManager.cpp:117] Asset attributes (coneWireframe : coneWireframe_segments_32_halfLen_1.25) created and registered.
+I0914 23:10:38.853129  6531 AssetAttributesManager.cpp:117] Asset attributes (cubeSolid : cubeSolid) created and registered.
+I0914 23:10:38.853133  6531 AssetAttributesManager.cpp:117] Asset attributes (cubeWireframe : cubeWireframe) created and registered.
+I0914 23:10:38.853152  6531 AssetAttributesManager.cpp:117] Asset attributes (cylinderSolid : cylinderSolid_rings_1_segments_12_halfLen_1_useTexCoords_false_useTangents_false_capEnds_true) created and registered.
+I0914 23:10:38.853163  6531 AssetAttributesManager.cpp:117] Asset attributes (cylinderWireframe : cylinderWireframe_rings_1_segments_32_halfLen_1) created and registered.
+I0914 23:10:38.853169  6531 AssetAttributesManager.cpp:117] Asset attributes (icosphereSolid : icosphereSolid_subdivs_1) created and registered.
+I0914 23:10:38.853174  6531 AssetAttributesManager.cpp:117] Asset attributes (icosphereWireframe : icosphereWireframe_subdivs_1) created and registered.
+I0914 23:10:38.853181  6531 AssetAttributesManager.cpp:117] Asset attributes (uvSphereSolid : uvSphereSolid_rings_8_segments_16_useTexCoords_false_useTangents_false) created and registered.
+I0914 23:10:38.853189  6531 AssetAttributesManager.cpp:117] Asset attributes (uvSphereWireframe : uvSphereWireframe_rings_16_segments_32) created and registered.
+I0914 23:10:38.853191  6531 AssetAttributesManager.cpp:105] AssetAttributesManager::buildCtorFuncPtrMaps : Built default primitive asset templates : 12
+I0914 23:10:38.853441  6531 SceneDatasetAttributesManager.cpp:23] File (default) not found, so new default dataset attributes created and registered.
+I0914 23:10:38.853443  6531 MetadataMediator.cpp:47] MetadataMediator::createDataset : Dataset default successfully created.
+I0914 23:10:38.855436  6531 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Physics Manager) : Proposing JSON name : ./data/default.physics_config.json from original name : ./data/default.physics_config.json | This file  does not exist.
+I0914 23:10:38.855445  6531 PhysicsAttributesManager.cpp:27] File (./data/default.physics_config.json) not found, so new default physics manager attributes created and registered.
+I0914 23:10:38.855448  6531 AbstractObjectAttributesManagerBase.h:175] AbstractObjectAttributesManager<T>::createObject  (Stage) : Making attributes with handle : data/scene_datasets/mp3d/TbHJrupSAjP/TbHJrupSAjP.glb
+I0914 23:10:38.855450  6531 ManagedContainerBase.cpp:19] ManagedContainerBase::convertFilenameToJSON : Filename : data/scene_datasets/mp3d/TbHJrupSAjP/TbHJrupSAjP.glb changed to proposed JSON configuration filename : data/scene_datasets/mp3d/TbHJrupSAjP/TbHJrupSAjP.stage_config.json
+I0914 23:10:38.859666  6531 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Stage) : Proposing JSON name : data/scene_datasets/mp3d/TbHJrupSAjP/TbHJrupSAjP.stage_config.json from original name : data/scene_datasets/mp3d/TbHJrupSAjP/TbHJrupSAjP.glb | This file  does not exist.
+I0914 23:10:38.859722  6531 AbstractObjectAttributesManagerBase.h:181] AbstractObjectAttributesManager<T>::createObject  (Stage) : Done making attributes with handle : data/scene_datasets/mp3d/TbHJrupSAjP/TbHJrupSAjP.glb
+I0914 23:10:38.859725  6531 AbstractObjectAttributesManagerBase.h:188] File (data/scene_datasets/mp3d/TbHJrupSAjP/TbHJrupSAjP.glb) exists but is not a recognized config filename extension, so new default Stage attributes created and registered.
+I0914 23:10:38.860002  6531 Simulator.cpp:156] Loading navmesh from data/scene_datasets/mp3d/TbHJrupSAjP/TbHJrupSAjP.navmesh
+I0914 23:10:38.862643  6531 Simulator.cpp:158] Loaded.
+I0914 23:10:38.862653  6531 SceneGraph.h:93] Created DrawableGroup: 
+Renderer: NVIDIA T1000 8GB/PCIe/SSE2 by NVIDIA Corporation
+OpenGL version: 4.6.0 NVIDIA 590.48.01
+Using optional features:
+    GL_ARB_ES2_compatibility
+    GL_ARB_direct_state_access
+    GL_ARB_get_texture_sub_image
+    GL_ARB_invalidate_subdata
+    GL_ARB_multi_bind
+    GL_ARB_robustness
+    GL_ARB_separate_shader_objects
+    GL_ARB_texture_filter_anisotropic
+    GL_ARB_texture_storage
+    GL_ARB_texture_storage_multisample
+    GL_ARB_vertex_array_object
+    GL_KHR_debug
+Using driver workarounds:
+    no-forward-compatible-core-context
+    nv-egl-incorrect-gl11-function-pointers
+    no-layout-qualifiers-on-old-glsl
+    nv-zero-context-profile-mask
+    nv-implementation-color-read-format-dsa-broken
+    nv-cubemap-inconsistent-compressed-image-size
+    nv-cubemap-broken-full-compressed-image-query
+    nv-compressed-block-size-in-bits
+I0914 23:10:38.988183  6531 ResourceManager.cpp:234] ResourceManager::loadStage : Not loading semantic mesh
+I0914 23:10:38.988191  6531 ResourceManager.cpp:262] ResourceManager::loadStage : start load render asset data/scene_datasets/mp3d/TbHJrupSAjP/TbHJrupSAjP.glb.
+I0914 23:10:38.988193  6531 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage data/scene_datasets/mp3d/TbHJrupSAjP/TbHJrupSAjP.glb 
+I0914 23:10:38.988204  6531 ResourceManager.cpp:1119] Importing Basis files as BC7 for TbHJrupSAjP.glb
+W0914 23:10:40.927305  6531 Simulator.cpp:248] :
+---
+ The active scene does not contain semantic annotations. 
+---
+I0914 23:10:40.998626 6531 simulator.py:213] Loaded navmesh data/scene_datasets/mp3d/TbHJrupSAjP/TbHJrupSAjP.navmesh
+I0914 23:10:40.998828 6531 simulator.py:225] Recomputing navmesh for agent's height 0.88 and radius 0.18.
+I0914 23:10:41.007711  6531 PathFinder.cpp:382] Building navmesh with 311x313 cells
+I0914 23:10:41.148372  6531 PathFinder.cpp:650] Created navmesh with 980 vertices 496 polygons
+I0914 23:10:41.148416  6531 Simulator.cpp:710] reconstruct navmesh successful
+2026-09-14 23:10:41,152 Initializing task VLN-v0
+You are using a model of type xlm-roberta to instantiate a model of type . This is not supported for all configurations of models and can yield errors.
+Some weights of the model checkpoint at None were not used when initializing GlocalTextPathNavCMT: ['bert.global_encoder.encoder.x_layers.1.lang_self_att.self.query.bias', 'bert.global_encoder.encoder.x_layers.2.lang_self_att.self.query.bias', 'bert.global_encoder.encoder.x_layers.1.lang_self_att.self.value.weight', 'bert.global_encoder.encoder.x_layers.3.lang_output.dense.bias', 'bert.global_encoder.encoder.x_layers.2.lang_self_att.self.query.weight', 'bert.global_encoder.encoder.x_layers.0.lang_output.dense.weight', 'bert.global_encoder.encoder.x_layers.3.lang_output.dense.weight', 'bert.global_encoder.encoder.x_layers.1.lang_self_att.self.key.weight', 'bert.global_encoder.encoder.x_layers.1.lang_self_att.self.query.weight', 'bert.global_encoder.encoder.x_layers.1.lang_self_att.output.LayerNorm.weight', 'bert.global_encoder.encoder.x_layers.0.lang_self_att.self.query.weight', 'mlm_head.predictions.transform.dense.weight', 'bert.global_encoder.encoder.x_layers.2.lang_self_att.output.dense.weight', 'bert.global_encoder.encoder.x_layers.2.lang_self_att.self.key.weight', 'bert.global_encoder.encoder.x_layers.0.lang_self_att.output.dense.weight', 'bert.global_encoder.encoder.x_layers.2.lang_inter.dense.bias', 'bert.global_encoder.encoder.x_layers.3.lang_output.LayerNorm.bias', 'bert.global_encoder.encoder.x_layers.3.lang_self_att.output.dense.bias', 'bert.global_encoder.encoder.x_layers.3.lang_self_att.self.key.weight', 'bert.global_encoder.encoder.x_layers.2.lang_output.dense.weight', 'mlm_head.predictions.bias', 'bert.global_encoder.encoder.x_layers.2.lang_output.LayerNorm.weight', 'bert.global_encoder.encoder.x_layers.0.lang_self_att.output.LayerNorm.weight', 'bert.global_encoder.encoder.x_layers.1.lang_self_att.self.key.bias', 'bert.global_encoder.encoder.x_layers.0.lang_output.LayerNorm.bias', 'bert.global_encoder.encoder.x_layers.3.lang_inter.dense.weight', 'bert.global_encoder.encoder.x_layers.2.lang_output.dense.bias', 'bert.global_encoder.encoder.x_layers.3.lang_self_att.self.key.bias', 'bert.global_encoder.encoder.x_layers.3.lang_inter.dense.bias', 'bert.global_encoder.encoder.x_layers.0.lang_output.dense.bias', 'bert.global_encoder.encoder.x_layers.2.lang_inter.dense.weight', 'bert.global_encoder.encoder.x_layers.0.lang_self_att.output.LayerNorm.bias', 'bert.global_encoder.encoder.x_layers.1.lang_self_att.self.value.bias', 'bert.global_encoder.encoder.x_layers.2.lang_self_att.self.key.bias', 'bert.global_encoder.encoder.x_layers.3.lang_self_att.self.query.bias', 'bert.global_encoder.encoder.x_layers.3.lang_self_att.self.value.bias', 'bert.global_encoder.encoder.x_layers.3.lang_output.LayerNorm.weight', 'bert.global_encoder.encoder.x_layers.0.lang_self_att.self.value.bias', 'mlm_head.predictions.decoder.weight', 'bert.global_encoder.encoder.x_layers.0.lang_inter.dense.weight', 'bert.global_encoder.encoder.x_layers.3.lang_self_att.output.dense.weight', 'bert.global_encoder.encoder.x_layers.0.lang_output.LayerNorm.weight', 'bert.global_encoder.encoder.x_layers.0.lang_self_att.self.key.bias', 'bert.global_encoder.encoder.x_layers.1.lang_output.LayerNorm.weight', 'bert.global_encoder.encoder.x_layers.3.lang_self_att.output.LayerNorm.weight', 'bert.global_encoder.encoder.x_layers.3.lang_self_att.output.LayerNorm.bias', 'bert.global_encoder.encoder.x_layers.3.lang_self_att.self.value.weight', 'bert.global_encoder.encoder.x_layers.2.lang_self_att.output.dense.bias', 'bert.global_encoder.encoder.x_layers.1.lang_self_att.output.LayerNorm.bias', 'bert.global_encoder.encoder.x_layers.1.lang_output.LayerNorm.bias', 'bert.global_encoder.encoder.x_layers.0.lang_self_att.self.key.weight', 'bert.global_encoder.encoder.x_layers.1.lang_inter.dense.bias', 'bert.global_encoder.encoder.x_layers.1.lang_output.dense.weight', 'bert.global_encoder.encoder.x_layers.2.lang_self_att.output.LayerNorm.weight', 'bert.global_encoder.encoder.x_layers.2.lang_self_att.self.value.bias', 'bert.global_encoder.encoder.x_layers.1.lang_self_att.output.dense.bias', 'bert.global_encoder.encoder.x_layers.0.lang_self_att.self.value.weight', 'bert.global_encoder.encoder.x_layers.1.lang_output.dense.bias', 'bert.global_encoder.encoder.x_layers.2.lang_self_att.self.value.weight', 'bert.global_encoder.encoder.x_layers.0.lang_self_att.output.dense.bias', 'bert.global_encoder.encoder.x_layers.2.lang_output.LayerNorm.bias', 'mlm_head.predictions.transform.dense.bias', 'bert.global_encoder.encoder.x_layers.0.lang_self_att.self.query.bias', 'bert.global_encoder.encoder.x_layers.0.lang_inter.dense.bias', 'bert.global_encoder.encoder.x_layers.1.lang_inter.dense.weight', 'bert.global_encoder.encoder.x_layers.2.lang_self_att.output.LayerNorm.bias', 'bert.global_encoder.encoder.x_layers.3.lang_self_att.self.query.weight', 'bert.global_encoder.encoder.x_layers.1.lang_self_att.output.dense.weight', 'mlm_head.predictions.transform.LayerNorm.bias', 'mlm_head.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing GlocalTextPathNavCMT from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing GlocalTextPathNavCMT from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+2026-09-14 23:10:50,907 Loaded weights from checkpoint: data/logs/checkpoints/release_rxr/ckpt.iter19600.pth, iteration: 19600
+2026-09-14 23:10:50,910 Agent parameters: 467.70 MB. Trainable: 309.36 MB.
+2026-09-14 23:10:50,910 Finished setting up policy.
+local rank: 0 | dataset length: 51
+
+Initalizing the ETP model ...
+  0%|          | 0/51 [00:00<?, ?it/s]2026-09-14 23:11:01,219 Video created: data/logs/video/diverse50_rxr/TbHJrupSAjP-82-SPL1.00.mp4
+  0%|          | 0/95 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (672, 366) to (672, 368) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+  1%|          | 1/95 [00:00<00:18,  5.18it/s] 86%|████████▋ | 82/95 [00:00<00:00, 346.57it/s]100%|██████████| 95/95 [00:00<00:00, 311.36it/s]  2%|▏         | 1/51 [00:10<08:54, 10.68s/it]
+2026-09-14 23:11:15,351 Video created: data/logs/video/diverse50_rxr/TbHJrupSAjP-129-SPL0.63.mp4
+  0%|          | 0/131 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (672, 388) to (672, 400) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+ 50%|█████     | 66/131 [00:00<00:00, 650.40it/s]100%|██████████| 131/131 [00:00<00:00, 711.47it/s]  4%|▍         | 2/51 [00:24<10:20, 12.65s/it]
+2026-09-14 23:11:18,850 Video created: data/logs/video/diverse50_rxr/TbHJrupSAjP-1072-SPL1.00.mp4
+  0%|          | 0/21 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (672, 278) to (672, 288) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+100%|██████████| 21/21 [00:00<00:00, 555.07it/s]  6%|▌         | 3/51 [00:28<06:42,  8.38s/it]
+2026-09-14 23:11:44,100 Video created: data/logs/video/diverse50_rxr/TbHJrupSAjP-3393-SPL0.00.mp4
+  0%|          | 0/289 [00:00<?, ?it/s] 19%|█▉        | 55/289 [00:00<00:00, 544.88it/s] 52%|█████▏    | 149/289 [00:00<00:00, 774.95it/s] 82%|████████▏ | 236/289 [00:00<00:00, 812.73it/s]100%|██████████| 289/289 [00:00<00:00, 790.91it/s]  8%|▊         | 4/51 [00:53<11:54, 15.20s/it]
+2026-09-14 23:12:14,506 Video created: data/logs/video/diverse50_rxr/TbHJrupSAjP-4518-SPL0.00.mp4
+  0%|          | 0/440 [00:00<?, ?it/s] 12%|█▎        | 55/440 [00:00<00:00, 549.61it/s] 31%|███       | 136/440 [00:00<00:00, 698.37it/s] 50%|█████     | 220/440 [00:00<00:00, 761.48it/s] 70%|██████▉   | 307/440 [00:00<00:00, 803.19it/s] 88%|████████▊ | 388/440 [00:00<00:00, 799.18it/s]100%|██████████| 440/440 [00:00<00:00, 777.08it/s] 10%|▉         | 5/51 [01:24<15:54, 20.75s/it]
+2026-09-14 23:12:19,448 Video created: data/logs/video/diverse50_rxr/TbHJrupSAjP-8738-SPL0.99.mp4
+  0%|          | 0/32 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (672, 322) to (672, 336) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+100%|██████████| 32/32 [00:00<00:00, 627.94it/s] 12%|█▏        | 6/51 [01:28<11:23, 15.18s/it]I0914 23:12:19.594283  6531 PhysicsManager.cpp:33] Deconstructing PhysicsManager
+I0914 23:12:19.594321  6531 SemanticScene.h:41] Deconstructing SemanticScene
+I0914 23:12:19.597275  6531 SceneManager.h:25] Deconstructing SceneManager
+I0914 23:12:19.597287  6531 SceneGraph.h:26] Deconstructing SceneGraph
+I0914 23:12:19.597590  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.597769  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.597867  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.597954  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.598037  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.598130  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.598225  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.598316  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.598404  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.598492  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.598582  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.598670  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.598757  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.598875  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.598985  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.599098  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.599216  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.599324  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.599435  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.599541  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.599649  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.599759  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.599872  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.599970  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.600061  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.600153  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.600243  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.600330  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.600414  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.600422  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:12:19.604130  6531 Renderer.cpp:34] Deconstructing Renderer
+I0914 23:12:19.604153  6531 WindowlessContext.h:17] Deconstructing WindowlessContext
+I0914 23:12:19.607045  6531 MetadataMediator.cpp:56] MetadataMediator::setActiveSceneDatasetName : Old active dataset default changed to default successfully.
+I0914 23:12:19.607220  6531 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Physics Manager) : Proposing JSON name : ./data/default.physics_config.json from original name : ./data/default.physics_config.json | This file  does not exist.
+I0914 23:12:19.607244  6531 PhysicsAttributesManager.cpp:27] File (./data/default.physics_config.json) not found, so new default physics manager attributes created and registered.
+I0914 23:12:19.607250  6531 AbstractObjectAttributesManagerBase.h:175] AbstractObjectAttributesManager<T>::createObject  (Stage) : Making attributes with handle : data/scene_datasets/mp3d/zsNo4HB9uLZ/zsNo4HB9uLZ.glb
+I0914 23:12:19.607254  6531 ManagedContainerBase.cpp:19] ManagedContainerBase::convertFilenameToJSON : Filename : data/scene_datasets/mp3d/zsNo4HB9uLZ/zsNo4HB9uLZ.glb changed to proposed JSON configuration filename : data/scene_datasets/mp3d/zsNo4HB9uLZ/zsNo4HB9uLZ.stage_config.json
+I0914 23:12:19.615381  6531 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Stage) : Proposing JSON name : data/scene_datasets/mp3d/zsNo4HB9uLZ/zsNo4HB9uLZ.stage_config.json from original name : data/scene_datasets/mp3d/zsNo4HB9uLZ/zsNo4HB9uLZ.glb | This file  does not exist.
+I0914 23:12:19.615450  6531 AbstractObjectAttributesManagerBase.h:181] AbstractObjectAttributesManager<T>::createObject  (Stage) : Done making attributes with handle : data/scene_datasets/mp3d/zsNo4HB9uLZ/zsNo4HB9uLZ.glb
+I0914 23:12:19.615453  6531 AbstractObjectAttributesManagerBase.h:188] File (data/scene_datasets/mp3d/zsNo4HB9uLZ/zsNo4HB9uLZ.glb) exists but is not a recognized config filename extension, so new default Stage attributes created and registered.
+I0914 23:12:19.615458  6531 Simulator.cpp:156] Loading navmesh from data/scene_datasets/mp3d/zsNo4HB9uLZ/zsNo4HB9uLZ.navmesh
+I0914 23:12:19.626173  6531 Simulator.cpp:158] Loaded.
+I0914 23:12:19.626186  6531 SceneGraph.h:93] Created DrawableGroup: 
+Renderer: NVIDIA T1000 8GB/PCIe/SSE2 by NVIDIA Corporation
+OpenGL version: 4.6.0 NVIDIA 590.48.01
+Using optional features:
+    GL_ARB_ES2_compatibility
+    GL_ARB_direct_state_access
+    GL_ARB_get_texture_sub_image
+    GL_ARB_invalidate_subdata
+    GL_ARB_multi_bind
+    GL_ARB_robustness
+    GL_ARB_separate_shader_objects
+    GL_ARB_texture_filter_anisotropic
+    GL_ARB_texture_storage
+    GL_ARB_texture_storage_multisample
+    GL_ARB_vertex_array_object
+    GL_KHR_debug
+Using driver workarounds:
+    no-forward-compatible-core-context
+    nv-egl-incorrect-gl11-function-pointers
+    no-layout-qualifiers-on-old-glsl
+    nv-zero-context-profile-mask
+    nv-implementation-color-read-format-dsa-broken
+    nv-cubemap-inconsistent-compressed-image-size
+    nv-cubemap-broken-full-compressed-image-query
+    nv-compressed-block-size-in-bits
+I0914 23:12:19.628724  6531 ResourceManager.cpp:234] ResourceManager::loadStage : Not loading semantic mesh
+I0914 23:12:19.628731  6531 ResourceManager.cpp:262] ResourceManager::loadStage : start load render asset data/scene_datasets/mp3d/zsNo4HB9uLZ/zsNo4HB9uLZ.glb.
+I0914 23:12:19.628731  6531 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage data/scene_datasets/mp3d/zsNo4HB9uLZ/zsNo4HB9uLZ.glb 
+I0914 23:12:19.628741  6531 ResourceManager.cpp:1119] Importing Basis files as BC7 for zsNo4HB9uLZ.glb
+W0914 23:12:20.545384  6531 Simulator.cpp:248] :
+---
+ The active scene does not contain semantic annotations. 
+---
+
+I0914 23:12:20.587329 6531 simulator.py:213] Loaded navmesh data/scene_datasets/mp3d/zsNo4HB9uLZ/zsNo4HB9uLZ.navmesh
+I0914 23:12:20.587558 6531 simulator.py:225] Recomputing navmesh for agent's height 0.88 and radius 0.18.
+I0914 23:12:20.592165  6531 PathFinder.cpp:382] Building navmesh with 449x267 cells
+I0914 23:12:20.655107  6531 PathFinder.cpp:650] Created navmesh with 443 vertices 219 polygons
+I0914 23:12:20.655140  6531 Simulator.cpp:710] reconstruct navmesh successful
+2026-09-14 23:12:26,137 Video created: data/logs/video/diverse50_rxr/zsNo4HB9uLZ-619-SPL0.99.mp4
+  0%|          | 0/55 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (825, 322) to (832, 336) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x627fbfd2cf00] Warning: data is not aligned! This can lead to a speed loss
+100%|██████████| 55/55 [00:00<00:00, 594.91it/s] 14%|█▎        | 7/51 [01:35<09:06, 12.42s/it]
+2026-09-14 23:12:49,713 Video created: data/logs/video/diverse50_rxr/zsNo4HB9uLZ-1116-SPL0.72.mp4
+  0%|          | 0/252 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (825, 448) to (832, 448) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x6238e125df00] Warning: data is not aligned! This can lead to a speed loss
+ 19%|█▉        | 48/252 [00:00<00:00, 476.69it/s] 52%|█████▏    | 130/252 [00:00<00:00, 675.81it/s] 83%|████████▎ | 208/252 [00:00<00:00, 721.81it/s]100%|██████████| 252/252 [00:00<00:00, 710.25it/s] 16%|█▌        | 8/51 [01:59<11:31, 16.08s/it]
+2026-09-14 23:12:57,845 Video created: data/logs/video/diverse50_rxr/zsNo4HB9uLZ-3945-SPL1.00.mp4
+  0%|          | 0/43 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (825, 388) to (832, 400) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x5623c6e0ff00] Warning: data is not aligned! This can lead to a speed loss
+100%|██████████| 43/43 [00:00<00:00, 625.74it/s] 18%|█▊        | 9/51 [02:07<09:26, 13.49s/it]
+2026-09-14 23:13:09,432 Video created: data/logs/video/diverse50_rxr/zsNo4HB9uLZ-5417-SPL0.84.mp4
+  0%|          | 0/107 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (825, 366) to (832, 368) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x5d757fc62f00] Warning: data is not aligned! This can lead to a speed loss
+ 54%|█████▍    | 58/107 [00:00<00:00, 575.65it/s]100%|██████████| 107/107 [00:00<00:00, 677.56it/s] 20%|█▉        | 10/51 [02:18<08:50, 12.93s/it]
+2026-09-14 23:13:13,073 Video created: data/logs/video/diverse50_rxr/zsNo4HB9uLZ-10150-SPL0.78.mp4
+  0%|          | 0/33 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (825, 278) to (832, 288) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x575d01d44f00] Warning: data is not aligned! This can lead to a speed loss
+100%|██████████| 33/33 [00:00<00:00, 609.00it/s] 22%|██▏       | 11/51 [02:22<06:41, 10.05s/it]I0914 23:13:13.219250  6531 PhysicsManager.cpp:33] Deconstructing PhysicsManager
+I0914 23:13:13.219283  6531 SemanticScene.h:41] Deconstructing SemanticScene
+I0914 23:13:13.220950  6531 SceneManager.h:25] Deconstructing SceneManager
+I0914 23:13:13.220959  6531 SceneGraph.h:26] Deconstructing SceneGraph
+I0914 23:13:13.221271  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.221426  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.221525  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.221613  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.221701  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.221793  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.221879  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.221962  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.222047  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.222137  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.222229  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.222314  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.222397  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.222510  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.222617  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.222725  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.222833  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.222952  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.223063  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.223176  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.223287  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.223397  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.223501  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.223603  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.223688  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.223781  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.223865  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.223945  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.224025  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.224076  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:13:13.225349  6531 Renderer.cpp:34] Deconstructing Renderer
+I0914 23:13:13.225358  6531 WindowlessContext.h:17] Deconstructing WindowlessContext
+I0914 23:13:13.227269  6531 MetadataMediator.cpp:56] MetadataMediator::setActiveSceneDatasetName : Old active dataset default changed to default successfully.
+I0914 23:13:13.227458  6531 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Physics Manager) : Proposing JSON name : ./data/default.physics_config.json from original name : ./data/default.physics_config.json | This file  does not exist.
+I0914 23:13:13.227476  6531 PhysicsAttributesManager.cpp:27] File (./data/default.physics_config.json) not found, so new default physics manager attributes created and registered.
+I0914 23:13:13.227481  6531 AbstractObjectAttributesManagerBase.h:175] AbstractObjectAttributesManager<T>::createObject  (Stage) : Making attributes with handle : data/scene_datasets/mp3d/QUCTc6BB5sX/QUCTc6BB5sX.glb
+I0914 23:13:13.227484  6531 ManagedContainerBase.cpp:19] ManagedContainerBase::convertFilenameToJSON : Filename : data/scene_datasets/mp3d/QUCTc6BB5sX/QUCTc6BB5sX.glb changed to proposed JSON configuration filename : data/scene_datasets/mp3d/QUCTc6BB5sX/QUCTc6BB5sX.stage_config.json
+I0914 23:13:13.229696  6531 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Stage) : Proposing JSON name : data/scene_datasets/mp3d/QUCTc6BB5sX/QUCTc6BB5sX.stage_config.json from original name : data/scene_datasets/mp3d/QUCTc6BB5sX/QUCTc6BB5sX.glb | This file  does not exist.
+I0914 23:13:13.229750  6531 AbstractObjectAttributesManagerBase.h:181] AbstractObjectAttributesManager<T>::createObject  (Stage) : Done making attributes with handle : data/scene_datasets/mp3d/QUCTc6BB5sX/QUCTc6BB5sX.glb
+I0914 23:13:13.229751  6531 AbstractObjectAttributesManagerBase.h:188] File (data/scene_datasets/mp3d/QUCTc6BB5sX/QUCTc6BB5sX.glb) exists but is not a recognized config filename extension, so new default Stage attributes created and registered.
+I0914 23:13:13.229755  6531 Simulator.cpp:156] Loading navmesh from data/scene_datasets/mp3d/QUCTc6BB5sX/QUCTc6BB5sX.navmesh
+I0914 23:13:13.230885  6531 Simulator.cpp:158] Loaded.
+I0914 23:13:13.230898  6531 SceneGraph.h:93] Created DrawableGroup: 
+Renderer: NVIDIA T1000 8GB/PCIe/SSE2 by NVIDIA Corporation
+OpenGL version: 4.6.0 NVIDIA 590.48.01
+Using optional features:
+    GL_ARB_ES2_compatibility
+    GL_ARB_direct_state_access
+    GL_ARB_get_texture_sub_image
+    GL_ARB_invalidate_subdata
+    GL_ARB_multi_bind
+    GL_ARB_robustness
+    GL_ARB_separate_shader_objects
+    GL_ARB_texture_filter_anisotropic
+    GL_ARB_texture_storage
+    GL_ARB_texture_storage_multisample
+    GL_ARB_vertex_array_object
+    GL_KHR_debug
+Using driver workarounds:
+    no-forward-compatible-core-context
+    nv-egl-incorrect-gl11-function-pointers
+    no-layout-qualifiers-on-old-glsl
+    nv-zero-context-profile-mask
+    nv-implementation-color-read-format-dsa-broken
+    nv-cubemap-inconsistent-compressed-image-size
+    nv-cubemap-broken-full-compressed-image-query
+    nv-compressed-block-size-in-bits
+I0914 23:13:13.233560  6531 ResourceManager.cpp:234] ResourceManager::loadStage : Not loading semantic mesh
+I0914 23:13:13.233565  6531 ResourceManager.cpp:262] ResourceManager::loadStage : start load render asset data/scene_datasets/mp3d/QUCTc6BB5sX/QUCTc6BB5sX.glb.
+I0914 23:13:13.233566  6531 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage data/scene_datasets/mp3d/QUCTc6BB5sX/QUCTc6BB5sX.glb 
+I0914 23:13:13.233575  6531 ResourceManager.cpp:1119] Importing Basis files as BC7 for QUCTc6BB5sX.glb
+W0914 23:13:16.139245  6531 Simulator.cpp:248] :
+---
+ The active scene does not contain semantic annotations. 
+---
+
+I0914 23:13:16.303418 6531 simulator.py:213] Loaded navmesh data/scene_datasets/mp3d/QUCTc6BB5sX/QUCTc6BB5sX.navmesh
+I0914 23:13:16.303672 6531 simulator.py:225] Recomputing navmesh for agent's height 0.88 and radius 0.18.
+I0914 23:13:16.306712  6531 PathFinder.cpp:382] Building navmesh with 587x900 cells
+I0914 23:13:16.437857  6531 PathFinder.cpp:650] Created navmesh with 1522 vertices 758 polygons
+I0914 23:13:16.437945  6531 Simulator.cpp:710] reconstruct navmesh successful
+2026-09-14 23:13:18,535 Video created: data/logs/video/diverse50_rxr/QUCTc6BB5sX-887-SPL1.00.mp4
+  0%|          | 0/10 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (791, 256) to (800, 256) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x55a94f46af00] Warning: data is not aligned! This can lead to a speed loss
+100%|██████████| 10/10 [00:00<00:00, 296.64it/s] 24%|██▎       | 12/51 [02:27<05:36,  8.63s/it]
+2026-09-14 23:13:32,821 Video created: data/logs/video/diverse50_rxr/QUCTc6BB5sX-2250-SPL1.00.mp4
+  0%|          | 0/135 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (791, 448) to (800, 448) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x5f3b44b66f00] Warning: data is not aligned! This can lead to a speed loss
+ 38%|███▊      | 51/135 [00:00<00:00, 505.88it/s] 95%|█████████▍| 128/135 [00:00<00:00, 660.36it/s]100%|██████████| 135/135 [00:00<00:00, 647.11it/s] 25%|██▌       | 13/51 [02:42<06:36, 10.42s/it]
+2026-09-14 23:13:41,022 Video created: data/logs/video/diverse50_rxr/QUCTc6BB5sX-5349-SPL0.00.mp4
+  0%|          | 0/55 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (791, 322) to (800, 336) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x6516adad4f00] Warning: data is not aligned! This can lead to a speed loss
+100%|██████████| 55/55 [00:00<00:00, 586.03it/s] 27%|██▋       | 14/51 [02:50<05:59,  9.71s/it]
+2026-09-14 23:13:54,917 Video created: data/logs/video/diverse50_rxr/QUCTc6BB5sX-9433-SPL0.00.mp4
+  0%|          | 0/136 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (791, 432) to (800, 432) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x6390178aaf00] Warning: data is not aligned! This can lead to a speed loss
+ 38%|███▊      | 52/136 [00:00<00:00, 516.40it/s] 89%|████████▉ | 121/136 [00:00<00:00, 614.99it/s]100%|██████████| 136/136 [00:00<00:00, 615.23it/s] 29%|██▉       | 15/51 [03:04<06:36, 11.02s/it]
+2026-09-14 23:14:17,125 Video created: data/logs/video/diverse50_rxr/QUCTc6BB5sX-9620-SPL0.00.mp4
+  0%|          | 0/195 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (791, 366) to (800, 368) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x5aa24a839f00] Warning: data is not aligned! This can lead to a speed loss
+ 29%|██▉       | 57/195 [00:00<00:00, 551.92it/s] 69%|██████▊   | 134/195 [00:00<00:00, 675.10it/s]100%|██████████| 195/195 [00:00<00:00, 669.08it/s] 31%|███▏      | 16/51 [03:26<08:24, 14.42s/it]
+2026-09-14 23:14:30,991 Video created: data/logs/video/diverse50_rxr/QUCTc6BB5sX-10269-SPL0.89.mp4
+  0%|          | 0/131 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (791, 366) to (800, 368) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x563fd4056f00] Warning: data is not aligned! This can lead to a speed loss
+ 47%|████▋     | 61/131 [00:00<00:00, 606.55it/s]100%|██████████| 131/131 [00:00<00:00, 704.53it/s] 33%|███▎      | 17/51 [03:40<08:02, 14.21s/it]I0914 23:14:31.304406  6531 PhysicsManager.cpp:33] Deconstructing PhysicsManager
+I0914 23:14:31.304441  6531 SemanticScene.h:41] Deconstructing SemanticScene
+I0914 23:14:31.308008  6531 SceneManager.h:25] Deconstructing SceneManager
+I0914 23:14:31.308017  6531 SceneGraph.h:26] Deconstructing SceneGraph
+I0914 23:14:31.308358  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.308525  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.308629  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.308720  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.308812  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.308908  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.309003  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.309098  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.309194  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.309286  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.309502  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.309619  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.309713  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.309832  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.309957  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.310073  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.310230  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.310348  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.310467  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.310578  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.310690  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.310802  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.310913  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.311009  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.311098  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.311189  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.311278  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.311360  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.311458  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.311533  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:31.315541  6531 Renderer.cpp:34] Deconstructing Renderer
+I0914 23:14:31.315549  6531 WindowlessContext.h:17] Deconstructing WindowlessContext
+I0914 23:14:31.319205  6531 MetadataMediator.cpp:56] MetadataMediator::setActiveSceneDatasetName : Old active dataset default changed to default successfully.
+I0914 23:14:31.319409  6531 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Physics Manager) : Proposing JSON name : ./data/default.physics_config.json from original name : ./data/default.physics_config.json | This file  does not exist.
+I0914 23:14:31.319429  6531 PhysicsAttributesManager.cpp:27] File (./data/default.physics_config.json) not found, so new default physics manager attributes created and registered.
+I0914 23:14:31.319434  6531 AbstractObjectAttributesManagerBase.h:175] AbstractObjectAttributesManager<T>::createObject  (Stage) : Making attributes with handle : data/scene_datasets/mp3d/pLe4wQe7qrG/pLe4wQe7qrG.glb
+I0914 23:14:31.319437  6531 ManagedContainerBase.cpp:19] ManagedContainerBase::convertFilenameToJSON : Filename : data/scene_datasets/mp3d/pLe4wQe7qrG/pLe4wQe7qrG.glb changed to proposed JSON configuration filename : data/scene_datasets/mp3d/pLe4wQe7qrG/pLe4wQe7qrG.stage_config.json
+I0914 23:14:31.321465  6531 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Stage) : Proposing JSON name : data/scene_datasets/mp3d/pLe4wQe7qrG/pLe4wQe7qrG.stage_config.json from original name : data/scene_datasets/mp3d/pLe4wQe7qrG/pLe4wQe7qrG.glb | This file  does not exist.
+I0914 23:14:31.321524  6531 AbstractObjectAttributesManagerBase.h:181] AbstractObjectAttributesManager<T>::createObject  (Stage) : Done making attributes with handle : data/scene_datasets/mp3d/pLe4wQe7qrG/pLe4wQe7qrG.glb
+I0914 23:14:31.321527  6531 AbstractObjectAttributesManagerBase.h:188] File (data/scene_datasets/mp3d/pLe4wQe7qrG/pLe4wQe7qrG.glb) exists but is not a recognized config filename extension, so new default Stage attributes created and registered.
+I0914 23:14:31.321530  6531 Simulator.cpp:156] Loading navmesh from data/scene_datasets/mp3d/pLe4wQe7qrG/pLe4wQe7qrG.navmesh
+I0914 23:14:31.327174  6531 Simulator.cpp:158] Loaded.
+I0914 23:14:31.327180  6531 SceneGraph.h:93] Created DrawableGroup: 
+Renderer: NVIDIA T1000 8GB/PCIe/SSE2 by NVIDIA Corporation
+OpenGL version: 4.6.0 NVIDIA 590.48.01
+Using optional features:
+    GL_ARB_ES2_compatibility
+    GL_ARB_direct_state_access
+    GL_ARB_get_texture_sub_image
+    GL_ARB_invalidate_subdata
+    GL_ARB_multi_bind
+    GL_ARB_robustness
+    GL_ARB_separate_shader_objects
+    GL_ARB_texture_filter_anisotropic
+    GL_ARB_texture_storage
+    GL_ARB_texture_storage_multisample
+    GL_ARB_vertex_array_object
+    GL_KHR_debug
+Using driver workarounds:
+    no-forward-compatible-core-context
+    nv-egl-incorrect-gl11-function-pointers
+    no-layout-qualifiers-on-old-glsl
+    nv-zero-context-profile-mask
+    nv-implementation-color-read-format-dsa-broken
+    nv-cubemap-inconsistent-compressed-image-size
+    nv-cubemap-broken-full-compressed-image-query
+    nv-compressed-block-size-in-bits
+I0914 23:14:31.329741  6531 ResourceManager.cpp:234] ResourceManager::loadStage : Not loading semantic mesh
+I0914 23:14:31.329746  6531 ResourceManager.cpp:262] ResourceManager::loadStage : start load render asset data/scene_datasets/mp3d/pLe4wQe7qrG/pLe4wQe7qrG.glb.
+I0914 23:14:31.329747  6531 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage data/scene_datasets/mp3d/pLe4wQe7qrG/pLe4wQe7qrG.glb 
+I0914 23:14:31.329757  6531 ResourceManager.cpp:1119] Importing Basis files as BC7 for pLe4wQe7qrG.glb
+W0914 23:14:31.952188  6531 Simulator.cpp:248] :
+---
+ The active scene does not contain semantic annotations. 
+---
+
+I0914 23:14:31.964321 6531 simulator.py:213] Loaded navmesh data/scene_datasets/mp3d/pLe4wQe7qrG/pLe4wQe7qrG.navmesh
+I0914 23:14:31.964588 6531 simulator.py:225] Recomputing navmesh for agent's height 0.88 and radius 0.18.
+I0914 23:14:31.972172  6531 PathFinder.cpp:382] Building navmesh with 229x152 cells
+I0914 23:14:32.034986  6531 PathFinder.cpp:650] Created navmesh with 143 vertices 78 polygons
+I0914 23:14:32.035010  6531 Simulator.cpp:710] reconstruct navmesh successful
+2026-09-14 23:14:45,889 Video created: data/logs/video/diverse50_rxr/pLe4wQe7qrG-1154-SPL0.43.mp4
+  0%|          | 0/194 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (786, 322) to (800, 336) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x64b22b338f00] Warning: data is not aligned! This can lead to a speed loss
+ 30%|██▉       | 58/194 [00:00<00:00, 579.24it/s] 69%|██████▉   | 134/194 [00:00<00:00, 683.21it/s]100%|██████████| 194/194 [00:00<00:00, 707.05it/s] 35%|███▌      | 18/51 [03:55<07:56, 14.44s/it]
+2026-09-14 23:14:58,291 Video created: data/logs/video/diverse50_rxr/pLe4wQe7qrG-2182-SPL0.00.mp4
+  0%|          | 0/144 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (786, 448) to (800, 448) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x6113b158bf00] Warning: data is not aligned! This can lead to a speed loss
+ 38%|███▊      | 55/144 [00:00<00:00, 544.40it/s] 90%|█████████ | 130/144 [00:00<00:00, 664.04it/s]100%|██████████| 144/144 [00:00<00:00, 660.18it/s] 37%|███▋      | 19/51 [04:07<07:22, 13.81s/it]I0914 23:14:58.641438  6531 PhysicsManager.cpp:33] Deconstructing PhysicsManager
+I0914 23:14:58.641477  6531 SemanticScene.h:41] Deconstructing SemanticScene
+I0914 23:14:58.642073  6531 SceneManager.h:25] Deconstructing SceneManager
+I0914 23:14:58.642077  6531 SceneGraph.h:26] Deconstructing SceneGraph
+I0914 23:14:58.642407  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.642551  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.642649  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.642746  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.642838  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.642928  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.643016  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.643108  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.643200  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.643291  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.643376  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.643465  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.643558  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.643695  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.643802  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.643913  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.644021  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.644129  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.644243  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.644352  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.644460  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.644569  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.644686  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.644786  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.644877  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.644963  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.645051  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.645134  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.645219  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.645373  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:14:58.646099  6531 Renderer.cpp:34] Deconstructing Renderer
+I0914 23:14:58.646104  6531 WindowlessContext.h:17] Deconstructing WindowlessContext
+I0914 23:14:58.647653  6531 MetadataMediator.cpp:56] MetadataMediator::setActiveSceneDatasetName : Old active dataset default changed to default successfully.
+I0914 23:14:58.647868  6531 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Physics Manager) : Proposing JSON name : ./data/default.physics_config.json from original name : ./data/default.physics_config.json | This file  does not exist.
+I0914 23:14:58.647888  6531 PhysicsAttributesManager.cpp:27] File (./data/default.physics_config.json) not found, so new default physics manager attributes created and registered.
+I0914 23:14:58.647893  6531 AbstractObjectAttributesManagerBase.h:175] AbstractObjectAttributesManager<T>::createObject  (Stage) : Making attributes with handle : data/scene_datasets/mp3d/x8F5xyUWy9e/x8F5xyUWy9e.glb
+I0914 23:14:58.647897  6531 ManagedContainerBase.cpp:19] ManagedContainerBase::convertFilenameToJSON : Filename : data/scene_datasets/mp3d/x8F5xyUWy9e/x8F5xyUWy9e.glb changed to proposed JSON configuration filename : data/scene_datasets/mp3d/x8F5xyUWy9e/x8F5xyUWy9e.stage_config.json
+I0914 23:14:58.650306  6531 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Stage) : Proposing JSON name : data/scene_datasets/mp3d/x8F5xyUWy9e/x8F5xyUWy9e.stage_config.json from original name : data/scene_datasets/mp3d/x8F5xyUWy9e/x8F5xyUWy9e.glb | This file  does not exist.
+I0914 23:14:58.650365  6531 AbstractObjectAttributesManagerBase.h:181] AbstractObjectAttributesManager<T>::createObject  (Stage) : Done making attributes with handle : data/scene_datasets/mp3d/x8F5xyUWy9e/x8F5xyUWy9e.glb
+I0914 23:14:58.650370  6531 AbstractObjectAttributesManagerBase.h:188] File (data/scene_datasets/mp3d/x8F5xyUWy9e/x8F5xyUWy9e.glb) exists but is not a recognized config filename extension, so new default Stage attributes created and registered.
+I0914 23:14:58.650374  6531 Simulator.cpp:156] Loading navmesh from data/scene_datasets/mp3d/x8F5xyUWy9e/x8F5xyUWy9e.navmesh
+I0914 23:14:58.657948  6531 Simulator.cpp:158] Loaded.
+I0914 23:14:58.657959  6531 SceneGraph.h:93] Created DrawableGroup: 
+Renderer: NVIDIA T1000 8GB/PCIe/SSE2 by NVIDIA Corporation
+OpenGL version: 4.6.0 NVIDIA 590.48.01
+Using optional features:
+    GL_ARB_ES2_compatibility
+    GL_ARB_direct_state_access
+    GL_ARB_get_texture_sub_image
+    GL_ARB_invalidate_subdata
+    GL_ARB_multi_bind
+    GL_ARB_robustness
+    GL_ARB_separate_shader_objects
+    GL_ARB_texture_filter_anisotropic
+    GL_ARB_texture_storage
+    GL_ARB_texture_storage_multisample
+    GL_ARB_vertex_array_object
+    GL_KHR_debug
+Using driver workarounds:
+    no-forward-compatible-core-context
+    nv-egl-incorrect-gl11-function-pointers
+    no-layout-qualifiers-on-old-glsl
+    nv-zero-context-profile-mask
+    nv-implementation-color-read-format-dsa-broken
+    nv-cubemap-inconsistent-compressed-image-size
+    nv-cubemap-broken-full-compressed-image-query
+    nv-compressed-block-size-in-bits
+I0914 23:14:58.660722  6531 ResourceManager.cpp:234] ResourceManager::loadStage : Not loading semantic mesh
+I0914 23:14:58.660728  6531 ResourceManager.cpp:262] ResourceManager::loadStage : start load render asset data/scene_datasets/mp3d/x8F5xyUWy9e/x8F5xyUWy9e.glb.
+I0914 23:14:58.660729  6531 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage data/scene_datasets/mp3d/x8F5xyUWy9e/x8F5xyUWy9e.glb 
+I0914 23:14:58.660739  6531 ResourceManager.cpp:1119] Importing Basis files as BC7 for x8F5xyUWy9e.glb
+W0914 23:14:59.240214  6531 Simulator.cpp:248] :
+---
+ The active scene does not contain semantic annotations. 
+---
+
+I0914 23:14:59.263449 6531 simulator.py:213] Loaded navmesh data/scene_datasets/mp3d/x8F5xyUWy9e/x8F5xyUWy9e.navmesh
+I0914 23:14:59.263710 6531 simulator.py:225] Recomputing navmesh for agent's height 0.88 and radius 0.18.
+I0914 23:14:59.265689  6531 PathFinder.cpp:382] Building navmesh with 425x385 cells
+I0914 23:14:59.300220  6531 PathFinder.cpp:650] Created navmesh with 315 vertices 162 polygons
+I0914 23:14:59.300241  6531 Simulator.cpp:710] reconstruct navmesh successful
+2026-09-14 23:15:01,217 Video created: data/logs/video/diverse50_rxr/x8F5xyUWy9e-1349-SPL1.00.mp4
+  0%|          | 0/9 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (695, 278) to (704, 288) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x5f6fa4ee4f00] Warning: data is not aligned! This can lead to a speed loss
+100%|██████████| 9/9 [00:00<00:00, 262.16it/s] 39%|███▉      | 20/51 [04:10<05:24, 10.47s/it]
+2026-09-14 23:15:14,201 Video created: data/logs/video/diverse50_rxr/x8F5xyUWy9e-10091-SPL0.00.mp4
+  0%|          | 0/133 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (695, 448) to (704, 448) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x56476b51df00] Warning: data is not aligned! This can lead to a speed loss
+ 41%|████▏     | 55/133 [00:00<00:00, 546.68it/s]100%|██████████| 133/133 [00:00<00:00, 694.32it/s] 41%|████      | 21/51 [04:23<05:38, 11.29s/it]
+2026-09-14 23:15:31,642 Video created: data/logs/video/diverse50_rxr/x8F5xyUWy9e-10908-SPL0.46.mp4
+  0%|          | 0/230 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (695, 366) to (704, 368) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x5e6362194f00] Warning: data is not aligned! This can lead to a speed loss
+ 30%|██▉       | 68/230 [00:00<00:00, 679.47it/s] 69%|██████▊   | 158/230 [00:00<00:00, 808.54it/s]100%|██████████| 230/230 [00:00<00:00, 811.49it/s] 43%|████▎     | 22/51 [04:41<06:21, 13.16s/it]I0914 23:15:32.055940  6531 PhysicsManager.cpp:33] Deconstructing PhysicsManager
+I0914 23:15:32.055979  6531 SemanticScene.h:41] Deconstructing SemanticScene
+I0914 23:15:32.056802  6531 SceneManager.h:25] Deconstructing SceneManager
+I0914 23:15:32.056808  6531 SceneGraph.h:26] Deconstructing SceneGraph
+I0914 23:15:32.057111  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.057255  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.057349  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.057438  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.057526  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.057615  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.057703  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.057790  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.057878  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.057965  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.058056  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.058148  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.058236  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.058359  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.058498  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.058609  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.058715  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.058823  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.058933  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.059046  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.059155  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.059265  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.059373  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.059473  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.059561  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.059648  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.059733  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.059816  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.059896  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.059964  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:15:32.060575  6531 Renderer.cpp:34] Deconstructing Renderer
+I0914 23:15:32.060580  6531 WindowlessContext.h:17] Deconstructing WindowlessContext
+I0914 23:15:32.062021  6531 MetadataMediator.cpp:56] MetadataMediator::setActiveSceneDatasetName : Old active dataset default changed to default successfully.
+I0914 23:15:32.062304  6531 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Physics Manager) : Proposing JSON name : ./data/default.physics_config.json from original name : ./data/default.physics_config.json | This file  does not exist.
+I0914 23:15:32.062325  6531 PhysicsAttributesManager.cpp:27] File (./data/default.physics_config.json) not found, so new default physics manager attributes created and registered.
+I0914 23:15:32.062335  6531 AbstractObjectAttributesManagerBase.h:175] AbstractObjectAttributesManager<T>::createObject  (Stage) : Making attributes with handle : data/scene_datasets/mp3d/EU6Fwq7SyZv/EU6Fwq7SyZv.glb
+I0914 23:15:32.062338  6531 ManagedContainerBase.cpp:19] ManagedContainerBase::convertFilenameToJSON : Filename : data/scene_datasets/mp3d/EU6Fwq7SyZv/EU6Fwq7SyZv.glb changed to proposed JSON configuration filename : data/scene_datasets/mp3d/EU6Fwq7SyZv/EU6Fwq7SyZv.stage_config.json
+I0914 23:15:32.064427  6531 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Stage) : Proposing JSON name : data/scene_datasets/mp3d/EU6Fwq7SyZv/EU6Fwq7SyZv.stage_config.json from original name : data/scene_datasets/mp3d/EU6Fwq7SyZv/EU6Fwq7SyZv.glb | This file  does not exist.
+I0914 23:15:32.064491  6531 AbstractObjectAttributesManagerBase.h:181] AbstractObjectAttributesManager<T>::createObject  (Stage) : Done making attributes with handle : data/scene_datasets/mp3d/EU6Fwq7SyZv/EU6Fwq7SyZv.glb
+I0914 23:15:32.064493  6531 AbstractObjectAttributesManagerBase.h:188] File (data/scene_datasets/mp3d/EU6Fwq7SyZv/EU6Fwq7SyZv.glb) exists but is not a recognized config filename extension, so new default Stage attributes created and registered.
+I0914 23:15:32.064497  6531 Simulator.cpp:156] Loading navmesh from data/scene_datasets/mp3d/EU6Fwq7SyZv/EU6Fwq7SyZv.navmesh
+I0914 23:15:32.076856  6531 Simulator.cpp:158] Loaded.
+I0914 23:15:32.076866  6531 SceneGraph.h:93] Created DrawableGroup: 
+Renderer: NVIDIA T1000 8GB/PCIe/SSE2 by NVIDIA Corporation
+OpenGL version: 4.6.0 NVIDIA 590.48.01
+Using optional features:
+    GL_ARB_ES2_compatibility
+    GL_ARB_direct_state_access
+    GL_ARB_get_texture_sub_image
+    GL_ARB_invalidate_subdata
+    GL_ARB_multi_bind
+    GL_ARB_robustness
+    GL_ARB_separate_shader_objects
+    GL_ARB_texture_filter_anisotropic
+    GL_ARB_texture_storage
+    GL_ARB_texture_storage_multisample
+    GL_ARB_vertex_array_object
+    GL_KHR_debug
+Using driver workarounds:
+    no-forward-compatible-core-context
+    nv-egl-incorrect-gl11-function-pointers
+    no-layout-qualifiers-on-old-glsl
+    nv-zero-context-profile-mask
+    nv-implementation-color-read-format-dsa-broken
+    nv-cubemap-inconsistent-compressed-image-size
+    nv-cubemap-broken-full-compressed-image-query
+    nv-compressed-block-size-in-bits
+I0914 23:15:32.079352  6531 ResourceManager.cpp:234] ResourceManager::loadStage : Not loading semantic mesh
+I0914 23:15:32.079356  6531 ResourceManager.cpp:262] ResourceManager::loadStage : start load render asset data/scene_datasets/mp3d/EU6Fwq7SyZv/EU6Fwq7SyZv.glb.
+I0914 23:15:32.079358  6531 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage data/scene_datasets/mp3d/EU6Fwq7SyZv/EU6Fwq7SyZv.glb 
+I0914 23:15:32.079365  6531 ResourceManager.cpp:1119] Importing Basis files as BC7 for EU6Fwq7SyZv.glb
+W0914 23:15:34.225916  6531 Simulator.cpp:248] :
+---
+ The active scene does not contain semantic annotations. 
+---
+
+I0914 23:15:34.276899 6531 simulator.py:213] Loaded navmesh data/scene_datasets/mp3d/EU6Fwq7SyZv/EU6Fwq7SyZv.navmesh
+I0914 23:15:34.277154 6531 simulator.py:225] Recomputing navmesh for agent's height 0.88 and radius 0.18.
+I0914 23:15:34.287635  6531 PathFinder.cpp:382] Building navmesh with 312x252 cells
+I0914 23:15:34.426656  6531 PathFinder.cpp:650] Created navmesh with 711 vertices 371 polygons
+I0914 23:15:34.426693  6531 Simulator.cpp:710] reconstruct navmesh successful
+2026-09-14 23:16:06,110 Video created: data/logs/video/diverse50_rxr/EU6Fwq7SyZv-1359-SPL0.00.mp4
+  0%|          | 0/423 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (724, 344) to (736, 352) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x611c9b4f5f00] Warning: data is not aligned! This can lead to a speed loss
+ 15%|█▌        | 65/423 [00:00<00:00, 644.78it/s] 35%|███▌      | 150/423 [00:00<00:00, 762.63it/s] 59%|█████▉    | 251/423 [00:00<00:00, 874.60it/s] 83%|████████▎ | 350/423 [00:00<00:00, 916.55it/s]100%|██████████| 423/423 [00:00<00:00, 880.75it/s] 45%|████▌     | 23/51 [05:15<09:09, 19.62s/it]
+2026-09-14 23:16:30,928 Video created: data/logs/video/diverse50_rxr/EU6Fwq7SyZv-5715-SPL0.18.mp4
+  0%|          | 0/320 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (724, 366) to (736, 368) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x5e21ffde3f00] Warning: data is not aligned! This can lead to a speed loss
+ 19%|█▉        | 60/320 [00:00<00:00, 596.86it/s] 43%|████▎     | 139/320 [00:00<00:00, 704.71it/s] 66%|██████▌   | 210/320 [00:00<00:00, 682.22it/s] 89%|████████▉ | 284/320 [00:00<00:00, 701.40it/s]100%|██████████| 320/320 [00:00<00:00, 698.38it/s] 47%|████▋     | 24/51 [05:40<09:31, 21.17s/it]
+2026-09-14 23:17:03,386 Video created: data/logs/video/diverse50_rxr/EU6Fwq7SyZv-6678-SPL0.00.mp4
+  0%|          | 0/432 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (724, 410) to (736, 416) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x636379638f00] Warning: data is not aligned! This can lead to a speed loss
+ 11%|█         | 47/432 [00:00<00:00, 466.72it/s] 27%|██▋       | 115/432 [00:00<00:00, 587.74it/s] 42%|████▏     | 183/432 [00:00<00:00, 620.57it/s] 60%|█████▉    | 258/432 [00:00<00:00, 670.59it/s] 75%|███████▌  | 326/432 [00:00<00:00, 663.81it/s] 91%|█████████ | 393/432 [00:00<00:00, 638.65it/s]100%|██████████| 432/432 [00:00<00:00, 630.44it/s] 49%|████▉     | 25/51 [06:13<10:40, 24.64s/it]
+2026-09-14 23:17:05,643 Video created: data/logs/video/diverse50_rxr/EU6Fwq7SyZv-9280-SPL1.00.mp4
+  0%|          | 0/2 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (724, 256) to (736, 256) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x651db65e8f00] Warning: data is not aligned! This can lead to a speed loss
+100%|██████████| 2/2 [00:00<00:00, 74.52it/s] 51%|█████     | 26/51 [06:14<07:22, 17.68s/it]
+2026-09-14 23:17:43,970 Video created: data/logs/video/diverse50_rxr/EU6Fwq7SyZv-10468-SPL0.00.mp4
+  0%|          | 0/672 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (724, 448) to (736, 448) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x5fe2c9a29f00] Warning: data is not aligned! This can lead to a speed loss
+  8%|▊         | 51/672 [00:00<00:01, 507.88it/s] 17%|█▋        | 117/672 [00:00<00:00, 596.49it/s] 27%|██▋       | 183/672 [00:00<00:00, 624.97it/s] 37%|███▋      | 246/672 [00:00<00:00, 625.53it/s] 48%|████▊     | 321/672 [00:00<00:00, 669.79it/s] 58%|█████▊    | 388/672 [00:00<00:00, 668.40it/s] 68%|██████▊   | 458/672 [00:00<00:00, 678.35it/s] 78%|███████▊  | 526/672 [00:00<00:00, 651.12it/s] 89%|████████▉ | 598/672 [00:00<00:00, 663.67it/s] 99%|█████████▉| 666/672 [00:01<00:00, 661.58it/s]100%|██████████| 672/672 [00:01<00:00, 652.78it/s] 53%|█████▎    | 27/51 [06:54<09:41, 24.22s/it]I0914 23:17:45.196643  6531 PhysicsManager.cpp:33] Deconstructing PhysicsManager
+I0914 23:17:45.196681  6531 SemanticScene.h:41] Deconstructing SemanticScene
+I0914 23:17:45.198863  6531 SceneManager.h:25] Deconstructing SceneManager
+I0914 23:17:45.198871  6531 SceneGraph.h:26] Deconstructing SceneGraph
+I0914 23:17:45.199239  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.199549  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.199638  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.199723  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.199807  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.199899  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.199990  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.200076  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.200163  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.200251  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.200342  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.200428  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.200512  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.200620  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.200726  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.200840  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.200950  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.201059  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.201170  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.201273  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.201375  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.201475  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.201577  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.201668  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.201753  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.201838  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.201926  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.202008  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.202087  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.202112  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:17:45.206669  6531 Renderer.cpp:34] Deconstructing Renderer
+I0914 23:17:45.206681  6531 WindowlessContext.h:17] Deconstructing WindowlessContext
+I0914 23:17:45.209483  6531 MetadataMediator.cpp:56] MetadataMediator::setActiveSceneDatasetName : Old active dataset default changed to default successfully.
+I0914 23:17:45.209728  6531 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Physics Manager) : Proposing JSON name : ./data/default.physics_config.json from original name : ./data/default.physics_config.json | This file  does not exist.
+I0914 23:17:45.209748  6531 PhysicsAttributesManager.cpp:27] File (./data/default.physics_config.json) not found, so new default physics manager attributes created and registered.
+I0914 23:17:45.209753  6531 AbstractObjectAttributesManagerBase.h:175] AbstractObjectAttributesManager<T>::createObject  (Stage) : Making attributes with handle : data/scene_datasets/mp3d/oLBMNvg9in8/oLBMNvg9in8.glb
+I0914 23:17:45.209755  6531 ManagedContainerBase.cpp:19] ManagedContainerBase::convertFilenameToJSON : Filename : data/scene_datasets/mp3d/oLBMNvg9in8/oLBMNvg9in8.glb changed to proposed JSON configuration filename : data/scene_datasets/mp3d/oLBMNvg9in8/oLBMNvg9in8.stage_config.json
+I0914 23:17:45.212406  6531 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Stage) : Proposing JSON name : data/scene_datasets/mp3d/oLBMNvg9in8/oLBMNvg9in8.stage_config.json from original name : data/scene_datasets/mp3d/oLBMNvg9in8/oLBMNvg9in8.glb | This file  does not exist.
+I0914 23:17:45.212798  6531 AbstractObjectAttributesManagerBase.h:181] AbstractObjectAttributesManager<T>::createObject  (Stage) : Done making attributes with handle : data/scene_datasets/mp3d/oLBMNvg9in8/oLBMNvg9in8.glb
+I0914 23:17:45.212805  6531 AbstractObjectAttributesManagerBase.h:188] File (data/scene_datasets/mp3d/oLBMNvg9in8/oLBMNvg9in8.glb) exists but is not a recognized config filename extension, so new default Stage attributes created and registered.
+I0914 23:17:45.212810  6531 Simulator.cpp:156] Loading navmesh from data/scene_datasets/mp3d/oLBMNvg9in8/oLBMNvg9in8.navmesh
+I0914 23:17:45.217167  6531 Simulator.cpp:158] Loaded.
+I0914 23:17:45.217182  6531 SceneGraph.h:93] Created DrawableGroup: 
+Renderer: NVIDIA T1000 8GB/PCIe/SSE2 by NVIDIA Corporation
+OpenGL version: 4.6.0 NVIDIA 590.48.01
+Using optional features:
+    GL_ARB_ES2_compatibility
+    GL_ARB_direct_state_access
+    GL_ARB_get_texture_sub_image
+    GL_ARB_invalidate_subdata
+    GL_ARB_multi_bind
+    GL_ARB_robustness
+    GL_ARB_separate_shader_objects
+    GL_ARB_texture_filter_anisotropic
+    GL_ARB_texture_storage
+    GL_ARB_texture_storage_multisample
+    GL_ARB_vertex_array_object
+    GL_KHR_debug
+Using driver workarounds:
+    no-forward-compatible-core-context
+    nv-egl-incorrect-gl11-function-pointers
+    no-layout-qualifiers-on-old-glsl
+    nv-zero-context-profile-mask
+    nv-implementation-color-read-format-dsa-broken
+    nv-cubemap-inconsistent-compressed-image-size
+    nv-cubemap-broken-full-compressed-image-query
+    nv-compressed-block-size-in-bits
+I0914 23:17:45.219774  6531 ResourceManager.cpp:234] ResourceManager::loadStage : Not loading semantic mesh
+I0914 23:17:45.219779  6531 ResourceManager.cpp:262] ResourceManager::loadStage : start load render asset data/scene_datasets/mp3d/oLBMNvg9in8/oLBMNvg9in8.glb.
+I0914 23:17:45.219780  6531 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage data/scene_datasets/mp3d/oLBMNvg9in8/oLBMNvg9in8.glb 
+I0914 23:17:45.219789  6531 ResourceManager.cpp:1119] Importing Basis files as BC7 for oLBMNvg9in8.glb
+W0914 23:17:47.485457  6531 Simulator.cpp:248] :
+---
+ The active scene does not contain semantic annotations. 
+---
+
+I0914 23:17:47.626024 6531 simulator.py:213] Loaded navmesh data/scene_datasets/mp3d/oLBMNvg9in8/oLBMNvg9in8.navmesh
+I0914 23:17:47.626313 6531 simulator.py:225] Recomputing navmesh for agent's height 0.88 and radius 0.18.
+I0914 23:17:47.640084  6531 PathFinder.cpp:382] Building navmesh with 229x228 cells
+I0914 23:17:47.803547  6531 PathFinder.cpp:650] Created navmesh with 882 vertices 440 polygons
+I0914 23:17:47.803583  6531 Simulator.cpp:710] reconstruct navmesh successful
+2026-09-14 23:17:49,268 Video created: data/logs/video/diverse50_rxr/oLBMNvg9in8-1392-SPL1.00.mp4
+  0%|          | 0/2 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (672, 278) to (672, 288) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+100%|██████████| 2/2 [00:00<00:00, 69.12it/s] 55%|█████▍    | 28/51 [06:58<06:58, 18.20s/it]
+2026-09-14 23:17:51,705 Video created: data/logs/video/diverse50_rxr/oLBMNvg9in8-1725-SPL1.00.mp4
+  0%|          | 0/18 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (672, 322) to (672, 336) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+100%|██████████| 18/18 [00:00<00:00, 422.93it/s] 57%|█████▋    | 29/51 [07:00<04:56, 13.49s/it]
+2026-09-14 23:18:12,505 Video created: data/logs/video/diverse50_rxr/oLBMNvg9in8-1909-SPL0.41.mp4
+  0%|          | 0/255 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (672, 366) to (672, 368) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+ 22%|██▏       | 57/255 [00:00<00:00, 567.89it/s] 51%|█████▏    | 131/255 [00:00<00:00, 654.81it/s] 83%|████████▎ | 211/255 [00:00<00:00, 717.59it/s]100%|██████████| 255/255 [00:00<00:00, 710.72it/s] 59%|█████▉    | 30/51 [07:22<05:31, 15.80s/it]
+2026-09-14 23:18:20,800 Video created: data/logs/video/diverse50_rxr/oLBMNvg9in8-10687-SPL0.94.mp4
+  0%|          | 0/72 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (672, 388) to (672, 400) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+ 78%|███████▊  | 56/72 [00:00<00:00, 558.62it/s]100%|██████████| 72/72 [00:00<00:00, 567.66it/s] 61%|██████    | 31/51 [07:30<04:29, 13.47s/it]
+2026-09-14 23:18:42,806 Video created: data/logs/video/diverse50_rxr/oLBMNvg9in8-10808-SPL0.00.mp4
+  0%|          | 0/180 [00:00<?, ?it/s] 29%|██▉       | 52/180 [00:00<00:00, 518.14it/s] 68%|██████▊   | 123/180 [00:00<00:00, 628.21it/s]100%|██████████| 180/180 [00:00<00:00, 644.35it/s] 63%|██████▎   | 32/51 [07:52<05:05, 16.09s/it]I0914 23:18:43.253652  6531 PhysicsManager.cpp:33] Deconstructing PhysicsManager
+I0914 23:18:43.253690  6531 SemanticScene.h:41] Deconstructing SemanticScene
+I0914 23:18:43.257387  6531 SceneManager.h:25] Deconstructing SceneManager
+I0914 23:18:43.257397  6531 SceneGraph.h:26] Deconstructing SceneGraph
+I0914 23:18:43.257754  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.257939  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.258033  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.258131  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.258226  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.258318  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.258404  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.258488  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.258572  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.258654  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.258739  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.258823  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.258908  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.259027  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.259137  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.259253  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.259366  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.259473  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.259580  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.259689  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.259794  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.259902  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.260015  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.260180  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.260268  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.260351  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.260437  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.260517  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.260600  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.260607  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:18:43.264590  6531 Renderer.cpp:34] Deconstructing Renderer
+I0914 23:18:43.264605  6531 WindowlessContext.h:17] Deconstructing WindowlessContext
+I0914 23:18:43.267819  6531 MetadataMediator.cpp:56] MetadataMediator::setActiveSceneDatasetName : Old active dataset default changed to default successfully.
+I0914 23:18:43.268085  6531 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Physics Manager) : Proposing JSON name : ./data/default.physics_config.json from original name : ./data/default.physics_config.json | This file  does not exist.
+I0914 23:18:43.268117  6531 PhysicsAttributesManager.cpp:27] File (./data/default.physics_config.json) not found, so new default physics manager attributes created and registered.
+I0914 23:18:43.268122  6531 AbstractObjectAttributesManagerBase.h:175] AbstractObjectAttributesManager<T>::createObject  (Stage) : Making attributes with handle : data/scene_datasets/mp3d/8194nk5LbLH/8194nk5LbLH.glb
+I0914 23:18:43.268126  6531 ManagedContainerBase.cpp:19] ManagedContainerBase::convertFilenameToJSON : Filename : data/scene_datasets/mp3d/8194nk5LbLH/8194nk5LbLH.glb changed to proposed JSON configuration filename : data/scene_datasets/mp3d/8194nk5LbLH/8194nk5LbLH.stage_config.json
+I0914 23:18:43.282006  6531 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Stage) : Proposing JSON name : data/scene_datasets/mp3d/8194nk5LbLH/8194nk5LbLH.stage_config.json from original name : data/scene_datasets/mp3d/8194nk5LbLH/8194nk5LbLH.glb | This file  does not exist.
+I0914 23:18:43.282094  6531 AbstractObjectAttributesManagerBase.h:181] AbstractObjectAttributesManager<T>::createObject  (Stage) : Done making attributes with handle : data/scene_datasets/mp3d/8194nk5LbLH/8194nk5LbLH.glb
+I0914 23:18:43.282096  6531 AbstractObjectAttributesManagerBase.h:188] File (data/scene_datasets/mp3d/8194nk5LbLH/8194nk5LbLH.glb) exists but is not a recognized config filename extension, so new default Stage attributes created and registered.
+I0914 23:18:43.282107  6531 Simulator.cpp:156] Loading navmesh from data/scene_datasets/mp3d/8194nk5LbLH/8194nk5LbLH.navmesh
+I0914 23:18:43.290586  6531 Simulator.cpp:158] Loaded.
+I0914 23:18:43.290597  6531 SceneGraph.h:93] Created DrawableGroup: 
+Renderer: NVIDIA T1000 8GB/PCIe/SSE2 by NVIDIA Corporation
+OpenGL version: 4.6.0 NVIDIA 590.48.01
+Using optional features:
+    GL_ARB_ES2_compatibility
+    GL_ARB_direct_state_access
+    GL_ARB_get_texture_sub_image
+    GL_ARB_invalidate_subdata
+    GL_ARB_multi_bind
+    GL_ARB_robustness
+    GL_ARB_separate_shader_objects
+    GL_ARB_texture_filter_anisotropic
+    GL_ARB_texture_storage
+    GL_ARB_texture_storage_multisample
+    GL_ARB_vertex_array_object
+    GL_KHR_debug
+Using driver workarounds:
+    no-forward-compatible-core-context
+    nv-egl-incorrect-gl11-function-pointers
+    no-layout-qualifiers-on-old-glsl
+    nv-zero-context-profile-mask
+    nv-implementation-color-read-format-dsa-broken
+    nv-cubemap-inconsistent-compressed-image-size
+    nv-cubemap-broken-full-compressed-image-query
+    nv-compressed-block-size-in-bits
+I0914 23:18:43.293179  6531 ResourceManager.cpp:234] ResourceManager::loadStage : Not loading semantic mesh
+I0914 23:18:43.293184  6531 ResourceManager.cpp:262] ResourceManager::loadStage : start load render asset data/scene_datasets/mp3d/8194nk5LbLH/8194nk5LbLH.glb.
+I0914 23:18:43.293185  6531 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage data/scene_datasets/mp3d/8194nk5LbLH/8194nk5LbLH.glb 
+I0914 23:18:43.293193  6531 ResourceManager.cpp:1119] Importing Basis files as BC7 for 8194nk5LbLH.glb
+W0914 23:18:44.072116  6531 Simulator.cpp:248] :
+---
+ The active scene does not contain semantic annotations. 
+---
+
+I0914 23:18:44.100961 6531 simulator.py:213] Loaded navmesh data/scene_datasets/mp3d/8194nk5LbLH/8194nk5LbLH.navmesh
+I0914 23:18:44.101227 6531 simulator.py:225] Recomputing navmesh for agent's height 0.88 and radius 0.18.
+I0914 23:18:44.105641  6531 PathFinder.cpp:382] Building navmesh with 403x274 cells
+I0914 23:18:44.166743  6531 PathFinder.cpp:650] Created navmesh with 365 vertices 183 polygons
+I0914 23:18:44.166774  6531 Simulator.cpp:710] reconstruct navmesh successful
+2026-09-14 23:18:57,480 Video created: data/logs/video/diverse50_rxr/8194nk5LbLH-2264-SPL0.00.mp4
+  0%|          | 0/123 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (777, 410) to (784, 416) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x5e7b3de6bf00] Warning: data is not aligned! This can lead to a speed loss
+ 45%|████▍     | 55/123 [00:00<00:00, 545.68it/s]100%|██████████| 123/123 [00:00<00:00, 617.22it/s] 65%|██████▍   | 33/51 [08:06<04:41, 15.64s/it]
+2026-09-14 23:19:06,472 Video created: data/logs/video/diverse50_rxr/8194nk5LbLH-2846-SPL0.00.mp4
+  0%|          | 0/93 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (777, 278) to (784, 288) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x5b85195a6f00] Warning: data is not aligned! This can lead to a speed loss
+ 76%|███████▋  | 71/93 [00:00<00:00, 706.41it/s]100%|██████████| 93/93 [00:00<00:00, 702.39it/s] 67%|██████▋   | 34/51 [08:15<03:51, 13.61s/it]I0914 23:19:06.724336  6531 PhysicsManager.cpp:33] Deconstructing PhysicsManager
+I0914 23:19:06.724385  6531 SemanticScene.h:41] Deconstructing SemanticScene
+I0914 23:19:06.725886  6531 SceneManager.h:25] Deconstructing SceneManager
+I0914 23:19:06.725893  6531 SceneGraph.h:26] Deconstructing SceneGraph
+I0914 23:19:06.726351  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.726591  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.726771  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.726938  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.727104  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.727272  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.727415  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.727571  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.727717  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.727875  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.728034  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.728191  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.728336  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.728529  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.728715  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.728907  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.729097  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.729290  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.729480  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.729662  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.729849  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.730165  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.730304  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.730408  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.730512  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.730598  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.730706  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.730792  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.730880  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.730952  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:19:06.731660  6531 Renderer.cpp:34] Deconstructing Renderer
+I0914 23:19:06.731667  6531 WindowlessContext.h:17] Deconstructing WindowlessContext
+I0914 23:19:06.733278  6531 MetadataMediator.cpp:56] MetadataMediator::setActiveSceneDatasetName : Old active dataset default changed to default successfully.
+I0914 23:19:06.733497  6531 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Physics Manager) : Proposing JSON name : ./data/default.physics_config.json from original name : ./data/default.physics_config.json | This file  does not exist.
+I0914 23:19:06.733516  6531 PhysicsAttributesManager.cpp:27] File (./data/default.physics_config.json) not found, so new default physics manager attributes created and registered.
+I0914 23:19:06.733527  6531 AbstractObjectAttributesManagerBase.h:175] AbstractObjectAttributesManager<T>::createObject  (Stage) : Making attributes with handle : data/scene_datasets/mp3d/X7HyMhZNoso/X7HyMhZNoso.glb
+I0914 23:19:06.733529  6531 ManagedContainerBase.cpp:19] ManagedContainerBase::convertFilenameToJSON : Filename : data/scene_datasets/mp3d/X7HyMhZNoso/X7HyMhZNoso.glb changed to proposed JSON configuration filename : data/scene_datasets/mp3d/X7HyMhZNoso/X7HyMhZNoso.stage_config.json
+I0914 23:19:06.735651  6531 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Stage) : Proposing JSON name : data/scene_datasets/mp3d/X7HyMhZNoso/X7HyMhZNoso.stage_config.json from original name : data/scene_datasets/mp3d/X7HyMhZNoso/X7HyMhZNoso.glb | This file  does not exist.
+I0914 23:19:06.735702  6531 AbstractObjectAttributesManagerBase.h:181] AbstractObjectAttributesManager<T>::createObject  (Stage) : Done making attributes with handle : data/scene_datasets/mp3d/X7HyMhZNoso/X7HyMhZNoso.glb
+I0914 23:19:06.735703  6531 AbstractObjectAttributesManagerBase.h:188] File (data/scene_datasets/mp3d/X7HyMhZNoso/X7HyMhZNoso.glb) exists but is not a recognized config filename extension, so new default Stage attributes created and registered.
+I0914 23:19:06.735708  6531 Simulator.cpp:156] Loading navmesh from data/scene_datasets/mp3d/X7HyMhZNoso/X7HyMhZNoso.navmesh
+I0914 23:19:06.747141  6531 Simulator.cpp:158] Loaded.
+I0914 23:19:06.747157  6531 SceneGraph.h:93] Created DrawableGroup: 
+Renderer: NVIDIA T1000 8GB/PCIe/SSE2 by NVIDIA Corporation
+OpenGL version: 4.6.0 NVIDIA 590.48.01
+Using optional features:
+    GL_ARB_ES2_compatibility
+    GL_ARB_direct_state_access
+    GL_ARB_get_texture_sub_image
+    GL_ARB_invalidate_subdata
+    GL_ARB_multi_bind
+    GL_ARB_robustness
+    GL_ARB_separate_shader_objects
+    GL_ARB_texture_filter_anisotropic
+    GL_ARB_texture_storage
+    GL_ARB_texture_storage_multisample
+    GL_ARB_vertex_array_object
+    GL_KHR_debug
+Using driver workarounds:
+    no-forward-compatible-core-context
+    nv-egl-incorrect-gl11-function-pointers
+    no-layout-qualifiers-on-old-glsl
+    nv-zero-context-profile-mask
+    nv-implementation-color-read-format-dsa-broken
+    nv-cubemap-inconsistent-compressed-image-size
+    nv-cubemap-broken-full-compressed-image-query
+    nv-compressed-block-size-in-bits
+I0914 23:19:06.749835  6531 ResourceManager.cpp:234] ResourceManager::loadStage : Not loading semantic mesh
+I0914 23:19:06.749840  6531 ResourceManager.cpp:262] ResourceManager::loadStage : start load render asset data/scene_datasets/mp3d/X7HyMhZNoso/X7HyMhZNoso.glb.
+I0914 23:19:06.749841  6531 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage data/scene_datasets/mp3d/X7HyMhZNoso/X7HyMhZNoso.glb 
+I0914 23:19:06.749851  6531 ResourceManager.cpp:1119] Importing Basis files as BC7 for X7HyMhZNoso.glb
+W0914 23:19:08.072847  6531 Simulator.cpp:248] :
+---
+ The active scene does not contain semantic annotations. 
+---
+
+I0914 23:19:08.121335 6531 simulator.py:213] Loaded navmesh data/scene_datasets/mp3d/X7HyMhZNoso/X7HyMhZNoso.navmesh
+I0914 23:19:08.121594 6531 simulator.py:225] Recomputing navmesh for agent's height 0.88 and radius 0.18.
+I0914 23:19:08.124073  6531 PathFinder.cpp:382] Building navmesh with 437x750 cells
+I0914 23:19:08.200030  6531 PathFinder.cpp:650] Created navmesh with 735 vertices 378 polygons
+I0914 23:19:08.200080  6531 Simulator.cpp:710] reconstruct navmesh successful
+2026-09-14 23:19:26,128 Video created: data/logs/video/diverse50_rxr/X7HyMhZNoso-2305-SPL0.00.mp4
+  0%|          | 0/192 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (833, 388) to (848, 400) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x555a4b97ff00] Warning: data is not aligned! This can lead to a speed loss
+ 28%|██▊       | 53/192 [00:00<00:00, 525.92it/s] 68%|██████▊   | 130/192 [00:00<00:00, 668.71it/s]100%|██████████| 192/192 [00:00<00:00, 689.66it/s] 69%|██████▊   | 35/51 [08:35<04:07, 15.48s/it]
+2026-09-14 23:19:57,305 Video created: data/logs/video/diverse50_rxr/X7HyMhZNoso-2328-SPL0.00.mp4
+  0%|          | 0/481 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (833, 344) to (848, 352) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x64095c6aaf00] Warning: data is not aligned! This can lead to a speed loss
+ 11%|█▏        | 55/481 [00:00<00:00, 547.98it/s] 28%|██▊       | 135/481 [00:00<00:00, 691.99it/s] 45%|████▌     | 218/481 [00:00<00:00, 754.20it/s] 62%|██████▏   | 296/481 [00:00<00:00, 759.97it/s] 77%|███████▋  | 372/481 [00:00<00:00, 756.49it/s] 93%|█████████▎| 449/481 [00:00<00:00, 759.28it/s]100%|██████████| 481/481 [00:00<00:00, 739.37it/s] 71%|███████   | 36/51 [09:07<05:04, 20.31s/it]
+2026-09-14 23:20:01,306 Video created: data/logs/video/diverse50_rxr/X7HyMhZNoso-2756-SPL1.00.mp4
+  0%|          | 0/29 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (833, 278) to (848, 288) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x6469cb42bf00] Warning: data is not aligned! This can lead to a speed loss
+100%|██████████| 29/29 [00:00<00:00, 565.12it/s] 73%|███████▎  | 37/51 [09:10<03:32, 15.21s/it]
+2026-09-14 23:20:08,124 Video created: data/logs/video/diverse50_rxr/X7HyMhZNoso-3165-SPL1.00.mp4
+  0%|          | 0/43 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (833, 344) to (848, 352) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x5b5091804f00] Warning: data is not aligned! This can lead to a speed loss
+100%|██████████| 43/43 [00:00<00:00, 568.53it/s] 75%|███████▍  | 38/51 [09:17<02:45, 12.71s/it]
+2026-09-14 23:20:13,523 Video created: data/logs/video/diverse50_rxr/X7HyMhZNoso-4148-SPL1.00.mp4
+  0%|          | 0/42 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (833, 322) to (848, 336) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x5578d4260f00] Warning: data is not aligned! This can lead to a speed loss
+100%|██████████| 42/42 [00:00<00:00, 606.47it/s] 76%|███████▋  | 39/51 [09:22<02:06, 10.51s/it]
+2026-09-14 23:20:41,384 Video created: data/logs/video/diverse50_rxr/X7HyMhZNoso-10391-SPL0.00.mp4
+  0%|          | 0/384 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (833, 448) to (848, 448) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x5c1cdfba3f00] Warning: data is not aligned! This can lead to a speed loss
+ 13%|█▎        | 49/384 [00:00<00:00, 484.95it/s] 33%|███▎      | 125/384 [00:00<00:00, 642.99it/s] 55%|█████▌    | 212/384 [00:00<00:00, 744.15it/s] 77%|███████▋  | 296/384 [00:00<00:00, 780.72it/s]100%|██████████| 384/384 [00:00<00:00, 777.13it/s] 78%|███████▊  | 40/51 [09:51<02:54, 15.85s/it]I0914 23:20:42.016467  6531 PhysicsManager.cpp:33] Deconstructing PhysicsManager
+I0914 23:20:42.016507  6531 SemanticScene.h:41] Deconstructing SemanticScene
+I0914 23:20:42.018646  6531 SceneManager.h:25] Deconstructing SceneManager
+I0914 23:20:42.018656  6531 SceneGraph.h:26] Deconstructing SceneGraph
+I0914 23:20:42.018958  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.019256  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.019352  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.019443  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.019529  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.019619  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.019706  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.019824  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.019912  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.020004  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.020090  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.020176  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.020262  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.020371  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.020475  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.020596  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.020702  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.020834  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.020944  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.021049  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.021157  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.021262  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.021368  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.021466  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.021553  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.021638  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.021725  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.021813  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.021898  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.021968  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:20:42.023402  6531 Renderer.cpp:34] Deconstructing Renderer
+I0914 23:20:42.023411  6531 WindowlessContext.h:17] Deconstructing WindowlessContext
+I0914 23:20:42.025864  6531 MetadataMediator.cpp:56] MetadataMediator::setActiveSceneDatasetName : Old active dataset default changed to default successfully.
+I0914 23:20:42.026149  6531 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Physics Manager) : Proposing JSON name : ./data/default.physics_config.json from original name : ./data/default.physics_config.json | This file  does not exist.
+I0914 23:20:42.026170  6531 PhysicsAttributesManager.cpp:27] File (./data/default.physics_config.json) not found, so new default physics manager attributes created and registered.
+I0914 23:20:42.026175  6531 AbstractObjectAttributesManagerBase.h:175] AbstractObjectAttributesManager<T>::createObject  (Stage) : Making attributes with handle : data/scene_datasets/mp3d/2azQ1b91cZZ/2azQ1b91cZZ.glb
+I0914 23:20:42.026178  6531 ManagedContainerBase.cpp:19] ManagedContainerBase::convertFilenameToJSON : Filename : data/scene_datasets/mp3d/2azQ1b91cZZ/2azQ1b91cZZ.glb changed to proposed JSON configuration filename : data/scene_datasets/mp3d/2azQ1b91cZZ/2azQ1b91cZZ.stage_config.json
+I0914 23:20:42.028272  6531 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Stage) : Proposing JSON name : data/scene_datasets/mp3d/2azQ1b91cZZ/2azQ1b91cZZ.stage_config.json from original name : data/scene_datasets/mp3d/2azQ1b91cZZ/2azQ1b91cZZ.glb | This file  does not exist.
+I0914 23:20:42.028334  6531 AbstractObjectAttributesManagerBase.h:181] AbstractObjectAttributesManager<T>::createObject  (Stage) : Done making attributes with handle : data/scene_datasets/mp3d/2azQ1b91cZZ/2azQ1b91cZZ.glb
+I0914 23:20:42.028340  6531 AbstractObjectAttributesManagerBase.h:188] File (data/scene_datasets/mp3d/2azQ1b91cZZ/2azQ1b91cZZ.glb) exists but is not a recognized config filename extension, so new default Stage attributes created and registered.
+I0914 23:20:42.028345  6531 Simulator.cpp:156] Loading navmesh from data/scene_datasets/mp3d/2azQ1b91cZZ/2azQ1b91cZZ.navmesh
+I0914 23:20:42.032992  6531 Simulator.cpp:158] Loaded.
+I0914 23:20:42.033002  6531 SceneGraph.h:93] Created DrawableGroup: 
+Renderer: NVIDIA T1000 8GB/PCIe/SSE2 by NVIDIA Corporation
+OpenGL version: 4.6.0 NVIDIA 590.48.01
+Using optional features:
+    GL_ARB_ES2_compatibility
+    GL_ARB_direct_state_access
+    GL_ARB_get_texture_sub_image
+    GL_ARB_invalidate_subdata
+    GL_ARB_multi_bind
+    GL_ARB_robustness
+    GL_ARB_separate_shader_objects
+    GL_ARB_texture_filter_anisotropic
+    GL_ARB_texture_storage
+    GL_ARB_texture_storage_multisample
+    GL_ARB_vertex_array_object
+    GL_KHR_debug
+Using driver workarounds:
+    no-forward-compatible-core-context
+    nv-egl-incorrect-gl11-function-pointers
+    no-layout-qualifiers-on-old-glsl
+    nv-zero-context-profile-mask
+    nv-implementation-color-read-format-dsa-broken
+    nv-cubemap-inconsistent-compressed-image-size
+    nv-cubemap-broken-full-compressed-image-query
+    nv-compressed-block-size-in-bits
+I0914 23:20:42.035672  6531 ResourceManager.cpp:234] ResourceManager::loadStage : Not loading semantic mesh
+I0914 23:20:42.035677  6531 ResourceManager.cpp:262] ResourceManager::loadStage : start load render asset data/scene_datasets/mp3d/2azQ1b91cZZ/2azQ1b91cZZ.glb.
+I0914 23:20:42.035679  6531 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage data/scene_datasets/mp3d/2azQ1b91cZZ/2azQ1b91cZZ.glb 
+I0914 23:20:42.035688  6531 ResourceManager.cpp:1119] Importing Basis files as BC7 for 2azQ1b91cZZ.glb
+W0914 23:20:44.780895  6531 Simulator.cpp:248] :
+---
+ The active scene does not contain semantic annotations. 
+---
+
+I0914 23:20:44.873140 6531 simulator.py:213] Loaded navmesh data/scene_datasets/mp3d/2azQ1b91cZZ/2azQ1b91cZZ.navmesh
+I0914 23:20:44.873390 6531 simulator.py:225] Recomputing navmesh for agent's height 0.88 and radius 0.18.
+I0914 23:20:44.876994  6531 PathFinder.cpp:382] Building navmesh with 862x508 cells
+I0914 23:20:44.992729  6531 PathFinder.cpp:650] Created navmesh with 1339 vertices 682 polygons
+I0914 23:20:44.992774  6531 Simulator.cpp:710] reconstruct navmesh successful
+2026-09-14 23:21:10,026 Video created: data/logs/video/diverse50_rxr/2azQ1b91cZZ-2346-SPL0.00.mp4
+  0%|          | 0/450 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (827, 410) to (832, 416) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x628300b13f00] Warning: data is not aligned! This can lead to a speed loss
+ 11%|█         | 50/450 [00:00<00:00, 499.74it/s] 27%|██▋       | 122/450 [00:00<00:00, 628.72it/s] 44%|████▍     | 198/450 [00:00<00:00, 678.59it/s] 61%|██████    | 275/450 [00:00<00:00, 712.49it/s] 77%|███████▋  | 348/450 [00:00<00:00, 715.28it/s] 94%|█████████▍| 423/450 [00:00<00:00, 725.71it/s]100%|██████████| 450/450 [00:00<00:00, 700.77it/s] 80%|████████  | 41/51 [10:19<03:17, 19.74s/it]
+2026-09-14 23:21:26,635 Video created: data/logs/video/diverse50_rxr/2azQ1b91cZZ-3748-SPL0.00.mp4
+  0%|          | 0/182 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (827, 366) to (832, 368) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x60ccfd378f00] Warning: data is not aligned! This can lead to a speed loss
+ 27%|██▋       | 49/182 [00:00<00:00, 484.62it/s] 68%|██████▊   | 124/182 [00:00<00:00, 634.96it/s]100%|██████████| 182/182 [00:00<00:00, 662.59it/s] 82%|████████▏ | 42/51 [10:36<02:48, 18.69s/it]
+2026-09-14 23:21:31,091 Video created: data/logs/video/diverse50_rxr/2azQ1b91cZZ-8424-SPL0.75.mp4
+  0%|          | 0/24 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (827, 278) to (832, 288) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x5a552eccdf00] Warning: data is not aligned! This can lead to a speed loss
+100%|██████████| 24/24 [00:00<00:00, 496.87it/s] 84%|████████▍ | 43/51 [10:40<01:54, 14.33s/it]
+2026-09-14 23:21:58,089 Video created: data/logs/video/diverse50_rxr/2azQ1b91cZZ-9485-SPL0.00.mp4
+  0%|          | 0/288 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (827, 388) to (832, 400) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x611be5c19f00] Warning: data is not aligned! This can lead to a speed loss
+ 19%|█▉        | 54/288 [00:00<00:00, 534.59it/s] 47%|████▋     | 134/288 [00:00<00:00, 687.41it/s] 71%|███████   | 204/288 [00:00<00:00, 692.11it/s] 99%|█████████▉| 285/288 [00:00<00:00, 737.68it/s]100%|██████████| 288/288 [00:00<00:00, 705.91it/s] 86%|████████▋ | 44/51 [11:07<02:07, 18.26s/it]
+2026-09-14 23:22:15,524 Video created: data/logs/video/diverse50_rxr/2azQ1b91cZZ-10198-SPL0.00.mp4
+  0%|          | 0/133 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (827, 322) to (832, 336) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x5c0cedb6ef00] Warning: data is not aligned! This can lead to a speed loss
+ 41%|████      | 54/133 [00:00<00:00, 535.43it/s] 98%|█████████▊| 130/133 [00:00<00:00, 662.96it/s]100%|██████████| 133/133 [00:00<00:00, 638.06it/s] 88%|████████▊ | 45/51 [11:24<01:47, 17.95s/it]
+2026-09-14 23:22:41,837 Video created: data/logs/video/diverse50_rxr/2azQ1b91cZZ-10458-SPL0.00.mp4
+  0%|          | 0/236 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (827, 448) to (832, 448) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x5756941ddf00] Warning: data is not aligned! This can lead to a speed loss
+ 20%|█▉        | 47/236 [00:00<00:00, 466.59it/s] 47%|████▋     | 111/236 [00:00<00:00, 566.26it/s] 75%|███████▍  | 176/236 [00:00<00:00, 603.19it/s]100%|██████████| 236/236 [00:00<00:00, 615.12it/s] 90%|█████████ | 46/51 [11:51<01:42, 20.52s/it]I0914 23:22:42.414158  6531 PhysicsManager.cpp:33] Deconstructing PhysicsManager
+I0914 23:22:42.414211  6531 SemanticScene.h:41] Deconstructing SemanticScene
+I0914 23:22:42.418046  6531 SceneManager.h:25] Deconstructing SceneManager
+I0914 23:22:42.418056  6531 SceneGraph.h:26] Deconstructing SceneGraph
+I0914 23:22:42.418432  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.418653  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.418748  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.418836  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.418951  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.419044  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.419128  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.419220  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.419308  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.419399  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.419486  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.419571  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.419656  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.419775  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.419888  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.420025  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.420135  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.420249  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.420358  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.420467  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.420571  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.420679  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.420790  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.420897  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.421008  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.421094  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.421187  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.421275  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.421355  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.421365  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:22:42.426592  6531 Renderer.cpp:34] Deconstructing Renderer
+I0914 23:22:42.426605  6531 WindowlessContext.h:17] Deconstructing WindowlessContext
+I0914 23:22:42.430632  6531 MetadataMediator.cpp:56] MetadataMediator::setActiveSceneDatasetName : Old active dataset default changed to default successfully.
+I0914 23:22:42.430917  6531 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Physics Manager) : Proposing JSON name : ./data/default.physics_config.json from original name : ./data/default.physics_config.json | This file  does not exist.
+I0914 23:22:42.430938  6531 PhysicsAttributesManager.cpp:27] File (./data/default.physics_config.json) not found, so new default physics manager attributes created and registered.
+I0914 23:22:42.430943  6531 AbstractObjectAttributesManagerBase.h:175] AbstractObjectAttributesManager<T>::createObject  (Stage) : Making attributes with handle : data/scene_datasets/mp3d/Z6MFQCViBuw/Z6MFQCViBuw.glb
+I0914 23:22:42.430946  6531 ManagedContainerBase.cpp:19] ManagedContainerBase::convertFilenameToJSON : Filename : data/scene_datasets/mp3d/Z6MFQCViBuw/Z6MFQCViBuw.glb changed to proposed JSON configuration filename : data/scene_datasets/mp3d/Z6MFQCViBuw/Z6MFQCViBuw.stage_config.json
+I0914 23:22:42.430958  6531 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Stage) : Proposing JSON name : data/scene_datasets/mp3d/Z6MFQCViBuw/Z6MFQCViBuw.stage_config.json from original name : data/scene_datasets/mp3d/Z6MFQCViBuw/Z6MFQCViBuw.glb | This file  does not exist.
+I0914 23:22:42.431003  6531 AbstractObjectAttributesManagerBase.h:181] AbstractObjectAttributesManager<T>::createObject  (Stage) : Done making attributes with handle : data/scene_datasets/mp3d/Z6MFQCViBuw/Z6MFQCViBuw.glb
+I0914 23:22:42.431005  6531 AbstractObjectAttributesManagerBase.h:188] File (data/scene_datasets/mp3d/Z6MFQCViBuw/Z6MFQCViBuw.glb) exists but is not a recognized config filename extension, so new default Stage attributes created and registered.
+I0914 23:22:42.431008  6531 Simulator.cpp:156] Loading navmesh from data/scene_datasets/mp3d/Z6MFQCViBuw/Z6MFQCViBuw.navmesh
+I0914 23:22:42.447733  6531 Simulator.cpp:158] Loaded.
+I0914 23:22:42.447743  6531 SceneGraph.h:93] Created DrawableGroup: 
+Renderer: NVIDIA T1000 8GB/PCIe/SSE2 by NVIDIA Corporation
+OpenGL version: 4.6.0 NVIDIA 590.48.01
+Using optional features:
+    GL_ARB_ES2_compatibility
+    GL_ARB_direct_state_access
+    GL_ARB_get_texture_sub_image
+    GL_ARB_invalidate_subdata
+    GL_ARB_multi_bind
+    GL_ARB_robustness
+    GL_ARB_separate_shader_objects
+    GL_ARB_texture_filter_anisotropic
+    GL_ARB_texture_storage
+    GL_ARB_texture_storage_multisample
+    GL_ARB_vertex_array_object
+    GL_KHR_debug
+Using driver workarounds:
+    no-forward-compatible-core-context
+    nv-egl-incorrect-gl11-function-pointers
+    no-layout-qualifiers-on-old-glsl
+    nv-zero-context-profile-mask
+    nv-implementation-color-read-format-dsa-broken
+    nv-cubemap-inconsistent-compressed-image-size
+    nv-cubemap-broken-full-compressed-image-query
+    nv-compressed-block-size-in-bits
+I0914 23:22:42.450387  6531 ResourceManager.cpp:234] ResourceManager::loadStage : Not loading semantic mesh
+I0914 23:22:42.450392  6531 ResourceManager.cpp:262] ResourceManager::loadStage : start load render asset data/scene_datasets/mp3d/Z6MFQCViBuw/Z6MFQCViBuw.glb.
+I0914 23:22:42.450393  6531 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage data/scene_datasets/mp3d/Z6MFQCViBuw/Z6MFQCViBuw.glb 
+I0914 23:22:42.450402  6531 ResourceManager.cpp:1119] Importing Basis files as BC7 for Z6MFQCViBuw.glb
+W0914 23:22:46.210585  6531 Simulator.cpp:248] :
+---
+ The active scene does not contain semantic annotations. 
+---
+
+I0914 23:22:46.262012 6531 simulator.py:213] Loaded navmesh data/scene_datasets/mp3d/Z6MFQCViBuw/Z6MFQCViBuw.navmesh
+I0914 23:22:46.262265 6531 simulator.py:225] Recomputing navmesh for agent's height 0.88 and radius 0.18.
+I0914 23:22:46.269014  6531 PathFinder.cpp:382] Building navmesh with 861x569 cells
+I0914 23:22:46.440528  6531 PathFinder.cpp:650] Created navmesh with 1272 vertices 658 polygons
+I0914 23:22:46.440593  6531 Simulator.cpp:710] reconstruct navmesh successful
+2026-09-14 23:22:48,655 Video created: data/logs/video/diverse50_rxr/Z6MFQCViBuw-3362-SPL1.00.mp4
+  0%|          | 0/9 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (786, 256) to (800, 256) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x6398f0586f00] Warning: data is not aligned! This can lead to a speed loss
+100%|██████████| 9/9 [00:00<00:00, 276.58it/s] 92%|█████████▏| 47/51 [11:57<01:05, 16.27s/it]
+2026-09-14 23:22:55,636 Video created: data/logs/video/diverse50_rxr/Z6MFQCViBuw-3720-SPL0.90.mp4
+  0%|          | 0/71 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (786, 300) to (800, 304) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x563c0876cf00] Warning: data is not aligned! This can lead to a speed loss
+ 90%|█████████ | 64/71 [00:00<00:00, 639.71it/s]100%|██████████| 71/71 [00:00<00:00, 626.29it/s] 94%|█████████▍| 48/51 [12:04<00:40, 13.52s/it]
+2026-09-14 23:23:03,293 Video created: data/logs/video/diverse50_rxr/Z6MFQCViBuw-6510-SPL0.97.mp4
+  0%|          | 0/71 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (786, 366) to (800, 368) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x5cd892e00f00] Warning: data is not aligned! This can lead to a speed loss
+ 82%|████████▏ | 58/71 [00:00<00:00, 577.16it/s]100%|██████████| 71/71 [00:00<00:00, 564.32it/s] 96%|█████████▌| 49/51 [12:12<00:23, 11.77s/it]
+2026-09-14 23:23:15,981 Video created: data/logs/video/diverse50_rxr/Z6MFQCViBuw-8083-SPL0.00.mp4
+  0%|          | 0/115 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (786, 448) to (800, 448) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x5ec23f18af00] Warning: data is not aligned! This can lead to a speed loss
+ 41%|████      | 47/115 [00:00<00:00, 437.26it/s]100%|██████████| 115/115 [00:00<00:00, 569.23it/s] 98%|█████████▊| 50/51 [12:25<00:12, 12.07s/it]
+2026-09-14 23:23:23,616 Video created: data/logs/video/diverse50_rxr/Z6MFQCViBuw-9695-SPL0.00.mp4
+  0%|          | 0/67 [00:00<?, ?it/s]IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (786, 322) to (800, 336) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+[swscaler @ 0x592fd3c9df00] Warning: data is not aligned! This can lead to a speed loss
+ 91%|█████████ | 61/67 [00:00<00:00, 578.96it/s]100%|██████████| 67/67 [00:00<00:00, 601.91it/s]100%|██████████| 51/51 [12:32<00:00, 10.71s/it]I0914 23:23:23.855383  6531 PhysicsManager.cpp:33] Deconstructing PhysicsManager
+I0914 23:23:23.855433  6531 SemanticScene.h:41] Deconstructing SemanticScene
+I0914 23:23:23.857968  6531 SceneManager.h:25] Deconstructing SceneManager
+I0914 23:23:23.857980  6531 SceneGraph.h:26] Deconstructing SceneGraph
+I0914 23:23:23.858402  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.858687  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.858788  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.858878  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.858968  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.859064  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.859164  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.859266  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.859354  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.859438  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.859521  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.859606  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.859697  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.859829  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.859936  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.860046  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.860164  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.860271  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.860376  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.860478  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.860585  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.860694  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.860800  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.860896  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.860982  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.861063  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.861160  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.861248  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.861328  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.861343  6531 Sensor.h:87] Deconstructing Sensor
+I0914 23:23:23.867920  6531 Renderer.cpp:34] Deconstructing Renderer
+I0914 23:23:23.867936  6531 WindowlessContext.h:17] Deconstructing WindowlessContext
+I0914 23:23:23.876454  6531 Simulator.cpp:49] Deconstructing Simulator
+
+2026-09-14 23:23:23,878 Episodes evaluated: 51
+2026-09-14 23:23:23,878 Average episode steps_taken: 161.333333
+2026-09-14 23:23:23,878 Average episode distance_to_goal: 6.106721
+2026-09-14 23:23:23,878 Average episode success: 0.549020
+2026-09-14 23:23:23,878 Average episode oracle_success: 0.705882
+2026-09-14 23:23:23,878 Average episode path_length: 18.050432
+2026-09-14 23:23:23,878 Average episode collisions: 0.319715
+2026-09-14 23:23:23,878 Average episode spl: 0.468139
+2026-09-14 23:23:23,878 Average episode ndtw: 0.599163
+2026-09-14 23:23:23,878 Average episode sdtw: 0.465084
+2026-09-14 23:23:23,878 Average episode ghost_cnt: 32.431373
+100%|██████████| 51/51 [12:32<00:00, 14.76s/it]
