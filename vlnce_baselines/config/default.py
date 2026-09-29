@@ -68,6 +68,24 @@ _C.IL.ckpt_to_load = "data/checkpoints/ckpt.0.pth"
 # if True, loads the optimizer state, epoch, and step_id from the ckpt dict.
 _C.IL.is_requeue = False
 # it True, start training from the saved epoch
+# Persistent topological map (eval only): keep each scene's GraphMap across episodes instead of wiping it.
+#   'none'   = stock behaviour (fresh map every episode)
+#   'window' = keep the map; the planner only sees the current episode's nodes + the nearest
+#              persisted nodes, capped at persist_window_nodes visited nodes in total
+#   'full'   = keep the map; the planner sees every node/ghost connected to the current node
+_C.IL.persist_graph = 'none'
+_C.IL.persist_window_nodes = 20
+# a new node within this many metres (and same floor) of a node from an earlier episode is linked to it
+_C.IL.persist_reloc_radius = 1.0
+# 'all' = frontiers left by earlier episodes stay selectable; 'current' = only frontiers touched by this episode's nodes
+_C.IL.persist_ghosts = 'all'
+# 'all' = earlier episodes' visited nodes are planner tokens; 'current' = they only shape routes/distances
+_C.IL.persist_nodes = 'all'
+# 'all' = a proposed waypoint near ANY node is absorbed into it; 'current' = only this episode's nodes/frontiers absorb
+_C.IL.persist_absorb = 'all'
+# < 0 = off. Otherwise, earlier-episode nodes within this many metres of the agent are reopened as frontier tokens
+# the planner can choose to walk back to (see GraphMap._reopen_nearby)
+_C.IL.persist_reopen_radius = -1.0
 # -----------------------------------------------------------------------------
 # IL: RXR TRAINER CONFIG
 # -----------------------------------------------------------------------------

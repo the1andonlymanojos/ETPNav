@@ -129,7 +129,10 @@ class VLNCEDatasetV1(Dataset):
                     episode.goals[g_index] = NavigationGoal(**goal)
             self.episodes.append(episode)
 
-        random.shuffle(self.episodes)
+        # Stock behaviour: shuffle on load (deterministic, random.seed(0) at import). Persistent-map experiments need the
+        # episode ORDER to be controlled, so ETP_KEEP_EPISODE_ORDER=1 keeps the order of the dataset file.
+        if not os.environ.get("ETP_KEEP_EPISODE_ORDER"):
+            random.shuffle(self.episodes)
 
 
 @registry.register_dataset(name="RxR-VLN-CE-v1")

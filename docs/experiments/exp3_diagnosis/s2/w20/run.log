@@ -1,0 +1,135 @@
+[guard] avail RAM 13G | GPU used 850MiB, compute procs 0 | load 2
+[guard] hard caps on: RAM<=9G (no swap), CPU<=300%
+2026-09-20 14:14:04,612 checkpoint_path: data/logs/checkpoints/release_r2r/ckpt.iter12000.pth
+2026-09-20 14:14:04,613 Initializing dataset VLN-CE-v1
+2026-09-20 14:14:04,637 SPLTI: tour_zsNo4H_n15_s2_o0, NUMBER OF SCENES: 1
+2026-09-20 14:14:19,984 Initializing dataset VLN-CE-v1
+2026-09-20 14:14:20,006 initializing sim Sim-v1
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I0920 14:14:20.010672 489009 ManagedContainerBase.cpp:19] ManagedContainerBase::convertFilenameToJSON : Filename : default changed to proposed JSON configuration filename : default.scene_dataset_config.json
+I0920 14:14:20.010697 489009 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Dataset) : Proposing JSON name : default.scene_dataset_config.json from original name : default | This file  does not exist.
+I0920 14:14:20.010740 489009 AssetAttributesManager.cpp:117] Asset attributes (capsule3DSolid : capsule3DSolid_hemiRings_4_cylRings_1_segments_12_halfLen_0.75_useTexCoords_false_useTangents_false) created and registered.
+I0920 14:14:20.010757 489009 AssetAttributesManager.cpp:117] Asset attributes (capsule3DWireframe : capsule3DWireframe_hemiRings_8_cylRings_1_segments_16_halfLen_1) created and registered.
+I0920 14:14:20.010773 489009 AssetAttributesManager.cpp:117] Asset attributes (coneSolid : coneSolid_segments_12_halfLen_1.25_rings_1_useTexCoords_false_useTangents_false_capEnd_true) created and registered.
+I0920 14:14:20.010782 489009 AssetAttributesManager.cpp:117] Asset attributes (coneWireframe : coneWireframe_segments_32_halfLen_1.25) created and registered.
+I0920 14:14:20.010788 489009 AssetAttributesManager.cpp:117] Asset attributes (cubeSolid : cubeSolid) created and registered.
+I0920 14:14:20.010793 489009 AssetAttributesManager.cpp:117] Asset attributes (cubeWireframe : cubeWireframe) created and registered.
+I0920 14:14:20.010807 489009 AssetAttributesManager.cpp:117] Asset attributes (cylinderSolid : cylinderSolid_rings_1_segments_12_halfLen_1_useTexCoords_false_useTangents_false_capEnds_true) created and registered.
+I0920 14:14:20.010818 489009 AssetAttributesManager.cpp:117] Asset attributes (cylinderWireframe : cylinderWireframe_rings_1_segments_32_halfLen_1) created and registered.
+I0920 14:14:20.010824 489009 AssetAttributesManager.cpp:117] Asset attributes (icosphereSolid : icosphereSolid_subdivs_1) created and registered.
+I0920 14:14:20.010830 489009 AssetAttributesManager.cpp:117] Asset attributes (icosphereWireframe : icosphereWireframe_subdivs_1) created and registered.
+I0920 14:14:20.010839 489009 AssetAttributesManager.cpp:117] Asset attributes (uvSphereSolid : uvSphereSolid_rings_8_segments_16_useTexCoords_false_useTangents_false) created and registered.
+I0920 14:14:20.010847 489009 AssetAttributesManager.cpp:117] Asset attributes (uvSphereWireframe : uvSphereWireframe_rings_16_segments_32) created and registered.
+I0920 14:14:20.010851 489009 AssetAttributesManager.cpp:105] AssetAttributesManager::buildCtorFuncPtrMaps : Built default primitive asset templates : 12
+I0920 14:14:20.011147 489009 SceneDatasetAttributesManager.cpp:23] File (default) not found, so new default dataset attributes created and registered.
+I0920 14:14:20.011150 489009 MetadataMediator.cpp:47] MetadataMediator::createDataset : Dataset default successfully created.
+I0920 14:14:20.013233 489009 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Physics Manager) : Proposing JSON name : ./data/default.physics_config.json from original name : ./data/default.physics_config.json | This file  does not exist.
+I0920 14:14:20.013245 489009 PhysicsAttributesManager.cpp:27] File (./data/default.physics_config.json) not found, so new default physics manager attributes created and registered.
+I0920 14:14:20.013248 489009 AbstractObjectAttributesManagerBase.h:175] AbstractObjectAttributesManager<T>::createObject  (Stage) : Making attributes with handle : data/scene_datasets/mp3d/zsNo4HB9uLZ/zsNo4HB9uLZ.glb
+I0920 14:14:20.013260 489009 ManagedContainerBase.cpp:19] ManagedContainerBase::convertFilenameToJSON : Filename : data/scene_datasets/mp3d/zsNo4HB9uLZ/zsNo4HB9uLZ.glb changed to proposed JSON configuration filename : data/scene_datasets/mp3d/zsNo4HB9uLZ/zsNo4HB9uLZ.stage_config.json
+I0920 14:14:20.013263 489009 AttributesManagerBase.h:283] AttributesManager<T>::createFromJsonOrDefaultInternal  (Stage) : Proposing JSON name : data/scene_datasets/mp3d/zsNo4HB9uLZ/zsNo4HB9uLZ.stage_config.json from original name : data/scene_datasets/mp3d/zsNo4HB9uLZ/zsNo4HB9uLZ.glb | This file  does not exist.
+I0920 14:14:20.013295 489009 AbstractObjectAttributesManagerBase.h:181] AbstractObjectAttributesManager<T>::createObject  (Stage) : Done making attributes with handle : data/scene_datasets/mp3d/zsNo4HB9uLZ/zsNo4HB9uLZ.glb
+I0920 14:14:20.013296 489009 AbstractObjectAttributesManagerBase.h:188] File (data/scene_datasets/mp3d/zsNo4HB9uLZ/zsNo4HB9uLZ.glb) exists but is not a recognized config filename extension, so new default Stage attributes created and registered.
+I0920 14:14:20.013300 489009 Simulator.cpp:156] Loading navmesh from data/scene_datasets/mp3d/zsNo4HB9uLZ/zsNo4HB9uLZ.navmesh
+I0920 14:14:20.013360 489009 Simulator.cpp:158] Loaded.
+I0920 14:14:20.013370 489009 SceneGraph.h:93] Created DrawableGroup: 
+Renderer: NVIDIA T1000 8GB/PCIe/SSE2 by NVIDIA Corporation
+OpenGL version: 4.6.0 NVIDIA 595.84
+Using optional features:
+    GL_ARB_ES2_compatibility
+    GL_ARB_direct_state_access
+    GL_ARB_get_texture_sub_image
+    GL_ARB_invalidate_subdata
+    GL_ARB_multi_bind
+    GL_ARB_robustness
+    GL_ARB_separate_shader_objects
+    GL_ARB_texture_filter_anisotropic
+    GL_ARB_texture_storage
+    GL_ARB_texture_storage_multisample
+    GL_ARB_vertex_array_object
+    GL_KHR_debug
+Using driver workarounds:
+    no-forward-compatible-core-context
+    nv-egl-incorrect-gl11-function-pointers
+    no-layout-qualifiers-on-old-glsl
+    nv-zero-context-profile-mask
+    nv-implementation-color-read-format-dsa-broken
+    nv-cubemap-inconsistent-compressed-image-size
+    nv-cubemap-broken-full-compressed-image-query
+    nv-compressed-block-size-in-bits
+I0920 14:14:20.195916 489009 ResourceManager.cpp:234] ResourceManager::loadStage : Not loading semantic mesh
+I0920 14:14:20.195923 489009 ResourceManager.cpp:262] ResourceManager::loadStage : start load render asset data/scene_datasets/mp3d/zsNo4HB9uLZ/zsNo4HB9uLZ.glb.
+I0920 14:14:20.195925 489009 ResourceManager.cpp:569] ResourceManager::loadStageInternal : Attempting to load stage data/scene_datasets/mp3d/zsNo4HB9uLZ/zsNo4HB9uLZ.glb 
+I0920 14:14:20.195935 489009 ResourceManager.cpp:1119] Importing Basis files as BC7 for zsNo4HB9uLZ.glb
+W0920 14:14:21.363240 489009 Simulator.cpp:248] :
+---
+ The active scene does not contain semantic annotations. 
+---
+I0920 14:14:21.458025 489009 simulator.py:213] Loaded navmesh data/scene_datasets/mp3d/zsNo4HB9uLZ/zsNo4HB9uLZ.navmesh
+2026-09-20 14:14:21,462 Initializing task VLN-v0
+You are using a model of type bert to instantiate a model of type . This is not supported for all configurations of models and can yield errors.
+Some weights of the model checkpoint at None were not used when initializing GlocalTextPathNavCMT: ['bert.global_encoder.encoder.x_layers.2.lang_self_att.output.dense.bias', 'bert.global_encoder.encoder.x_layers.3.lang_self_att.self.value.weight', 'bert.global_encoder.encoder.x_layers.1.lang_self_att.self.query.weight', 'bert.global_encoder.encoder.x_layers.1.lang_self_att.self.query.bias', 'bert.global_encoder.encoder.x_layers.0.lang_output.dense.weight', 'bert.global_encoder.encoder.x_layers.3.lang_self_att.self.key.weight', 'mlm_head.predictions.transform.LayerNorm.bias', 'bert.global_encoder.encoder.x_layers.0.lang_output.LayerNorm.bias', 'bert.global_encoder.encoder.x_layers.2.lang_self_att.self.value.weight', 'mlm_head.predictions.transform.dense.bias', 'bert.global_encoder.encoder.x_layers.0.lang_self_att.output.LayerNorm.weight', 'bert.global_encoder.encoder.x_layers.2.lang_output.LayerNorm.bias', 'bert.global_encoder.encoder.x_layers.2.lang_self_att.self.query.weight', 'bert.global_encoder.encoder.x_layers.0.lang_self_att.self.key.weight', 'bert.global_encoder.encoder.x_layers.3.lang_self_att.output.LayerNorm.weight', 'bert.global_encoder.encoder.x_layers.2.lang_self_att.self.value.bias', 'bert.global_encoder.encoder.x_layers.2.lang_self_att.self.key.bias', 'bert.global_encoder.encoder.x_layers.2.lang_self_att.self.query.bias', 'mlm_head.predictions.bias', 'bert.global_encoder.encoder.x_layers.0.lang_self_att.self.query.weight', 'bert.global_encoder.encoder.x_layers.1.lang_self_att.output.dense.weight', 'bert.global_encoder.encoder.x_layers.0.lang_inter.dense.bias', 'bert.global_encoder.encoder.x_layers.3.lang_self_att.self.key.bias', 'bert.global_encoder.encoder.x_layers.0.lang_output.dense.bias', 'bert.global_encoder.encoder.x_layers.3.lang_inter.dense.weight', 'bert.global_encoder.encoder.x_layers.1.lang_output.LayerNorm.bias', 'bert.global_encoder.encoder.x_layers.3.lang_output.LayerNorm.weight', 'bert.global_encoder.encoder.x_layers.2.lang_output.LayerNorm.weight', 'bert.global_encoder.encoder.x_layers.0.lang_self_att.output.LayerNorm.bias', 'bert.global_encoder.encoder.x_layers.3.lang_self_att.output.dense.bias', 'bert.global_encoder.encoder.x_layers.3.lang_self_att.self.query.bias', 'bert.global_encoder.encoder.x_layers.1.lang_inter.dense.weight', 'bert.global_encoder.encoder.x_layers.3.lang_self_att.output.LayerNorm.bias', 'bert.global_encoder.encoder.x_layers.1.lang_output.LayerNorm.weight', 'bert.global_encoder.encoder.x_layers.1.lang_self_att.self.value.weight', 'bert.global_encoder.encoder.x_layers.2.lang_self_att.self.key.weight', 'bert.global_encoder.encoder.x_layers.3.lang_self_att.self.query.weight', 'bert.global_encoder.encoder.x_layers.1.lang_inter.dense.bias', 'bert.global_encoder.encoder.x_layers.1.lang_self_att.self.key.bias', 'mlm_head.predictions.decoder.weight', 'bert.global_encoder.encoder.x_layers.0.lang_self_att.self.value.weight', 'bert.global_encoder.encoder.x_layers.3.lang_output.LayerNorm.bias', 'bert.global_encoder.encoder.x_layers.2.lang_output.dense.weight', 'bert.global_encoder.encoder.x_layers.2.lang_inter.dense.bias', 'bert.global_encoder.encoder.x_layers.0.lang_self_att.output.dense.bias', 'bert.global_encoder.encoder.x_layers.1.lang_output.dense.bias', 'bert.global_encoder.encoder.x_layers.0.lang_self_att.self.query.bias', 'bert.global_encoder.encoder.x_layers.3.lang_inter.dense.bias', 'bert.global_encoder.encoder.x_layers.2.lang_self_att.output.dense.weight', 'bert.global_encoder.encoder.x_layers.0.lang_self_att.output.dense.weight', 'bert.global_encoder.encoder.x_layers.3.lang_output.dense.weight', 'bert.global_encoder.encoder.x_layers.0.lang_inter.dense.weight', 'bert.global_encoder.encoder.x_layers.0.lang_self_att.self.key.bias', 'bert.global_encoder.encoder.x_layers.1.lang_self_att.output.LayerNorm.bias', 'bert.global_encoder.encoder.x_layers.1.lang_self_att.output.dense.bias', 'bert.global_encoder.encoder.x_layers.0.lang_self_att.self.value.bias', 'bert.global_encoder.encoder.x_layers.2.lang_inter.dense.weight', 'bert.global_encoder.encoder.x_layers.1.lang_self_att.self.key.weight', 'bert.global_encoder.encoder.x_layers.2.lang_output.dense.bias', 'bert.global_encoder.encoder.x_layers.2.lang_self_att.output.LayerNorm.weight', 'mlm_head.predictions.transform.LayerNorm.weight', 'bert.global_encoder.encoder.x_layers.0.lang_output.LayerNorm.weight', 'bert.global_encoder.encoder.x_layers.3.lang_output.dense.bias', 'bert.global_encoder.encoder.x_layers.2.lang_self_att.output.LayerNorm.bias', 'bert.global_encoder.encoder.x_layers.1.lang_output.dense.weight', 'bert.global_encoder.encoder.x_layers.3.lang_self_att.self.value.bias', 'bert.global_encoder.encoder.x_layers.1.lang_self_att.self.value.bias', 'bert.global_encoder.encoder.x_layers.1.lang_self_att.output.LayerNorm.weight', 'mlm_head.predictions.transform.dense.weight', 'bert.global_encoder.encoder.x_layers.3.lang_self_att.output.dense.weight']
+- This IS expected if you are initializing GlocalTextPathNavCMT from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing GlocalTextPathNavCMT from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+2026-09-20 14:14:46,930 Loaded weights from checkpoint: data/logs/checkpoints/release_r2r/ckpt.iter12000.pth, iteration: 12000
+2026-09-20 14:14:46,940 Agent parameters: 299.14 MB. Trainable: 140.79 MB.
+2026-09-20 14:14:46,940 Finished setting up policy.
+local rank: 0 | dataset length: 15
+
+Initalizing the ETP model ...
+  0%|          | 0/15 [00:00<?, ?it/s]  7%|▋         | 1/15 [00:04<00:56,  4.05s/it] 13%|█▎        | 2/15 [00:05<00:34,  2.68s/it] 20%|██        | 3/15 [00:09<00:39,  3.26s/it] 27%|██▋       | 4/15 [00:11<00:29,  2.66s/it] 33%|███▎      | 5/15 [00:15<00:33,  3.32s/it] 40%|████      | 6/15 [00:17<00:25,  2.79s/it] 47%|████▋     | 7/15 [00:24<00:31,  3.97s/it] 53%|█████▎    | 8/15 [00:27<00:26,  3.79s/it] 60%|██████    | 9/15 [00:29<00:19,  3.32s/it] 67%|██████▋   | 10/15 [00:32<00:15,  3.20s/it] 73%|███████▎  | 11/15 [00:35<00:11,  2.94s/it] 80%|████████  | 12/15 [00:37<00:08,  2.77s/it] 87%|████████▋ | 13/15 [00:43<00:07,  3.90s/it] 93%|█████████▎| 14/15 [00:45<00:03,  3.26s/it]100%|██████████| 15/15 [00:52<00:00,  4.23s/it]I0920 14:15:39.173563 489009 PhysicsManager.cpp:33] Deconstructing PhysicsManager
+I0920 14:15:39.173585 489009 SemanticScene.h:41] Deconstructing SemanticScene
+I0920 14:15:39.174681 489009 SceneManager.h:25] Deconstructing SceneManager
+I0920 14:15:39.174691 489009 SceneGraph.h:26] Deconstructing SceneGraph
+I0920 14:15:39.174921 489009 Sensor.h:87] Deconstructing Sensor
+I0920 14:15:39.175077 489009 Sensor.h:87] Deconstructing Sensor
+I0920 14:15:39.175173 489009 Sensor.h:87] Deconstructing Sensor
+I0920 14:15:39.175261 489009 Sensor.h:87] Deconstructing Sensor
+I0920 14:15:39.175343 489009 Sensor.h:87] Deconstructing Sensor
+I0920 14:15:39.175428 489009 Sensor.h:87] Deconstructing Sensor
+I0920 14:15:39.175508 489009 Sensor.h:87] Deconstructing Sensor
+I0920 14:15:39.175589 489009 Sensor.h:87] Deconstructing Sensor
+I0920 14:15:39.175669 489009 Sensor.h:87] Deconstructing Sensor
+I0920 14:15:39.175748 489009 Sensor.h:87] Deconstructing Sensor
+I0920 14:15:39.175829 489009 Sensor.h:87] Deconstructing Sensor
+I0920 14:15:39.175907 489009 Sensor.h:87] Deconstructing Sensor
+I0920 14:15:39.175987 489009 Sensor.h:87] Deconstructing Sensor
+I0920 14:15:39.176102 489009 Sensor.h:87] Deconstructing Sensor
+I0920 14:15:39.176203 489009 Sensor.h:87] Deconstructing Sensor
+I0920 14:15:39.176306 489009 Sensor.h:87] Deconstructing Sensor
+I0920 14:15:39.176405 489009 Sensor.h:87] Deconstructing Sensor
+I0920 14:15:39.176505 489009 Sensor.h:87] Deconstructing Sensor
+I0920 14:15:39.176607 489009 Sensor.h:87] Deconstructing Sensor
+I0920 14:15:39.176705 489009 Sensor.h:87] Deconstructing Sensor
+I0920 14:15:39.176805 489009 Sensor.h:87] Deconstructing Sensor
+I0920 14:15:39.176904 489009 Sensor.h:87] Deconstructing Sensor
+I0920 14:15:39.177001 489009 Sensor.h:87] Deconstructing Sensor
+I0920 14:15:39.177073 489009 Sensor.h:87] Deconstructing Sensor
+I0920 14:15:39.178689 489009 Renderer.cpp:34] Deconstructing Renderer
+I0920 14:15:39.178697 489009 WindowlessContext.h:17] Deconstructing WindowlessContext
+I0920 14:15:39.180832 489009 Simulator.cpp:49] Deconstructing Simulator
+2026-09-20 14:15:39,182 Episodes evaluated: 15
+2026-09-20 14:15:39,182 Average episode steps_taken: 146.200000
+2026-09-20 14:15:39,182 Average episode distance_to_goal: 6.293886
+2026-09-20 14:15:39,182 Average episode success: 0.333333
+2026-09-20 14:15:39,182 Average episode oracle_success: 0.400000
+2026-09-20 14:15:39,182 Average episode path_length: 20.789250
+2026-09-20 14:15:39,182 Average episode collisions: 0.032998
+2026-09-20 14:15:39,182 Average episode spl: 0.131111
+2026-09-20 14:15:39,182 Average episode ndtw: 0.434602
+2026-09-20 14:15:39,182 Average episode sdtw: 0.121934
+2026-09-20 14:15:39,182 Average episode ghost_cnt: 81.933333
+2026-09-20 14:15:39,183 Average episode tour_idx: 7.000000
+2026-09-20 14:15:39,183 Average episode g_nodes_total: 45.533333
+2026-09-20 14:15:39,183 Average episode g_ghosts_total: 44.400000
+2026-09-20 14:15:39,183 Average episode g_active_mean: 13.901082
+2026-09-20 14:15:39,183 Average episode g_old_visible_mean: 10.401082
+2026-09-20 14:15:39,183 Average episode g_comp_mean: 25.664214
+2026-09-20 14:15:39,183 Average episode g_ghosts_visible_mean: 15.399019
+2026-09-20 14:15:39,183 Average episode g_reloc_mean: 0.870534
+2026-09-20 14:15:39,183 Average episode g_old_visible_max: 12.133333
+2026-09-20 14:15:39,183 Average episode g_start_reloc: 1.200000
+2026-09-20 14:15:39,183 Average episode g_start_comp: 21.066667
+2026-09-20 14:15:39,184 Average episode g_stop_no_vp_left: 0.000000
+100%|██████████| 15/15 [00:52<00:00,  3.48s/it]
+[guard] finished rc=0 in 112s | peak footprint vs baseline: RAM +6236MiB, VRAM +2641MiB

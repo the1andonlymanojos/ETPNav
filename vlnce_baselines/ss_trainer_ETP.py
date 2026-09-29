@@ -341,6 +341,31 @@ class RLTrainer(BaseVLNCETrainer):
             'nav_types': batch_nav_types, 'view_lens': batch_view_lens,
         }
         
+    def _make_gmaps(self, mode, have_real_pos, ghost_aug):
+        """One GraphMap per env. Stock: a fresh, empty map every episode. IL.persist_graph != 'none' (eval only):
+        keep one map per scene across episodes and just start a new episode on it."""
+        cfg = self.config.IL
+        persist = cfg.persist_graph if mode == 'eval' else 'none'
+        if persist == 'none':
+            return [GraphMap(have_real_pos, cfg.loc_noise, self.config.MODEL.merge_ghost, ghost_aug)
+                    for _ in range(self.envs.num_envs)]
+        assert self.envs.num_envs == 1, "persistent maps assume one env (two envs in one scene would share a map)"
+        if not hasattr(self, 'persist_maps'):
+            self.persist_maps = {}
+        gmaps = []
+        for ep in self.envs.current_episodes():
+            g = self.persist_maps.get(ep.scene_id)
+            if g is None:
+                g = GraphMap(have_real_pos, cfg.loc_noise, self.config.MODEL.merge_ghost, ghost_aug,
+                             persist=persist, window_nodes=cfg.persist_window_nodes,
+                             reloc_radius=cfg.persist_reloc_radius, ghost_scope=cfg.persist_ghosts, node_scope=cfg.persist_nodes, absorb_scope=cfg.persist_absorb,
+                             reopen_radius=cfg.persist_reopen_radius)
+                self.persist_maps[ep.scene_id] = g
+            else:
+                g.begin_episode()
+            gmaps.append(g)
+        return gmaps
+
     def _nav_gmap_variable(self, cur_vp, cur_pos, cur_ori):
         batch_gmap_vp_ids, batch_gmap_step_ids, batch_gmap_lens = [], [], []
         batch_gmap_img_fts, batch_gmap_pos_fts = [], []
@@ -348,15 +373,17 @@ class RLTrainer(BaseVLNCETrainer):
         batch_no_vp_left = []
 
         for i, gmap in enumerate(self.gmaps):
-            node_vp_ids = list(gmap.node_pos.keys())
-            ghost_vp_ids = list(gmap.ghost_pos.keys())
+            # stock: every node/ghost. Persist modes: only what is connected to the current node (and, for
+            # 'window', within the cap) -- gmap.active_nodes / visible_ghost_ids() encode that.
+            node_vp_ids = gmap.visible_node_ids()
+            ghost_vp_ids = gmap.visible_ghost_ids()
             if len(ghost_vp_ids) == 0:
                 batch_no_vp_left.append(True)
             else:
                 batch_no_vp_left.append(False)
 
             gmap_vp_ids = [None] + node_vp_ids + ghost_vp_ids
-            gmap_step_ids = [0] + [gmap.node_stepId[vp] for vp in node_vp_ids] + [0]*len(ghost_vp_ids)
+            gmap_step_ids = [0] + [gmap.step_of(vp) for vp in node_vp_ids] + [0]*len(ghost_vp_ids)
             gmap_visited_masks = [0] + [1] * len(node_vp_ids) + [0] * len(ghost_vp_ids)
 
             gmap_img_fts = [gmap.get_node_embeds(vp) for vp in node_vp_ids] + \
@@ -810,10 +837,7 @@ class RLTrainer(BaseVLNCETrainer):
 
         have_real_pos = (mode == 'train' or self.config.VIDEO_OPTION)
         ghost_aug = self.config.IL.ghost_aug if mode == 'train' else 0
-        self.gmaps = [GraphMap(have_real_pos, 
-                               self.config.IL.loc_noise, 
-                               self.config.MODEL.merge_ghost,
-                               ghost_aug) for _ in range(self.envs.num_envs)]
+        self.gmaps = self._make_gmaps(mode, have_real_pos, ghost_aug)
         prev_vp = [None] * self.envs.num_envs
 
         for stepk in range(self.max_len):
@@ -907,6 +931,7 @@ class RLTrainer(BaseVLNCETrainer):
             use_tryout = (self.config.IL.tryout and not self.config.TASK_CONFIG.SIMULATOR.HABITAT_SIM_V0.ALLOW_SLIDING)
             for i, gmap in enumerate(self.gmaps):
                 if cpu_a_t[i] == 0 or stepk == self.max_len - 1 or no_vp_left[i]:
+                    gmap.stop_reason = 'no_vp_left' if no_vp_left[i] else ('stop' if cpu_a_t[i] == 0 else 'max_len')
                     # stop at node with max stop_prob
                     vp_stop_scores = [(vp, stop_score) for vp, stop_score in gmap.node_stop_scores.items()]
                     stop_scores = [s[1] for s in vp_stop_scores]
@@ -917,6 +942,12 @@ class RLTrainer(BaseVLNCETrainer):
                         back_path = back_path[1:]
                     else:
                         back_path = None
+                    if gmap.persist != 'none':
+                        gmap.decisions.append({
+                            'step': int(stepk), 'kind': 'stop', 'reason': gmap.stop_reason,
+                            'p_stop': float(nav_probs[i, 0]), 'stop_vp_is_old': bool(gmap.node_episode[stop_vp] != gmap.episode_idx),
+                            'nodes_here': int(sum(1 for v in gmap.node_pos if gmap.node_episode[v] == gmap.episode_idx)),
+                        })
                     vis_info = {
                             'nodes': list(gmap.node_pos.values()),
                             'ghosts': list(gmap.ghost_aug_pos.values()),
@@ -959,6 +990,18 @@ class RLTrainer(BaseVLNCETrainer):
                         back_path = back_path[1:]
                     else:
                         back_path = None
+                    if gmap.persist != 'none':
+                        _path = gmap.shortest_path[cur_vp[i]][front_vp]
+                        gmap.decisions.append({
+                            'step': int(stepk), 'kind': 'ghost', 'p_stop': float(nav_probs[i, 0]),
+                            'p_chosen': float(nav_probs[i, cpu_a_t[i]]),
+                            'front_is_old': bool(gmap.node_episode[front_vp] != gmap.episode_idx),
+                            'path_nodes': len(_path) - 1,
+                            'path_old_nodes': int(sum(1 for v in _path if gmap.node_episode[v] != gmap.episode_idx)),
+                            'ghost_fronts_old': int(sum(1 for f in gmap.ghost_fronts[ghost_vp] if gmap.node_episode[f] != gmap.episode_idx)),
+                            'ghost_fronts_all': len(gmap.ghost_fronts[ghost_vp]),
+                            'ghosts_visible': int(len(nav_inputs['gmap_vp_ids'][i]) - 1 - sum(1 for v in nav_inputs['gmap_vp_ids'][i][1:] if not v.startswith('g'))),
+                        })
                     env_actions.append(
                         {
                             'action': {
@@ -1003,6 +1046,28 @@ class RLTrainer(BaseVLNCETrainer):
                     metric['ndtw'] = np.exp(-dtw_distance / (len(gt_path) * 3.))
                     metric['sdtw'] = metric['ndtw'] * metric['success']
                     metric['ghost_cnt'] = self.gmaps[i].ghost_cnt
+                    g = self.gmaps[i]
+                    metric['tour_idx'] = len(self.stat_eps)
+                    metric['g_nodes_total'] = len(g.node_pos)
+                    metric['g_ghosts_total'] = len(g.ghost_pos)
+                    if g.trace:   # persist modes only
+                        for k in ('active', 'old_visible', 'comp', 'ghosts_visible', 'reloc'):
+                            metric[f'g_{k}_mean'] = float(np.mean([t[k] for t in g.trace]))
+                        metric['g_old_visible_max'] = float(max(t['old_visible'] for t in g.trace))
+                        metric['g_start_reloc'] = float(g.trace[0]['reloc'])
+                        metric['g_start_comp'] = float(g.trace[0]['comp'])
+                        metric['g_stop_no_vp_left'] = float(g.stop_reason == 'no_vp_left')
+                        if not hasattr(self, 'persist_debug'):
+                            self.persist_debug = {}
+                        self.persist_debug[str(ep_id)] = {
+                            'trace': g.trace, 'decisions': g.decisions, 'reloc_links': g.reloc_links, 'stop_reason': g.stop_reason,
+                            # whole persisted map after this episode: [x, z, episode index] per node, [x, z] per ghost
+                            'nodes': [[float(p[0]), float(p[2]), int(g.node_episode[v])] for v, p in g.node_pos.items()],
+                            'ghosts': [[float(p[0]), float(p[2])] for p in g.ghost_mean_pos.values()],
+                        }
+                        os.makedirs(self.config.RESULTS_DIR, exist_ok=True)
+                        with open(os.path.join(self.config.RESULTS_DIR, 'persist_debug.json'), 'w') as f:
+                            json.dump(self.persist_debug, f)
                     self.stat_eps[ep_id] = metric
                     self.pbar.update()
 
