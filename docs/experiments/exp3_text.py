@@ -72,7 +72,8 @@ including {ds['loc_k']} of {ds['loc_n']} when its first move stayed local. The g
 <li><b>Arms share episodes</b>, which is why the comparison is paired, but the intervals in the chart don't account for that pairing.</li></ul></div>"""
 
     nxt = """<div class="prose"><p>The planner scores old nodes but was never trained to have them in its input. Experiment 4 hides old <b>node tokens</b> while keeping the graph for routing, and keeps or hides old frontiers.
-If accuracy recovers, the old nodes were the poison and frontier-shaped memory is safe. That would point to a way of giving the planner memory in the form it already understands.</p></div>"""
+If accuracy recovers, the old nodes were the poison and frontier-shaped memory is safe. That would point to a way of giving the planner memory in the form it already understands.
+<a href="https://claude.ai/artifact/Gv8y2FXYkigvzDkFbPvnv8" target="_blank" rel="noopener">Read Experiment 4</a>.</p></div>"""
 
     return [("Setup", setup), ("Result", result), ("Does more map hurt more?", dose), ("Four explanations, tested", ledger),
             ("Why hiding old frontiers made it worse", hid), ("What the agent actually did", done), ("Every arm", table),
