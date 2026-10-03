@@ -34,12 +34,13 @@ def main():
     p.add_argument("--nodes", choices=["all", "current"], default="all")
     p.add_argument("--absorb", choices=["all", "current"], default="all")
     p.add_argument("--reopen-radius", type=float, default=-1.0)
+    p.add_argument("--oracle-reopen", action="store_true", help="diagnostic: anchor reopening on the true goal, not the agent")
     p.add_argument("--out", required=True)
     p.add_argument("--ram-cap", default="9G")
     a = p.parse_args()
 
     name = f"tour_{a.scene[:6]}_n{a.n}_s{a.sample_seed}_o{a.order_seed}"
-    exp = f"{name}_{a.mode}" + (f"_w{a.window_nodes}" if a.mode == "window" else "") + ("_ghostscur" if a.ghosts == "current" else "") + ("_nodescur" if a.nodes == "current" else "") + ("_abscur" if a.absorb == "current" else "") + (f"_reopen{a.reopen_radius:g}" if a.reopen_radius >= 0 else "")
+    exp = f"{name}_{a.mode}" + (f"_w{a.window_nodes}" if a.mode == "window" else "") + ("_ghostscur" if a.ghosts == "current" else "") + ("_nodescur" if a.nodes == "current" else "") + ("_abscur" if a.absorb == "current" else "") + (f"_reopen{a.reopen_radius:g}" if a.reopen_radius >= 0 else "") + ("_oraclegoal" if a.oracle_reopen else "")
     ids = make_tour_split.build(a.scene, a.n, a.sample_seed, a.order_seed, name)
     print(f"[tour] {exp}: intended order {ids}")
 
@@ -53,7 +54,7 @@ def main():
     if a.mode != "none":
         opts += ["IL.persist_graph", a.mode, "IL.persist_window_nodes", str(a.window_nodes),
                  "IL.persist_reloc_radius", str(a.reloc_radius), "IL.persist_ghosts", a.ghosts, "IL.persist_nodes", a.nodes, "IL.persist_absorb", a.absorb,
-                 "IL.persist_reopen_radius", str(a.reopen_radius)]
+                 "IL.persist_reopen_radius", str(a.reopen_radius), "IL.persist_reopen_oracle_goal", str(a.oracle_reopen)]
     cmd = ["scripts/guarded_run.sh", sys.executable, "run.py", "--exp_name", exp, "--run-type", "eval",
            "--exp-config", "run_r2r/iter_train.yaml"] + opts
 
@@ -71,7 +72,7 @@ def main():
     per_ep = json.load(open(ep_file))          # insertion order == evaluation order
     result = {"exp": exp, "scene": a.scene, "mode": a.mode, "n": a.n, "sample_seed": a.sample_seed,
               "order_seed": a.order_seed, "window_nodes": a.window_nodes, "reloc_radius": a.reloc_radius, "ghosts": a.ghosts, "nodes": a.nodes, "absorb": a.absorb,
-              "reopen_radius": a.reopen_radius,
+              "reopen_radius": a.reopen_radius, "oracle_reopen": a.oracle_reopen,
               "intended_order": ids, "eval_order": list(per_ep.keys()), "wall_seconds": round(wall, 1),
               "episodes": per_ep}
     json.dump(result, open(os.path.join(a.out, "results.json"), "w"), indent=1)

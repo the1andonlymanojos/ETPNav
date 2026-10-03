@@ -86,6 +86,8 @@ _C.IL.persist_absorb = 'all'
 # < 0 = off. Otherwise, earlier-episode nodes within this many metres of the agent are reopened as frontier tokens
 # the planner can choose to walk back to (see GraphMap._reopen_nearby)
 _C.IL.persist_reopen_radius = -1.0
+# diagnostic only: anchor reopening on the true goal position instead of the agent (upper-bounds a perfect relevance filter)
+_C.IL.persist_reopen_oracle_goal = False
 # -----------------------------------------------------------------------------
 # IL: RXR TRAINER CONFIG
 # -----------------------------------------------------------------------------

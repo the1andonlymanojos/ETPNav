@@ -148,6 +148,7 @@ class GraphMap(object):
         self.absorb_scope = absorb_scope    # 'all' | 'current': 'current' lets a proposed waypoint be absorbed only by THIS episode's nodes/frontiers
         self.reopen_radius = reopen_radius  # >=0: earlier-episode nodes within this many metres of the agent become frontier tokens again
         self.reopen_consumed = set()        # old-node ids already reopened-and-chosen this episode (never reopened twice)
+        self.oracle_goal_pos = None          # diagnostic only: anchor reopening on the true goal instead of the agent (see set_goal)
         self.episode_idx = 0
         self.node_episode = {}              # viewpoint -> index of the episode that created it
         self.active_nodes = None            # persist modes: nodes the planner may see (connected to the current node)
@@ -191,6 +192,12 @@ class GraphMap(object):
         self.reloc_links = []
         self.stop_reason = None
         self.reopen_consumed = set()
+        self.oracle_goal_pos = None
+
+    def set_goal(self, pos):
+        """Oracle diagnostic only: makes reopening anchor on the true goal position instead of the agent's own position,
+        to upper-bound what a perfectly relevant reopening filter could achieve. Never used by the real planner."""
+        self.oracle_goal_pos = pos
 
     def step_of(self, vp):
         # Nodes from earlier episodes have no meaningful step on this episode's timeline: treat them as
@@ -263,7 +270,8 @@ class GraphMap(object):
             active = closed
         else:
             active = comp
-        self._reopen_nearby(self.node_pos[cur_vp], active, here)
+        anchor = self.oracle_goal_pos if self.oracle_goal_pos is not None else self.node_pos[cur_vp]
+        self._reopen_nearby(anchor, active, here)
         sub = self.graph_nx.subgraph(active)
         self.active_nodes = active
         self.shortest_path = dict(nx.all_pairs_dijkstra_path(sub))

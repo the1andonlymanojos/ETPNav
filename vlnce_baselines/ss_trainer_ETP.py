@@ -838,6 +838,9 @@ class RLTrainer(BaseVLNCETrainer):
         have_real_pos = (mode == 'train' or self.config.VIDEO_OPTION)
         ghost_aug = self.config.IL.ghost_aug if mode == 'train' else 0
         self.gmaps = self._make_gmaps(mode, have_real_pos, ghost_aug)
+        if self.config.IL.persist_reopen_oracle_goal:
+            for i, gmap in enumerate(self.gmaps):
+                gmap.set_goal(self.envs.call_at(i, 'get_goal_pos'))
         prev_vp = [None] * self.envs.num_envs
 
         for stepk in range(self.max_len):

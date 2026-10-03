@@ -117,6 +117,10 @@ class VLNCEDaggerEnv(habitat.RLEnv):
             pos, self._env.current_episode.goals[0].position,
         )
         return dist
+
+    def get_goal_pos(self):
+        # oracle diagnostic only (persist_reopen_oracle_goal): the true goal position, never fed to the planner
+        return np.array(self._env.current_episode.goals[0].position)
     
     def get_cand_real_pos(self, forward, angle):
         '''get cand real_pos by executing action'''

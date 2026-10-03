@@ -166,6 +166,18 @@ if __name__ == "__main__":
     assert any(gv == f'g_reopen_{old_vp}' for gv in g.visible_ghost_ids()), "a new episode may reopen it again"
     print("reopen: nearby old node comes back as a frontier, is consumed once, and reopens fresh next episode  OK")
 
+    # --- oracle anchor: reopening near a fixed goal, not the agent, must reopen a DIFFERENT node than the default ---
+    g = build("window", window=8, scope="current", nscope="current", ascope="current", reopen=3.0)
+    walk(g, [0.0, 2.0, 4.0, 6.0, 8.0, 10.0, 12.0, 14.0])   # old corridor, x = 0..14
+    g.begin_episode()
+    g.set_goal(np.array([14.0, Y, 0.0]))                    # far end of the corridor
+    vp = str(len(g.node_pos))
+    g.update_graph(None, 1, vp, np.array([1.0, Y, 0.0]), np.ones(4), [f"{vp}_0"], [np.array([3.0, Y, 0.0])], [np.ones(4)], None)
+    check(g, vp)
+    reopened = {gv[len('g_reopen_'):] for gv in g.visible_ghost_ids() if gv.startswith('g_reopen_')}
+    assert reopened and all(g.node_pos[v][0] >= 14.0 - 3.0 for v in reopened), "oracle anchor must reopen near the GOAL, not the agent (near x=1)"
+    print("oracle anchor: reopening tracks the true goal instead of the agent's own position  OK")
+
     # --- fuzz: random maps where this episode's nodes hang off old nodes (the case that crashed the first real run:
     # a current-episode node whose shortest path runs through an older node outside the window cap) ---
     import random
