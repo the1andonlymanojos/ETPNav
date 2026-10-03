@@ -25,6 +25,7 @@ METHODS = [  # file suffix, label, colour, marker, marker size (filter-on drawn 
     ("etpnav", "ETPNav (path, end = x)", "tab:blue", "x", 11),
     ("vlmaps", "VLMaps, front filter", "tab:red", "o", 14),
     ("vlmaps_nofilter", "VLMaps, no front filter", "tab:orange", "s", 7),
+    ("ours_v0", "ours v0 (region; anchor footprint dashed)", "tab:purple", "D", 8),
 ]
 
 
@@ -95,9 +96,20 @@ def main():
                 for r, c in to_cells(pr, grid):
                     x0, z0 = grid.x0 + c * grid.cell, grid.z0 + r * grid.cell
                     ax.add_patch(plt.Rectangle((x0, z0), grid.cell, grid.cell, fill=False, ec=colour, lw=1))
+            elif pr["kind"] == "region" and pr["cells"]:
+                for r, c in pr["cells"]:
+                    x0, z0 = grid.x0 + c * grid.cell, grid.z0 + r * grid.cell
+                    ax.add_patch(plt.Rectangle((x0, z0), grid.cell, grid.cell, color=colour, alpha=0.35, lw=0))
+                ctr = np.mean([grid.center(r, c) for r, c in pr["cells"]], axis=0)
+                ax.plot(*ctr, marker, color=colour, ms=ms, mec="k", label=label + ", centre")
+                answers.append(ctr)
             else:
-                why = [k for k in ("unsupported", "not_found", "front_filtered") if pr["meta"].get(k)]
+                why = [k for k in ("unsupported", "not_found", "front_filtered") if pr["meta"].get(k)] or ["empty region"]
                 ax.plot([], [], marker, color=colour, mfc="none", label="%s: no answer (%s)" % (label, ",".join(why)))
+            fp = pr.get("meta", {}).get("footprint_xz")
+            if fp:
+                fp = np.array(fp + fp[:1])
+                ax.plot(fp[:, 0], fp[:, 1], "--", color=colour, lw=1.2)
 
         pts = [g["anchor"]["center"]] if g.get("anchor") else []
         pts += [[sx, sz]] + [grid.center(int(r), int(c)) for r, c in g["masks"][0]] + [list(x) for x in answers]

@@ -1,6 +1,24 @@
-cleancmd/pilot/zsNo4HB9uLZ_pred_etpnav.jsonl {'n': 25, 'missing': 0, 'success': 0.0, 'recall': 0.02, 'precision': 0.023, 'iou': 0.015, 'wrong_side': 0.52, 'ask_accuracy': 1.0} success 95% CI (0.0, 0.0)
-cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps.jsonl {'n': 25, 'missing': 0, 'success': 0.04, 'recall': 0.078, 'precision': 0.069, 'iou': 0.052, 'wrong_side': 0.176, 'ask_accuracy': 1.0} success 95% CI (0.04, 0.04)
-cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_nofilter.jsonl {'n': 25, 'missing': 0, 'success': 0.0, 'recall': 0.026, 'precision': 0.028, 'iou': 0.015, 'wrong_side': 0.235, 'ask_accuracy': 1.0} success 95% CI (0.0, 0.0)
+== all floor (no --free)
+cleancmd/pilot/zsNo4HB9uLZ_pred_etpnav.jsonl {'n': 25, 'missing': 0, 'success': 0.0, 'recall': 0.02, 'precision': 0.023, 'iou': 0.015, 'wrong_side': 0.52, 'ask_accuracy': None, 'n_should_ask': 0} success 95% CI None
+cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps.jsonl {'n': 25, 'missing': 0, 'success': 0.04, 'recall': 0.078, 'precision': 0.069, 'iou': 0.052, 'wrong_side': 0.176, 'ask_accuracy': None, 'n_should_ask': 0} success 95% CI None
+cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_nofilter.jsonl {'n': 25, 'missing': 0, 'success': 0.0, 'recall': 0.026, 'precision': 0.028, 'iou': 0.015, 'wrong_side': 0.235, 'ask_accuracy': None, 'n_should_ask': 0} success 95% CI None
+cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0.jsonl {'n': 25, 'missing': 0, 'success': 0.0, 'recall': 0.029, 'precision': 0.035, 'iou': 0.017, 'wrong_side': 0.316, 'ask_accuracy': None, 'n_should_ask': 0} success 95% CI None
 McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_etpnav.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps.jsonl p = 1.0
 McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_etpnav.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_nofilter.jsonl p = 1.0
+McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_etpnav.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0.jsonl p = 1.0
 McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_nofilter.jsonl p = 1.0
+McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0.jsonl p = 1.0
+McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_nofilter.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0.jsonl p = 1.0
+
+== open floor only (--free)
+scoring open floor only (--free): zsNo4HB9uLZ 467 cells
+cleancmd/pilot/zsNo4HB9uLZ_pred_etpnav.jsonl {'n': 25, 'missing': 0, 'success': 0.04, 'recall': 0.035, 'precision': 0.025, 'iou': 0.022, 'wrong_side': 0.478, 'ask_accuracy': None, 'n_should_ask': 0} success 95% CI None
+cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps.jsonl {'n': 25, 'missing': 0, 'success': 0.04, 'recall': 0.065, 'precision': 0.075, 'iou': 0.059, 'wrong_side': 0.235, 'ask_accuracy': None, 'n_should_ask': 0} success 95% CI None
+cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_nofilter.jsonl {'n': 25, 'missing': 0, 'success': 0.0, 'recall': 0.011, 'precision': 0.017, 'iou': 0.008, 'wrong_side': 0.312, 'ask_accuracy': None, 'n_should_ask': 0} success 95% CI None
+cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0.jsonl {'n': 25, 'missing': 0, 'success': 0.04, 'recall': 0.067, 'precision': 0.039, 'iou': 0.036, 'wrong_side': 0.316, 'ask_accuracy': None, 'n_should_ask': 0} success 95% CI None
+McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_etpnav.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps.jsonl p = 1.0
+McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_etpnav.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_nofilter.jsonl p = 1.0
+McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_etpnav.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0.jsonl p = 1.0
+McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_nofilter.jsonl p = 1.0
+McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0.jsonl p = 1.0
+McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_nofilter.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0.jsonl p = 1.0
