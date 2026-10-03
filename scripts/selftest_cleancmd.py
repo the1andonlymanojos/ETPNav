@@ -59,13 +59,15 @@ print("ask: right field / wrong field / executed instead of asking  OK")
 # whole-file scoring: a missing prediction is a failure, never dropped
 res = score_file([gt, amb], [{"command_id": "c1", "kind": "region", "cells": core4}])
 s = summarize(res)
-assert s["n"] == 2 and s["missing"] == 1 and s["success"] == 0.5, s
+assert s["n"] == 2 and s["missing"] == 1 and s["success"] == 0.5 and s["n_should_ask"] == 1, s
+assert summarize(score_file([gt], [{"command_id": "c1", "kind": "region", "cells": core4}]))["ask_accuracy"] is None
 print("file: missing prediction counted as failure  OK")
 
 # stats: 10 commands, method B wins 8 discordant pairs and loses none -> p = 2 * 0.5^8
 a = [False] * 8 + [True, True]
 b = [True] * 10
 assert abs(mcnemar_exact(a, b) - 2 * 0.5 ** 8) < 1e-12 and mcnemar_exact(b, b) == 1.0
+assert bootstrap_ci([{"scene": "a", "success": 1}, {"scene": "a", "success": 0}]) is None   # one scene: no CI
 lo, hi = bootstrap_ci([{"scene": s, "success": v} for s, v in zip("aabbccdd", [1, 1, 0, 0, 1, 0, 1, 1])])
 assert 0.0 <= lo <= 0.625 <= hi <= 1.0
 print("stats: exact McNemar, scene-clustered bootstrap  OK")

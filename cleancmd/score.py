@@ -80,7 +80,10 @@ def summarize(results):
         "precision": _mean([r["precision"] for r in results]),
         "iou": _mean([r["iou"] for r in results]),
         "wrong_side": _mean([float(r["wrong_side"]) for r in results if r["wrong_side"] is not None]),
-        "ask_accuracy": _mean([float(r["ask_correct"]) for r in results]),
+        # meaningless when no command should be asked about (e.g. the proxy pilot): every executed answer is "correct"
+        "ask_accuracy": (_mean([float(r["ask_correct"]) for r in results])
+                         if any(r["should_ask"] for r in results) else None),
+        "n_should_ask": sum(1 for r in results if r["should_ask"]),
     }
 
 
@@ -91,7 +94,8 @@ def mcnemar_exact(a, b):
     n, k = n01 + n10, min(n01, n10)
     if n == 0:
         return 1.0
-    from math import comb  # noqa: E402  (py3.8+; scorer runs in the new env, not the frozen ETPNav one)
+    from math import factorial  # math.comb is 3.8+; this also runs in the Python 3.6 ETPNav env
+    comb = lambda n_, i: factorial(n_) // (factorial(i) * factorial(n_ - i))  # noqa: E731
     return min(1.0, 2.0 * sum(comb(n, i) for i in range(k + 1)) / 2.0 ** n)
 
 
@@ -102,7 +106,7 @@ def bootstrap_ci(results, key="success", n_boot=2000, seed=0):
         if r.get(key) is not None:
             by_scene[r["scene"]].append(float(r[key]))
     scenes = sorted(by_scene)
-    if not scenes:
+    if len(scenes) < 2:   # resampling one scene always returns the same mean: no interval exists
         return None
     rng = random.Random(seed)
     means = []
