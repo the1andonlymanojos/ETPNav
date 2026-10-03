@@ -1068,6 +1068,14 @@ class RLTrainer(BaseVLNCETrainer):
                         os.makedirs(self.config.RESULTS_DIR, exist_ok=True)
                         with open(os.path.join(self.config.RESULTS_DIR, 'persist_debug.json'), 'w') as f:
                             json.dump(self.persist_debug, f)
+                    # the agent's floor trajectory, so other benchmarks (cleancmd) can score where it actually went;
+                    # kept out of stat_eps because those values are averaged
+                    if not hasattr(self, 'eval_paths'):
+                        self.eval_paths = {}
+                    self.eval_paths[str(ep_id)] = [[float(p[0]), float(p[2])] for p in pred_path]
+                    os.makedirs(self.config.RESULTS_DIR, exist_ok=True)
+                    with open(os.path.join(self.config.RESULTS_DIR, 'paths_xz.json'), 'w') as f:
+                        json.dump(self.eval_paths, f)
                     self.stat_eps[ep_id] = metric
                     self.pbar.update()
 
