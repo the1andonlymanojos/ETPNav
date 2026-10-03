@@ -63,6 +63,26 @@ assert s["n"] == 2 and s["missing"] == 1 and s["success"] == 0.5 and s["n_should
 assert summarize(score_file([gt], [{"command_id": "c1", "kind": "region", "cells": core4}]))["ask_accuracy"] is None
 print("file: missing prediction counted as failure  OK")
 
+# free floor: (1, 3) and (2, 3) are under furniture. Restricted, the core is the 2 open cells, so an answer that
+# cleans only those succeeds (unrestricted: recall 0.5, fail); cells it adds under furniture are dropped, not counted
+free = {(r, c) for r in range(g.rows) for c in range(g.cols)} - {(1, 3), (2, 3)}
+open_only = {"command_id": "c1", "kind": "region", "cells": [(1, 2), (2, 2)]}
+assert not score_one(open_only, t)["success"] and score_one(open_only, t)["recall"] == 0.5
+r_free = score_one(open_only, t, free)
+assert r_free["recall"] == 1.0 and r_free["precision"] == 1.0 and r_free["success"], r_free
+r_extra = score_one({"kind": "region", "cells": [(1, 2), (2, 2), (1, 3), (2, 3)]}, t, free)
+assert r_extra["iou"] == 1.0 and r_extra["precision"] == 1.0
+assert t.core == set(core4), "restricting must not modify the caller's Truth"
+res_free = score_file([gt], [open_only], {"synthA": (g, free)})
+assert summarize(res_free)["success"] == 1.0 and summarize(score_file([gt], [open_only]))["success"] == 0.0
+for bad in ({}, {"synthA": (Grid.from_bounds(0, 0, 1, 1), free)}):   # missing scene / wrong grid: refuse, never fall back
+    try:
+        score_file([gt], [open_only], bad)
+        assert False, "should have refused"
+    except (KeyError, ValueError):
+        pass
+print("free floor: furniture cells dropped from truth and answer, unknown scene / grid mismatch refused  OK")
+
 # stats: 10 commands, method B wins 8 discordant pairs and loses none -> p = 2 * 0.5^8
 a = [False] * 8 + [True, True]
 b = [True] * 10

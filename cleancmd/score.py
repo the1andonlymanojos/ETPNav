@@ -1,22 +1,47 @@
 """Score predictions against human ground truth, and compare methods.
 
-    python -m cleancmd.score --gt gt.jsonl --pred vlmaps.jsonl [--pred ours.jsonl ...]
+    python -m cleancmd.score --gt gt.jsonl --pred vlmaps.jsonl [--pred ours.jsonl ...] [--free scene_free.json ...]
 
 Per command: recall against the core mask (primary), precision against the envelope, IoU with the core,
 wrong-side (directional anchors only), ask correctness, and success. Thresholds are fixed here, before any results.
+
+--free (optional, one file per scene) restricts scoring to open floor a vacuum can reach: cells not in the scene's
+free set are removed from the ground truth (core and envelope) and from every prediction before anything is computed.
+Without it, scoring is unchanged.
 """
 import argparse
+import copy
+import json
 import random
 from collections import defaultdict
 
+from .grid import Grid
 from .io import Truth, load_jsonl, to_cells
 
 RECALL_MIN = 0.8      # success needs at least 80% of the core cleaned ...
 PRECISION_MIN = 0.5   # ... and at least half of what was cleaned inside the envelope
 
 
-def score_one(pred, truth):
+def load_free(path):
+    """A free-floor file {"scene": ..., "grid": Grid.to_dict(), "free": [[r, c], ...]} -> (scene, Grid, set of cells)."""
+    with open(path) as f:
+        d = json.load(f)
+    return d.get("scene"), Grid.from_dict(d["grid"]), {(int(r), int(c)) for r, c in d["free"]}
+
+
+def restrict_truth(truth, free):
+    """Copy of `truth` with core and envelope limited to the free cells (same as filtering every person's mask)."""
+    t = copy.copy(truth)
+    t.core = truth.core & free
+    t.envelope = truth.envelope & free
+    return t
+
+
+def score_one(pred, truth, free=None):
     cells = to_cells(pred, truth.grid)
+    if free is not None:
+        cells &= free
+        truth = restrict_truth(truth, free)
     executed = pred["kind"] != "ask"
     out = {"command_id": truth.raw["command_id"], "scene": truth.raw["scene"], "executed": executed,
            "should_ask": truth.should_ask, "recall": None, "precision": None, "iou": None, "wrong_side": None}
@@ -50,19 +75,27 @@ def score_one(pred, truth):
     return out
 
 
-def score_file(gt_rows, pred_rows):
-    """Score one method. A command with no prediction counts as a failure, never silently dropped."""
+def score_file(gt_rows, pred_rows, free=None):
+    """Score one method. A command with no prediction counts as a failure, never silently dropped.
+    free: optional {scene: (Grid, set of free cells)}; a scene missing from it is an error, never scored unrestricted."""
     preds = {p["command_id"]: p for p in pred_rows}
     results = []
     for gt in gt_rows:
         truth = Truth(gt)
+        scene_free = None
+        if free is not None:
+            if gt["scene"] not in free:
+                raise KeyError("no free-floor mask for scene %r" % gt["scene"])
+            free_grid, scene_free = free[gt["scene"]]
+            if free_grid != truth.grid:
+                raise ValueError("free-floor grid for %r does not match the ground-truth grid" % gt["scene"])
         p = preds.get(gt["command_id"])
         if p is None:
             results.append({"command_id": gt["command_id"], "scene": gt["scene"], "missing": True, "success": False,
                             "executed": False, "should_ask": truth.should_ask, "ask_correct": False,
                             "recall": None, "precision": None, "iou": None, "wrong_side": None})
         else:
-            results.append(score_one(p, truth))
+            results.append(score_one(p, truth, scene_free))
     return results
 
 
@@ -121,11 +154,19 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--gt", required=True)
     ap.add_argument("--pred", action="append", required=True, help="one jsonl per method; repeat to compare")
+    ap.add_argument("--free", action="append", default=None, help="free-floor json per scene: score open floor only")
     a = ap.parse_args()
     gt = load_jsonl(a.gt)
+    free = None
+    if a.free:
+        free = {}
+        for path in a.free:
+            scene, grid, cells = load_free(path)
+            free[scene] = (grid, cells)
+        print("scoring open floor only (--free):", ", ".join("%s %d cells" % (s, len(c)) for s, (_, c) in free.items()))
     scored = {}
     for path in a.pred:
-        scored[path] = score_file(gt, load_jsonl(path))
+        scored[path] = score_file(gt, load_jsonl(path), free)
         s = summarize(scored[path])
         ci = bootstrap_ci(scored[path])
         print(path, {k: (round(v, 3) if isinstance(v, float) else v) for k, v in s.items()},
