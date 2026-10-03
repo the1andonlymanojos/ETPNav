@@ -3,12 +3,23 @@ cleancmd/pilot/zsNo4HB9uLZ_pred_etpnav.jsonl {'n': 25, 'missing': 0, 'success': 
 cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps.jsonl {'n': 25, 'missing': 0, 'success': 0.04, 'recall': 0.078, 'precision': 0.069, 'iou': 0.052, 'wrong_side': 0.176, 'ask_accuracy': None, 'n_should_ask': 0} success 95% CI None
 cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_nofilter.jsonl {'n': 25, 'missing': 0, 'success': 0.0, 'recall': 0.026, 'precision': 0.028, 'iou': 0.015, 'wrong_side': 0.235, 'ask_accuracy': None, 'n_should_ask': 0} success 95% CI None
 cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0.jsonl {'n': 25, 'missing': 0, 'success': 0.0, 'recall': 0.029, 'precision': 0.035, 'iou': 0.017, 'wrong_side': 0.316, 'ask_accuracy': None, 'n_should_ask': 0} success 95% CI None
+cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_oracleobj.jsonl {'n': 25, 'missing': 0, 'success': 0.08, 'recall': 0.169, 'precision': 0.165, 'iou': 0.127, 'wrong_side': 0.3, 'ask_accuracy': None, 'n_should_ask': 0} success 95% CI None
+cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0_oracleobj.jsonl {'n': 25, 'missing': 0, 'success': 0.0, 'recall': 0.125, 'precision': 0.113, 'iou': 0.067, 'wrong_side': 0.174, 'ask_accuracy': None, 'n_should_ask': 0} success 95% CI None
 McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_etpnav.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps.jsonl p = 1.0
 McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_etpnav.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_nofilter.jsonl p = 1.0
 McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_etpnav.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0.jsonl p = 1.0
+McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_etpnav.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_oracleobj.jsonl p = 0.5
+McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_etpnav.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0_oracleobj.jsonl p = 1.0
 McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_nofilter.jsonl p = 1.0
 McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0.jsonl p = 1.0
+McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_oracleobj.jsonl p = 1.0
+McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0_oracleobj.jsonl p = 1.0
 McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_nofilter.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0.jsonl p = 1.0
+McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_nofilter.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_oracleobj.jsonl p = 0.5
+McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_nofilter.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0_oracleobj.jsonl p = 1.0
+McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_oracleobj.jsonl p = 0.5
+McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0_oracleobj.jsonl p = 1.0
+McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_oracleobj.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0_oracleobj.jsonl p = 0.5
 
 == open floor only (--free)
 scoring open floor only (--free): zsNo4HB9uLZ 467 cells
@@ -16,9 +27,20 @@ cleancmd/pilot/zsNo4HB9uLZ_pred_etpnav.jsonl {'n': 25, 'missing': 0, 'success': 
 cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps.jsonl {'n': 25, 'missing': 0, 'success': 0.04, 'recall': 0.065, 'precision': 0.075, 'iou': 0.059, 'wrong_side': 0.235, 'ask_accuracy': None, 'n_should_ask': 0} success 95% CI None
 cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_nofilter.jsonl {'n': 25, 'missing': 0, 'success': 0.0, 'recall': 0.011, 'precision': 0.017, 'iou': 0.008, 'wrong_side': 0.312, 'ask_accuracy': None, 'n_should_ask': 0} success 95% CI None
 cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0.jsonl {'n': 25, 'missing': 0, 'success': 0.04, 'recall': 0.067, 'precision': 0.039, 'iou': 0.036, 'wrong_side': 0.316, 'ask_accuracy': None, 'n_should_ask': 0} success 95% CI None
+cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_oracleobj.jsonl {'n': 25, 'missing': 0, 'success': 0.08, 'recall': 0.13, 'precision': 0.134, 'iou': 0.115, 'wrong_side': 0.125, 'ask_accuracy': None, 'n_should_ask': 0} success 95% CI None
+cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0_oracleobj.jsonl {'n': 25, 'missing': 0, 'success': 0.08, 'recall': 0.292, 'precision': 0.123, 'iou': 0.109, 'wrong_side': 0.19, 'ask_accuracy': None, 'n_should_ask': 0} success 95% CI None
 McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_etpnav.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps.jsonl p = 1.0
 McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_etpnav.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_nofilter.jsonl p = 1.0
 McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_etpnav.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0.jsonl p = 1.0
+McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_etpnav.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_oracleobj.jsonl p = 1.0
+McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_etpnav.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0_oracleobj.jsonl p = 1.0
 McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_nofilter.jsonl p = 1.0
 McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0.jsonl p = 1.0
+McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_oracleobj.jsonl p = 1.0
+McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0_oracleobj.jsonl p = 1.0
 McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_nofilter.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0.jsonl p = 1.0
+McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_nofilter.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_oracleobj.jsonl p = 0.5
+McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_nofilter.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0_oracleobj.jsonl p = 0.5
+McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_oracleobj.jsonl p = 1.0
+McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0_oracleobj.jsonl p = 1.0
+McNemar cleancmd/pilot/zsNo4HB9uLZ_pred_vlmaps_oracleobj.jsonl vs cleancmd/pilot/zsNo4HB9uLZ_pred_ours_v0_oracleobj.jsonl p = 1.0

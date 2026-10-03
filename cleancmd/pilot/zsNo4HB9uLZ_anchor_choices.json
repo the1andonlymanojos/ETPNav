@@ -1,0 +1,428 @@
+{
+ "zsNo4HB9uLZ-p00": {
+  "annotated_center_xz": [
+   17.440399169921875,
+   -6.785029411315918
+  ],
+  "vlmaps": {
+   "center_xz": [
+    17.541,
+    -6.785
+   ]
+  },
+  "vlmaps_nofilter": {
+   "center_xz": [
+    16.416,
+    -3.726
+   ]
+  }
+ },
+ "zsNo4HB9uLZ-p01": {
+  "annotated_center_xz": [
+   17.440399169921875,
+   -6.785029411315918
+  ],
+  "vlmaps": {
+   "center_xz": [
+    17.541,
+    -6.785
+   ]
+  },
+  "vlmaps_nofilter": {
+   "center_xz": [
+    16.416,
+    -3.726
+   ]
+  }
+ },
+ "zsNo4HB9uLZ-p02": {
+  "annotated_center_xz": [
+   17.440399169921875,
+   -6.785029411315918
+  ],
+  "vlmaps": {
+   "center_xz": [
+    16.416,
+    -3.726
+   ]
+  },
+  "vlmaps_nofilter": {
+   "center_xz": [
+    16.416,
+    -3.726
+   ]
+  }
+ },
+ "zsNo4HB9uLZ-p03": {
+  "annotated_center_xz": [
+   16.3257999420166,
+   -7.64518928527832
+  ],
+  "vlmaps": {
+   "reason": "not_found"
+  },
+  "vlmaps_nofilter": {
+   "reason": "not_found"
+  }
+ },
+ "zsNo4HB9uLZ-p04": {
+  "annotated_center_xz": [
+   16.3257999420166,
+   -7.64518928527832
+  ],
+  "vlmaps": {
+   "reason": "not_found"
+  },
+  "vlmaps_nofilter": {
+   "reason": "not_found"
+  }
+ },
+ "zsNo4HB9uLZ-p05": {
+  "annotated_center_xz": [
+   16.3257999420166,
+   -7.64518928527832
+  ],
+  "vlmaps": {
+   "reason": "not_found"
+  },
+  "vlmaps_nofilter": {
+   "reason": "not_found"
+  }
+ },
+ "zsNo4HB9uLZ-p06": {
+  "annotated_center_xz": [
+   10.211400032043457,
+   -1.2721099853515625
+  ],
+  "vlmaps": {
+   "center_xz": [
+    10.311,
+    -1.311
+   ]
+  },
+  "vlmaps_nofilter": {
+   "center_xz": [
+    10.311,
+    -1.311
+   ]
+  }
+ },
+ "zsNo4HB9uLZ-p07": {
+  "annotated_center_xz": [
+   10.211400032043457,
+   -1.2721099853515625
+  ],
+  "vlmaps": {
+   "center_xz": [
+    10.311,
+    -1.311
+   ]
+  },
+  "vlmaps_nofilter": {
+   "center_xz": [
+    10.311,
+    -1.311
+   ]
+  }
+ },
+ "zsNo4HB9uLZ-p08": {
+  "annotated_center_xz": [
+   10.211400032043457,
+   -1.2721099853515625
+  ],
+  "vlmaps": {
+   "center_xz": [
+    10.311,
+    -1.311
+   ]
+  },
+  "vlmaps_nofilter": {
+   "center_xz": [
+    10.311,
+    -1.311
+   ]
+  }
+ },
+ "zsNo4HB9uLZ-p09": {
+  "annotated_center_xz": [
+   10.211400032043457,
+   -1.2721099853515625
+  ],
+  "vlmaps": {
+   "center_xz": [
+    10.311,
+    -1.311
+   ]
+  },
+  "vlmaps_nofilter": {
+   "center_xz": [
+    10.311,
+    -1.311
+   ]
+  }
+ },
+ "zsNo4HB9uLZ-p10": {
+  "annotated_center_xz": [
+   6.043270111083984,
+   -3.1874396800994873
+  ],
+  "vlmaps": {
+   "center_xz": [
+    6.234,
+    -3.2
+   ]
+  },
+  "vlmaps_nofilter": {
+   "center_xz": [
+    6.234,
+    -3.2
+   ]
+  }
+ },
+ "zsNo4HB9uLZ-p11": {
+  "annotated_center_xz": [
+   6.043270111083984,
+   -3.1874396800994873
+  ],
+  "vlmaps": {
+   "center_xz": [
+    6.234,
+    -3.2
+   ]
+  },
+  "vlmaps_nofilter": {
+   "center_xz": [
+    6.234,
+    -3.2
+   ]
+  }
+ },
+ "zsNo4HB9uLZ-p12": {
+  "annotated_center_xz": [
+   6.043270111083984,
+   -3.1874396800994873
+  ],
+  "vlmaps": {
+   "center_xz": [
+    6.234,
+    -3.2
+   ]
+  },
+  "vlmaps_nofilter": {
+   "center_xz": [
+    6.234,
+    -3.2
+   ]
+  }
+ },
+ "zsNo4HB9uLZ-p13": {
+  "annotated_center_xz": [
+   6.043270111083984,
+   -3.1874396800994873
+  ],
+  "vlmaps": {
+   "center_xz": [
+    6.234,
+    -3.2
+   ]
+  },
+  "vlmaps_nofilter": {
+   "center_xz": [
+    6.234,
+    -3.2
+   ]
+  }
+ },
+ "zsNo4HB9uLZ-p14": {
+  "annotated_center_xz": [
+   5.893670082092285,
+   2.3310203552246094
+  ],
+  "vlmaps": {
+   "center_xz": [
+    9.598,
+    1.931
+   ]
+  },
+  "vlmaps_nofilter": {
+   "center_xz": [
+    9.598,
+    1.931
+   ]
+  }
+ },
+ "zsNo4HB9uLZ-p15": {
+  "annotated_center_xz": [
+   5.893670082092285,
+   2.3310203552246094
+  ],
+  "vlmaps": {
+   "center_xz": [
+    9.598,
+    1.931
+   ]
+  },
+  "vlmaps_nofilter": {
+   "center_xz": [
+    9.598,
+    1.931
+   ]
+  }
+ },
+ "zsNo4HB9uLZ-p16": {
+  "annotated_center_xz": [
+   -1.1337599754333496,
+   -2.257469892501831
+  ],
+  "vlmaps": {
+   "center_xz": [
+    0.786,
+    -2.723
+   ]
+  },
+  "vlmaps_nofilter": {
+   "center_xz": [
+    0.786,
+    -2.723
+   ]
+  }
+ },
+ "zsNo4HB9uLZ-p17": {
+  "annotated_center_xz": [
+   -1.1337599754333496,
+   -2.257469892501831
+  ],
+  "vlmaps": {
+   "center_xz": [
+    0.786,
+    -2.723
+   ]
+  },
+  "vlmaps_nofilter": {
+   "center_xz": [
+    0.786,
+    -2.723
+   ]
+  }
+ },
+ "zsNo4HB9uLZ-p18": {
+  "annotated_center_xz": [
+   -1.1337599754333496,
+   -2.257469892501831
+  ],
+  "vlmaps": {
+   "center_xz": [
+    0.786,
+    -2.723
+   ]
+  },
+  "vlmaps_nofilter": {
+   "center_xz": [
+    0.786,
+    -2.723
+   ]
+  }
+ },
+ "zsNo4HB9uLZ-p19": {
+  "annotated_center_xz": [
+   -1.1337599754333496,
+   -2.257469892501831
+  ],
+  "vlmaps": {
+   "center_xz": [
+    0.786,
+    -2.723
+   ]
+  },
+  "vlmaps_nofilter": {
+   "center_xz": [
+    0.786,
+    -2.723
+   ]
+  }
+ },
+ "zsNo4HB9uLZ-p20": {
+  "annotated_center_xz": [
+   15.43130111694336,
+   -2.6567201614379883
+  ],
+  "vlmaps": {
+   "center_xz": [
+    15.758,
+    -1.052
+   ]
+  },
+  "vlmaps_nofilter": {
+   "center_xz": [
+    15.758,
+    -1.052
+   ]
+  }
+ },
+ "zsNo4HB9uLZ-p21": {
+  "annotated_center_xz": [
+   15.43130111694336,
+   -2.6567201614379883
+  ],
+  "vlmaps": {
+   "center_xz": [
+    15.758,
+    -1.052
+   ]
+  },
+  "vlmaps_nofilter": {
+   "center_xz": [
+    15.758,
+    -1.052
+   ]
+  }
+ },
+ "zsNo4HB9uLZ-p22": {
+  "annotated_center_xz": [
+   15.43130111694336,
+   -2.6567201614379883
+  ],
+  "vlmaps": {
+   "center_xz": [
+    15.758,
+    -1.052
+   ]
+  },
+  "vlmaps_nofilter": {
+   "center_xz": [
+    15.758,
+    -1.052
+   ]
+  }
+ },
+ "zsNo4HB9uLZ-p23": {
+  "annotated_center_xz": [
+   15.43130111694336,
+   -2.6567201614379883
+  ],
+  "vlmaps": {
+   "center_xz": [
+    15.758,
+    -1.052
+   ]
+  },
+  "vlmaps_nofilter": {
+   "center_xz": [
+    15.758,
+    -1.052
+   ]
+  }
+ },
+ "zsNo4HB9uLZ-p24": {
+  "annotated_center_xz": [
+   18.542800903320312,
+   -7.642779350280762
+  ],
+  "vlmaps": {
+   "reason": "not_found"
+  },
+  "vlmaps_nofilter": {
+   "reason": "not_found"
+  }
+ }
+}

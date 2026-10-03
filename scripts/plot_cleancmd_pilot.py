@@ -26,6 +26,8 @@ METHODS = [  # file suffix, label, colour, marker, marker size (filter-on drawn 
     ("vlmaps", "VLMaps, front filter", "tab:red", "o", 14),
     ("vlmaps_nofilter", "VLMaps, no front filter", "tab:orange", "s", 7),
     ("ours_v0", "ours v0 (region; anchor footprint dashed)", "tab:purple", "D", 8),
+    ("vlmaps_oracleobj", "VLMaps, correct object", "tab:brown", "P", 12),
+    ("ours_v0_oracleobj", "ours v0, correct object (annotated box dotted)", "tab:cyan", "D", 8),
 ]
 
 
@@ -64,7 +66,7 @@ def main():
     n = len(a.ids)
     cols = 2 if n > 1 else 1
     rows = int(np.ceil(n / float(cols)))
-    fig, axes = plt.subplots(rows, cols, figsize=(8 * cols, 5.2 * rows), squeeze=False)
+    fig, axes = plt.subplots(rows, cols, figsize=(11.5 * cols, 5.2 * rows), squeeze=False)
     for ax, cid in zip(axes.flat, a.ids):
         g, p = gt[cid], probes[cid]
         ax.imshow(np.where(nav, 0.95, 0.6), extent=extent, cmap="gray", vmin=0, vmax=1, interpolation="nearest")
@@ -109,7 +111,7 @@ def main():
             fp = pr.get("meta", {}).get("footprint_xz")
             if fp:
                 fp = np.array(fp + fp[:1])
-                ax.plot(fp[:, 0], fp[:, 1], "--", color=colour, lw=1.2)
+                ax.plot(fp[:, 0], fp[:, 1], ":" if "oracle_object" in pr["meta"] else "--", color=colour, lw=1.2)
 
         pts = [g["anchor"]["center"]] if g.get("anchor") else []
         pts += [[sx, sz]] + [grid.center(int(r), int(c)) for r, c in g["masks"][0]] + [list(x) for x in answers]
@@ -121,7 +123,7 @@ def main():
         ax.set_title("%s: %r" % (cid, p["command"]), fontsize=11)
         ax.set_xlabel("world x (m)")
         ax.set_ylabel("world z (m)")
-        ax.legend(fontsize=7.5, loc="best", framealpha=0.85)
+        ax.legend(fontsize=7.5, loc="upper left", bbox_to_anchor=(1.01, 1.0), framealpha=0.9)
     for ax in list(axes.flat)[n:]:
         ax.axis("off")
     fig.suptitle("CleanCmd PILOT, %s: geometric proxy targets (not human annotation); left/right relative to the "
