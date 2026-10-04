@@ -1,0 +1,59 @@
+TEEsavR23oF_1 vlmaps_front: 2.6% of 78
+TEEsavR23oF_1 vlmaps_nearest: 5.1% of 78
+TEEsavR23oF_1 room_first: 1.3% of 78
+TEEsavR23oF_2 vlmaps_front: 10.0% of 30
+TEEsavR23oF_2 vlmaps_nearest: 26.7% of 30
+TEEsavR23oF_2 room_first: 23.3% of 30
+wcojb4TFT35_1 vlmaps_front: 7.8% of 90
+wcojb4TFT35_1 vlmaps_nearest: 14.4% of 90
+wcojb4TFT35_1 room_first: 3.3% of 90
+wcojb4TFT35_2 vlmaps_front: 12.5% of 72
+wcojb4TFT35_2 vlmaps_nearest: 22.2% of 72
+wcojb4TFT35_2 room_first: 8.3% of 72
+wcojb4TFT35_3 vlmaps_front: 4.2% of 120
+wcojb4TFT35_3 vlmaps_nearest: 6.7% of 120
+wcojb4TFT35_3 room_first: 3.3% of 120
+y9hTuugGdiq_1 vlmaps_front: 1.0% of 102
+y9hTuugGdiq_1 vlmaps_nearest: 2.9% of 102
+y9hTuugGdiq_1 room_first: 2.9% of 102
+y9hTuugGdiq_2 vlmaps_front: 7.8% of 90
+y9hTuugGdiq_2 vlmaps_nearest: 14.4% of 90
+y9hTuugGdiq_2 room_first: 4.4% of 90
+| method | form | n | accuracy | ask rate | missed det. | wrong choice | asked (target detected) |
+|---|---|---|---|---|---|---|---|
+| vlmaps_front | bare | 291 | 6.9% | 71.5% | 189 | 48 | 34 |
+| vlmaps_front | goat_lang | 291 | 4.8% | 72.2% | 189 | 46 | 42 |
+| vlmaps_front | all | 582 | 5.8% | 71.8% | 378 | 94 | 76 |
+| vlmaps_nearest | bare | 291 | 11.3% | 50.5% | 189 | 69 | 0 |
+| vlmaps_nearest | goat_lang | 291 | 11.0% | 50.5% | 189 | 70 | 0 |
+| vlmaps_nearest | all | 582 | 11.2% | 50.5% | 378 | 139 | 0 |
+| room_first | bare | 291 | 4.5% | 72.2% | 189 | 47 | 42 |
+| room_first | goat_lang | 291 | 5.2% | 71.8% | 189 | 48 | 39 |
+| room_first | all | 582 | 4.8% | 72.0% | 378 | 95 | 81 |
+
+| method | scene | n | accuracy | ask rate | missed det. | wrong choice | asked (target detected) |
+|---|---|---|---|---|---|---|---|
+| vlmaps_front | TEEsavR23oF_1 | 78 | 2.6% | 80.8% | 48 | 13 | 15 |
+| vlmaps_front | TEEsavR23oF_2 | 30 | 10.0% | 66.7% | 18 | 3 | 6 |
+| vlmaps_front | wcojb4TFT35_1 | 90 | 7.8% | 71.1% | 60 | 10 | 13 |
+| vlmaps_front | wcojb4TFT35_2 | 72 | 12.5% | 48.6% | 42 | 10 | 11 |
+| vlmaps_front | wcojb4TFT35_3 | 120 | 4.2% | 76.7% | 84 | 23 | 8 |
+| vlmaps_front | y9hTuugGdiq_1 | 102 | 1.0% | 80.4% | 72 | 17 | 12 |
+| vlmaps_front | y9hTuugGdiq_2 | 90 | 7.8% | 68.9% | 54 | 18 | 11 |
+| vlmaps_front | all | 582 | 5.8% | 71.8% | 378 | 94 | 76 |
+| vlmaps_nearest | TEEsavR23oF_1 | 78 | 5.1% | 61.5% | 48 | 26 | 0 |
+| vlmaps_nearest | TEEsavR23oF_2 | 30 | 26.7% | 0.0% | 18 | 4 | 0 |
+| vlmaps_nearest | wcojb4TFT35_1 | 90 | 14.4% | 40.0% | 60 | 17 | 0 |
+| vlmaps_nearest | wcojb4TFT35_2 | 72 | 22.2% | 25.0% | 42 | 14 | 0 |
+| vlmaps_nearest | wcojb4TFT35_3 | 120 | 6.7% | 70.0% | 84 | 28 | 0 |
+| vlmaps_nearest | y9hTuugGdiq_1 | 102 | 2.9% | 58.8% | 72 | 27 | 0 |
+| vlmaps_nearest | y9hTuugGdiq_2 | 90 | 14.4% | 53.3% | 54 | 23 | 0 |
+| vlmaps_nearest | all | 582 | 11.2% | 50.5% | 378 | 139 | 0 |
+| room_first | TEEsavR23oF_1 | 78 | 1.3% | 84.6% | 48 | 11 | 18 |
+| room_first | TEEsavR23oF_2 | 30 | 23.3% | 46.7% | 18 | 4 | 1 |
+| room_first | wcojb4TFT35_1 | 90 | 3.3% | 75.6% | 60 | 10 | 17 |
+| room_first | wcojb4TFT35_2 | 72 | 8.3% | 47.2% | 42 | 12 | 12 |
+| room_first | wcojb4TFT35_3 | 120 | 3.3% | 78.3% | 84 | 22 | 10 |
+| room_first | y9hTuugGdiq_1 | 102 | 2.9% | 70.6% | 72 | 23 | 4 |
+| room_first | y9hTuugGdiq_2 | 90 | 4.4% | 78.9% | 54 | 13 | 19 |
+| room_first | all | 582 | 4.8% | 72.0% | 378 | 95 | 81 |

@@ -1,0 +1,12 @@
+| memory | day | accuracy (mean over seeds) | questions / day / scene | corrections / day / scene |
+|---|---|---|---|---|
+| without | 1 | 9.9% | 5.83 | 2.81 |
+| without | 2 | 10.7% | 5.67 | 2.89 |
+| without | 3 | 10.1% | 5.17 | 3.44 |
+| without | 4 | 9.6% | 5.72 | 2.94 |
+| without | 5 | 8.4% | 5.67 | 3.11 |
+| with | 1 | 9.9% | 5.83 | 2.81 |
+| with | 2 | 70.7% | 1.81 | 1.00 |
+| with | 3 | 89.3% | 0.56 | 0.47 |
+| with | 4 | 95.7% | 0.28 | 0.14 |
+| with | 5 | 98.8% | 0.03 | 0.08 |

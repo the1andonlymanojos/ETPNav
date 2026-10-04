@@ -1,0 +1,62 @@
+# Object-picking benchmark (1pXnuDYAj8r,5LpN3gDmAk7,gTV8FGcVJC9,jh4fc5c5qoQ,JmbYfDe2QKZ_1,JmbYfDe2QKZ_2,mJXqzFtmKg4,ur6pFq6Qu1A,UwV83HsGsw3,Vt2qJdWjCF2,YmJkqBEsHnH,zsNo4HB9uLZ)
+
+Correct = chosen detection centre within 1.0 m of the annotated instance centre. LLM: qwen3.5:latest, options {'temperature': 0, 'seed': 0, 'num_predict': 8, 'num_ctx': 2048}.
+
+## Per command form
+| method | form | n | accuracy | ask rate | missed det. | wrong choice | asked (target detected) |
+|---|---|---|---|---|---|---|---|
+| vlmaps_front | bare | 3018 | 3.9% | 35.7% | 1461 | 1057 | 383 |
+| vlmaps_front | landmark | 585 | 4.3% | 43.6% | 324 | 160 | 76 |
+| vlmaps_front | room | 264 | 3.4% | 37.9% | 135 | 81 | 39 |
+| vlmaps_front | all | 3867 | 3.9% | 37.0% | 1920 | 1298 | 498 |
+| vlmaps_nearest | bare | 3018 | 6.0% | 10.6% | 1461 | 1377 | 0 |
+| vlmaps_nearest | landmark | 585 | 8.5% | 14.9% | 324 | 211 | 0 |
+| vlmaps_nearest | room | 264 | 9.1% | 10.2% | 135 | 105 | 0 |
+| vlmaps_nearest | all | 3867 | 6.6% | 11.2% | 1920 | 1693 | 0 |
+| room_first | bare | 3018 | 2.4% | 53.7% | 1461 | 791 | 694 |
+| room_first | landmark | 585 | 2.2% | 64.8% | 324 | 105 | 143 |
+| room_first | room | 264 | 37.5% | 43.2% | 135 | 30 | 0 |
+| room_first | all | 3867 | 4.8% | 54.7% | 1920 | 926 | 837 |
+
+## Per scene
+| method | scene | n | accuracy | ask rate | missed det. | wrong choice | asked (target detected) |
+|---|---|---|---|---|---|---|---|
+| vlmaps_front | 1pXnuDYAj8r | 471 | 4.0% | 24.2% | 192 | 222 | 38 |
+| vlmaps_front | 5LpN3gDmAk7 | 285 | 4.9% | 33.7% | 96 | 124 | 51 |
+| vlmaps_front | JmbYfDe2QKZ_1 | 120 | 9.2% | 50.8% | 45 | 41 | 23 |
+| vlmaps_front | JmbYfDe2QKZ_2 | 255 | 5.5% | 25.5% | 87 | 119 | 35 |
+| vlmaps_front | UwV83HsGsw3 | 348 | 3.2% | 46.3% | 240 | 57 | 40 |
+| vlmaps_front | Vt2qJdWjCF2 | 294 | 4.4% | 54.8% | 195 | 35 | 51 |
+| vlmaps_front | YmJkqBEsHnH | 111 | 7.2% | 9.0% | 51 | 46 | 6 |
+| vlmaps_front | gTV8FGcVJC9 | 357 | 3.1% | 38.7% | 198 | 102 | 46 |
+| vlmaps_front | jh4fc5c5qoQ | 240 | 6.2% | 52.1% | 123 | 45 | 57 |
+| vlmaps_front | mJXqzFtmKg4 | 576 | 1.7% | 33.3% | 279 | 239 | 48 |
+| vlmaps_front | ur6pFq6Qu1A | 438 | 0.7% | 42.0% | 303 | 90 | 42 |
+| vlmaps_front | zsNo4HB9uLZ | 372 | 5.9% | 33.6% | 111 | 178 | 61 |
+| vlmaps_front | all | 3867 | 3.9% | 37.0% | 1920 | 1298 | 498 |
+| vlmaps_nearest | 1pXnuDYAj8r | 471 | 6.2% | 9.6% | 192 | 250 | 0 |
+| vlmaps_nearest | 5LpN3gDmAk7 | 285 | 8.1% | 6.3% | 96 | 166 | 0 |
+| vlmaps_nearest | JmbYfDe2QKZ_1 | 120 | 15.8% | 27.5% | 45 | 56 | 0 |
+| vlmaps_nearest | JmbYfDe2QKZ_2 | 255 | 10.6% | 0.0% | 87 | 141 | 0 |
+| vlmaps_nearest | UwV83HsGsw3 | 348 | 4.6% | 15.5% | 240 | 92 | 0 |
+| vlmaps_nearest | Vt2qJdWjCF2 | 294 | 7.1% | 4.1% | 195 | 78 | 0 |
+| vlmaps_nearest | YmJkqBEsHnH | 111 | 4.5% | 0.0% | 51 | 55 | 0 |
+| vlmaps_nearest | gTV8FGcVJC9 | 357 | 5.6% | 19.3% | 198 | 139 | 0 |
+| vlmaps_nearest | jh4fc5c5qoQ | 240 | 14.2% | 11.2% | 123 | 83 | 0 |
+| vlmaps_nearest | mJXqzFtmKg4 | 576 | 3.8% | 17.2% | 279 | 275 | 0 |
+| vlmaps_nearest | ur6pFq6Qu1A | 438 | 1.8% | 6.8% | 303 | 127 | 0 |
+| vlmaps_nearest | zsNo4HB9uLZ | 372 | 8.1% | 12.9% | 111 | 231 | 0 |
+| vlmaps_nearest | all | 3867 | 6.6% | 11.2% | 1920 | 1693 | 0 |
+| room_first | 1pXnuDYAj8r | 471 | 3.6% | 38.9% | 192 | 182 | 80 |
+| room_first | 5LpN3gDmAk7 | 285 | 9.5% | 54.4% | 96 | 70 | 92 |
+| room_first | JmbYfDe2QKZ_1 | 120 | 8.3% | 53.3% | 45 | 41 | 24 |
+| room_first | JmbYfDe2QKZ_2 | 255 | 7.5% | 37.6% | 87 | 98 | 51 |
+| room_first | UwV83HsGsw3 | 348 | 4.9% | 62.1% | 240 | 47 | 44 |
+| room_first | Vt2qJdWjCF2 | 294 | 2.0% | 76.2% | 195 | 16 | 77 |
+| room_first | YmJkqBEsHnH | 111 | 5.4% | 8.1% | 51 | 48 | 6 |
+| room_first | gTV8FGcVJC9 | 357 | 3.4% | 45.4% | 198 | 93 | 54 |
+| room_first | jh4fc5c5qoQ | 240 | 4.2% | 67.9% | 123 | 30 | 77 |
+| room_first | mJXqzFtmKg4 | 576 | 5.4% | 55.6% | 279 | 148 | 118 |
+| room_first | ur6pFq6Qu1A | 438 | 0.5% | 66.9% | 303 | 54 | 79 |
+| room_first | zsNo4HB9uLZ | 372 | 7.3% | 61.8% | 111 | 99 | 135 |
+| room_first | all | 3867 | 4.8% | 54.7% | 1920 | 926 | 837 |
