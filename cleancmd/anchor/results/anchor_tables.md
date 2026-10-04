@@ -17,6 +17,10 @@ Correct = chosen detection centre within 1.0 m of the annotated instance centre.
 | room_first | landmark | 585 | 2.2% | 64.8% | 324 | 105 | 143 |
 | room_first | room | 264 | 37.5% | 43.2% | 135 | 30 | 0 |
 | room_first | all | 3867 | 4.8% | 54.7% | 1920 | 926 | 837 |
+| c_gated | bare | 3018 | 6.0% | 10.6% | 1461 | 1377 | 0 |
+| c_gated | landmark | 585 | 8.5% | 14.9% | 324 | 211 | 0 |
+| c_gated | room | 264 | 37.5% | 43.2% | 135 | 30 | 0 |
+| c_gated | all | 3867 | 8.5% | 13.5% | 1920 | 1618 | 0 |
 
 ## Per scene
 | method | scene | n | accuracy | ask rate | missed det. | wrong choice | asked (target detected) |
@@ -60,3 +64,16 @@ Correct = chosen detection centre within 1.0 m of the annotated instance centre.
 | room_first | ur6pFq6Qu1A | 438 | 0.5% | 66.9% | 303 | 54 | 79 |
 | room_first | zsNo4HB9uLZ | 372 | 7.3% | 61.8% | 111 | 99 | 135 |
 | room_first | all | 3867 | 4.8% | 54.7% | 1920 | 926 | 837 |
+| c_gated | 1pXnuDYAj8r | 471 | 7.0% | 9.6% | 192 | 246 | 0 |
+| c_gated | 5LpN3gDmAk7 | 285 | 14.4% | 9.5% | 96 | 148 | 0 |
+| c_gated | JmbYfDe2QKZ_1 | 120 | 16.7% | 27.5% | 45 | 55 | 0 |
+| c_gated | JmbYfDe2QKZ_2 | 255 | 12.5% | 4.7% | 87 | 136 | 0 |
+| c_gated | UwV83HsGsw3 | 348 | 6.9% | 19.0% | 240 | 84 | 0 |
+| c_gated | Vt2qJdWjCF2 | 294 | 7.1% | 7.1% | 195 | 78 | 0 |
+| c_gated | YmJkqBEsHnH | 111 | 4.5% | 2.7% | 51 | 55 | 0 |
+| c_gated | gTV8FGcVJC9 | 357 | 6.7% | 20.2% | 198 | 135 | 0 |
+| c_gated | jh4fc5c5qoQ | 240 | 15.8% | 11.2% | 123 | 79 | 0 |
+| c_gated | mJXqzFtmKg4 | 576 | 6.9% | 21.9% | 279 | 257 | 0 |
+| c_gated | ur6pFq6Qu1A | 438 | 1.8% | 8.2% | 303 | 127 | 0 |
+| c_gated | zsNo4HB9uLZ | 372 | 11.6% | 14.5% | 111 | 218 | 0 |
+| c_gated | all | 3867 | 8.5% | 13.5% | 1920 | 1618 | 0 |

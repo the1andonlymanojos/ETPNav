@@ -11,6 +11,7 @@ move_to_object uses) or answers "ask":
   B vlmaps_nearest the same nearest rule over every detection, no front filter.
   C room_first     room = the one named in the command, else the robot's current room; keep detections whose centre
                    lies in that room (MP3D region polygons); nearest of those; none -> ask.
+  G c_gated        C when the command names a room, otherwise B.
   D llm            an LLM gets the command and a numbered candidate list (category, room, distance, direction,
                    what is near it) and answers a number or "ask". Prompt fixed below, temperature 0, seed 0.
 
@@ -38,7 +39,7 @@ HERE = Path(__file__).resolve().parent
 RESULTS = HERE / "results"
 CORRECT_M = 1.0
 NEAR_M = 1.5           # what counts as "near" a candidate in D's description
-METHODS = {"A": "vlmaps_front", "B": "vlmaps_nearest", "C": "room_first", "D": "llm"}
+METHODS = {"A": "vlmaps_front", "B": "vlmaps_nearest", "C": "room_first", "G": "c_gated", "D": "llm"}
 
 # ---- method D: fixed before any run ----
 LLM_MODEL = os.environ.get("ANCHOR_LLM", "qwen3.5:latest")
@@ -52,9 +53,12 @@ Objects in your map that could be what the user means (number. object, room, dis
 Which object does the user mean? Reply with only its number. If the command does not let you tell which one, reply with only the word ask."""
 
 
-def load_scene(scene):
+def load_scene(scene, detector="vlmaps"):
+    """detector: "vlmaps" (VLMaps' argmax islands, <scene>_detections.json) or "ov" (open-vocabulary,
+    ov/<scene>_ov_detections.json from ov_detect.py)."""
     rows = [json.loads(l) for l in open(HERE / f"{scene}_anchor_cmds.jsonl")]
-    det = json.load(open(HERE / f"{scene}_detections.json"))
+    det = json.load(open(HERE / f"{scene}_detections.json" if detector == "vlmaps"
+                         else HERE / "ov" / f"{scene}_ov_detections.json"))
     house = scene.split("_")[0]   # scene may be a dataset tag such as JmbYfDe2QKZ_2
     _, regions, _ = parse_house(SCENE_DIR / house / f"{house}.house")
     level = rows[0]["level"]
@@ -202,6 +206,8 @@ def pick(S, row, method, llm=None):
             return None, {"reason": "no_room"}
         inroom = [d for d in cands if d["region"] == rid]
         return nearest(inroom, pose), {"room_region": rid, "n_in_room": len(inroom)}
+    if method == "G":
+        return pick(S, row, "C" if row["room_named"] else "B", llm)
     if method == "D":
         return run_llm(S, row, llm)
     raise ValueError(method)
@@ -246,12 +252,13 @@ def main():
     ap.add_argument("--scenes", required=True, help="comma list, e.g. zsNo4HB9uLZ")
     ap.add_argument("--methods", default="A,B,C,D")
     ap.add_argument("--tag", default="")
+    ap.add_argument("--detector", default="vlmaps", choices=["vlmaps", "ov"])
     args = ap.parse_args()
     llm = LLM() if "D" in args.methods else None
     os.makedirs(RESULTS, exist_ok=True)
     allp = []
     for scene in args.scenes.split(","):
-        S = load_scene(scene)
+        S = load_scene(scene, args.detector)
         for mk in args.methods.split(","):
             preds = []
             for row in S["rows"]:
@@ -261,7 +268,8 @@ def main():
                               "method": METHODS[mk], "pick": d["det_id"] if d else None,
                               "pick_xz": d["center_xz"] if d else None, "gt_instance": row["gt"]["instance_id"],
                               "gt_xz": row["gt"]["center_xz"], "outcome": outcome(S, row, d), "meta": meta})
-            with open(RESULTS / f"{scene}_pred_{METHODS[mk]}.jsonl", "w") as f:
+            suffix = "" if args.detector == "vlmaps" else "_ov"
+            with open(RESULTS / f"{scene}_pred_{METHODS[mk]}{suffix}.jsonl", "w") as f:
                 for p in preds:
                     f.write(json.dumps(p) + "\n")
             allp += preds

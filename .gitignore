@@ -17,3 +17,5 @@ __pycache__/
 /interact
 /pretrain_src/datasets
 /pretrain_src/img_features
+# open-vocabulary score maps (regenerable, 44 MB)
+cleancmd/anchor/ov/*.npz

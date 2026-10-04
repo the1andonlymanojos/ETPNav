@@ -87,3 +87,50 @@ the <room>" / "the one near the <thing>" from the annotations, or leads the robo
 Caveat: of the 1,110 memory hits after day 1, 941 replay a spot the user led the robot to (the hint-filtered retry
 failed, usually because VLMaps never detected the instance); only 169 recall a detection the robot found from the
 hint. So the gain is mostly "shown once, remembered", which a fixed-convention household makes easy.
+
+## Step 2: open-vocabulary detector (`ov_detect.py`)
+
+Score every map cell against the command's object phrase with VLMaps' CLIP text encoder (cosine to each voxel,
+max over the column; `vlmaps_cc/application/extract_openvocab_scores.py`), threshold, close gaps, 8-connected
+components, keep components >= min cells. Parameters chosen once on zsNo4HB9uLZ by instance-level F1 over three
+score families (`ov/sweep_zsNo4HB9uLZ.json`): **raw cosine >= 0.89, >= 50 cells (0.125 m^2)**; F1 0.585 vs 0.534
+for VLMaps' argmax islands there. Frozen before any other scene was scored. Score maps (`ov/*_ovscores.npz`, 44 MB)
+are not committed; regenerate them with the extractor.
+
+| | old (argmax islands) | open-vocab |
+|---|---|---|
+| rows with no candidate within 1 m (of 3,867) | 1,920 | 2,103 |
+| of the old 1,920: now detected | - | 135 |
+| detected before, missed now | - | 318 |
+| candidates / command | 15.99 | 10.19 |
+| false candidates / command (> 1 m from every instance of the category) | 8.75 | 4.78 |
+
+| method | old: all | ov: all | old: room form | ov: room form |
+|---|---|---|---|---|
+| A vlmaps_front | 3.9% | 4.3% | 3.4% | 4.5% |
+| B vlmaps_nearest | 6.6% | 6.6% | 9.1% | 9.8% |
+| C room_first | 4.8% | 4.7% | 37.5% | 39.0% |
+| G c_gated (C if a room is named, else B) | **8.5%** | **8.6%** | 37.5% | 39.0% |
+
+The 447 instances missed by both detectors: 184 never mapped (no voxels in their footprint), 159 mapped but below
+the threshold, 104 covered by the mask but inside a cluster whose centre is > 1 m away.
+
+## Step 3: memory with noisy users (`memory_users.py`, `plot_memory_users.py`)
+
+Method G on the open-vocabulary detector; users: consistent, 30% inconsistent (a correction points to another
+instance of the category), random (every correction points to a random instance of the category). Scoring is
+always against the intended instance. Full table: `results/memory_users_table.md`.
+
+| user | memory | day 1 | day 5 | day 5, target detected only | questions day 1 -> 5 |
+|---|---|---|---|---|---|
+| any | without | 13.6% | 14.8% | 36.4% | 2.00 -> 1.78 |
+| consistent | with | 13.6% | 98.0% | 95.7% | 2.00 -> 0.00 |
+| 30% inconsistent | with | 13.6% | 91.6% | 92.7% | 2.00 -> 0.00 |
+| random | with | 13.6% | 55.1% | 68.4% | 2.00 -> 0.00 |
+
+Memory hits (days 2-5, summed over seeds), consistent user: 346 on detected targets and 718 on never-detected
+targets, all correct: a never-detected object is reached by replaying where the user led the robot. With the
+random user the same hits are 31-61% correct (rising over days 2-5). Day 1 accuracy on detected targets is 34%: picking among detected
+candidates, not perception alone, limits the memory-free robot.
+
+![memory controls](results/memory_users_curve.png)
